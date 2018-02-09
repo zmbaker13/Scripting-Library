@@ -1,0 +1,12 @@
+	//Equipment
+	updateENT();
+	function updateENT(){
+		var ent = 'c344731adb784700f5d770d9af961973';
+		var query = 'u_device_status!=3^u_account.u_rsqm_pm_generation=true^u_customer_entitlementISEMPTY^u_account.u_cost_centerISNOTEMPTY^u_account.account_parent!=a15ffe9fdbf63a003c9a7aa9bf961958^u_account.account_parent!=8be1bf4bdb323a003c9a7aa9bf96194c^u_account.state!=MI^u_rsq_equipidISNOTEMPTY^u_account=25ca9ec7dbb6f6003c9a7aa9bf961935';
+
+		var grEQENT = new GlideRecord('u_cmdb_ci_equipment');
+		grEQENT.addQuery(query);
+		grEQENT.queryNoDomain();
+		grEQENT.setValue('u_customer_entitlement',ent)
+		grEQENT.updateMultiple();
+	}

@@ -1,0 +1,40 @@
+var grLegacy = new GlideRecord('u_legacy_workorders');
+grLegacy.addEncodedQuery('u_customer.name=NULL');
+grLegacy.setWorkflow(false);
+grLegacy.queryNoDomain();
+while (grLegacy.next()) {
+		grLegacy.u_customer=grLegacy.u_equipid.u_account;
+		grLegacy.update();
+	}  
+	
+
+	2986566
+
+//Departments
+	updateDomain();
+	function updateDomain(){
+		var group = '4671d3cbdb203200f5d770d9af9619e4';
+		var query = 'sys_domain=global';
+
+		var grDeptGroup = new GlideRecord('u_legacy_workorders');
+		grDeptGroup.addQuery(query);
+		grDeptGroup.queryNoDomain();
+		grDeptGroup.setValue('sys_domain',group)
+		grDeptGroup.updateMultiple();
+	}
+3413119
+
+
+	updateCustomer();
+	function updateCustomer(){
+		//var group = '4671d3cbdb203200f5d770d9af9619e4';
+		var query = 'sys_id=3778f26bdbd48b002aac77e9af9619f7';
+
+		var grDeptGroup = new GlideRecord('u_legacy_workorders');
+		grDeptGroup.addQuery(query);
+		grDeptGroup.queryNoDomain();
+		grDeptGroup.setValue('u_customer',u_equipid.u_account)
+		grDeptGroup.updateMultiple();
+	}
+
+	3423269

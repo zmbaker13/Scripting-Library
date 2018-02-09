@@ -1,0 +1,24 @@
+var grDeviceLabel = GlideRecord('cmdb_hardware_product_model');
+grDeviceLabel.addEncodedQuery('u_device_label=NULL');
+grDeviceLabel.setLimit(1);
+grDeviceLabel.query();
+
+while(grDeviceLabel.next()){
+
+	 grDeviceLabel.u_device_label = grDeviceLabel.manufacturer.getDisplayValue();
+	grDeviceLabel.u_device_label += " " + grDeviceLabel.name;
+	grDeviceLabel.u_device_label += " " + grDeviceLabel.u_description_id.getDisplayValue();
+	grDeviceLabel.update();
+
+}
+
+
+
+(function refineQuery(current, parent) {
+	current.addQuery("u_customer", parent.sys_id);
+    current.addEncodedQuery('u_department.u_status=Onboarding');
+
+})(current, parent);
+
+
+0700728fdb0cd740844cf1fcbf9619b6

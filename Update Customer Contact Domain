@@ -1,0 +1,23 @@
+var grContact = new GlideRecord('customer_contact');
+grContact.addEncodedQuery('sys_domainSTARTSWITHtrimedx^sys_domain=4671d3cbdb203200f5d770d9af9619e4^account.name!=NULL');
+grContact.setLimit(5000);
+grContact.setWorkflow(false);
+grContact.queryNoDomain();
+while (grContact.next()) {
+		grContact.sys_domain=grContact.company.sys_domain;
+		grContact.update();
+	}  
+	
+
+
+
+
+var grContact = new GlideRecord('cmn_department');
+grContact.addEncodedQuery('u_active=true^nameLIKEdo not');
+grContact.setLimit(5000);
+grContact.setWorkflow(false);
+grContact.queryNoDomain();
+while (grContact.next()) {
+		grContact.u_active=false;
+		grContact.update();
+	}  

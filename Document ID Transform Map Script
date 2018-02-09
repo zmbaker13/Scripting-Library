@@ -1,0 +1,12 @@
+answer = (function transformEntry(source) {
+
+
+		var model = new GlideRecord('cmdb_hardware_product_model');
+	model.addQuery('u_model_id', source.u_model_id);
+	model.query();
+	if(model.next()) {
+		return model.sys_id.toString();
+	}
+
+
+})(source);

@@ -1,0 +1,4 @@
+ctrl + shift + h - format
+g_form.setValue('u_safety_check_needed', false);
+
+g_form.setValue('acknowledged_on', '2018-02-05 13:02:39');

@@ -1,0 +1,66 @@
+
+	//Equipment
+	updateGroups();
+	function updateGroups(){
+		var group = '21a7a71edb84db402aac77e9af96197a';
+		var query = 'u_account.account_parent=4433fb8bdb323a003c9a7aa9bf96195a^u_on_call_rota.name=NULL';
+
+		var grEQGroup = new GlideRecord('u_cmdb_ci_equipment');
+		grEQGroup.addQuery(query);
+		grEQGroup.queryNoDomain();
+		grEQGroup.setValue('u_on_call_rota',group)
+		grEQGroup.setValue('assignment_group',group)
+		grEQGroup.updateMultiple();
+	}
+
+
+
+		//Equipment
+	updateGroups();
+	function updateGroups(){
+		var group = '62072756db84db402aac77e9af961997';
+		var query = 'u_account.u_cost_centerSTARTSWITH8301';
+
+		var grEQGroup = new GlideRecord('u_cmdb_ci_equipment');
+		grEQGroup.addQuery(query);
+		grEQGroup.queryNoDomain();
+		grEQGroup.setValue('u_on_call_rota',group)
+		grEQGroup.setValue('assignment_group',group)
+		grEQGroup.updateMultiple();
+	}
+
+
+
+
+//Departments
+	updateDeptGroups();
+	function updateDeptGroups(){
+		var group = '21a7a71edb84db402aac77e9af96197a';
+		var query = 'u_active=true^company.account_parent=4433fb8bdb323a003c9a7aa9bf96195a^u_on_call_rota.name=NULL';
+
+		var grDeptGroup = new GlideRecord('cmn_department');
+		grDeptGroup.addQuery(query);
+		grDeptGroup.queryNoDomain();
+		grDeptGroup.setValue('u_default_assignment_group',group)
+		grDeptGroup.setValue('u_on_call_rota',group)
+		grDeptGroup.updateMultiple();
+	}
+
+
+//Departments
+	updateDeptGroups();
+	function updateDeptGroups(){
+		var group = '62072756db84db402aac77e9af961997';
+		var query = 'company.u_cost_centerSTARTSWITH8301^u_default_assignment_groupISEMPTY';
+
+		var grDeptGroup = new GlideRecord('cmn_department');
+		grDeptGroup.addQuery(query);
+		grDeptGroup.queryNoDomain();
+		grDeptGroup.setValue('u_default_assignment_group',group)
+		grDeptGroup.setValue('u_on_call_rota',group)
+		grDeptGroup.updateMultiple();
+	}
+
+
+8183
+8184
