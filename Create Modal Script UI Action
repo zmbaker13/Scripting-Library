@@ -1,0 +1,7 @@
+function openModalAlias() {
+	var value = g_form.getUniqueValue();
+	var modalAlias = new GlideModalForm("Add New Alias","u_alias_table");
+	modalAlias.addParm('u_source_table',g_form.getTableName());
+	modalAlias.addParm('u_source_record',value);
+	modalAlias.render();
+}
