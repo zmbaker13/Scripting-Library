@@ -1,0 +1,2 @@
+var grUser = new GlideRecord(sys_user_grmember);
+grUser.addEncodedQuery('group.typeLIKEf42a77f70a0a3c9801a4696828a0fd7c');

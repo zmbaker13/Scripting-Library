@@ -1,0 +1,6 @@
+
+var display = current.u_document_id.getDisplayValue().split(': ');
+display.shift();
+display = display.join(': ');
+current.u_display_value = display;	
+current.update();

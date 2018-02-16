@@ -1,0 +1,13 @@
+
+
+var grModDisplay = new GlideRecord(current.u_source_table.toString());
+if (grModDisplay.get(current.u_document_id.toString())) {
+    switch (current.u_source_table.toString()) {
+        case 'u_model_description':
+            current.u_display_value = grModDisplay.u_description.toString();
+            break;
+        default:
+            current.u_display_value = grModDisplay.name.toString()
+            break;
+    }
+} 
