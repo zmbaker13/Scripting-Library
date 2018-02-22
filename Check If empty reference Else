@@ -1,0 +1,27 @@
+
+	var mfg='';
+	if(current.u_matched_manufacturer== ''){
+		mfg = current.u_imported_manufacturer; 
+	}else {
+		mfg=  current.u_matched_manufacturer.getDisplayValue();
+	} 
+	
+	var mod='';
+	if(current.u_matched_model== ''){
+		mod = current.u_imported_model; 
+	}else {
+		mod=  current.u_matched_model.getDisplayValue();
+	} 
+	
+		var desc='';
+	if(current.u_matched_description== ''){
+		desc = current.u_imported_description; 
+	}else {
+		desc=  current.u_matched_description.getDisplayValue();
+	} 
+	
+	
+	
+	current.u_matched_name = mfg;
+	current.u_matched_name += " " + mod;
+	current.u_matched_name += " " + desc;
