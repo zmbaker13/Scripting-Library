@@ -1,43 +1,51 @@
 
-var grModelMatch = new GlideRecord('cmdb_hardware_product_model');
-grModelMatch.addQuery('u_device_label', current.u_matched_name.toString())
-    .addOrCondition('u_device_label', 'STARTSWITH', current.u_matched_name.toString());
-grModelMatch.query();
-var record_matches = +grModelMatch.getRowCount();
-if (record_matches == 1 && grModelMatch.next()) {
-    current.u_automatched = true;
-    current.model_id = grModelMatch.sys_id.toString();
-    current.update();
-} else if (record_matches > 1) {
-    var matched_name_split = current.u_matched_name.toString().toLowerCase().split('');
-    var matches = [];
-    while (grModelMatch.next()) {
-        matches.push({
-            sys_id: grModelMatch.sys_id.toString(),
-            rank: (function(device_label) {
-                var device_label_split = device_label.split('');
-                var match_score = device_label_split.length;
-				for(var c= 0;c <device_label_split.length; c++){
-               if(device_label_split[c] === matched_name_split[c]) {
-                        match_score ++;
+    var grModelMatch = new GlideRecord('cmdb_hardware_product_model');
+    grModelMatch.addQuery('u_device_label', current.u_imported_name.toString())
+        .addOrCondition('u_device_label', 'STARTSWITH', current.u_imported_name.toString())
+        .addOrCondition('u_device_label', 'STARTSWITH', current.u_matched_name.toString())
+        .addOrCondition('u_device_label', current.u_matched_name.toString());
+
+    grModelMatch.query();
+    var record_matches = +grModelMatch.getRowCount();
+    if (record_matches == 1 && grModelMatch.next()) { //if one record match found the use record else move on
+        current.u_automatched = true;
+        current.model_id = grModelMatch.sys_id.toString();
+        current.update();
+    } else if (record_matches > 1) {
+        var matched_name_split = current.u_imported_name.toString().toLowerCase().split(''); //split string into individual objects per letter
+        var matches = []; // create array
+        while (grModelMatch.next()) {
+            matches.push({ //add objects to array
+                sys_id: grModelMatch.sys_id.toString(),
+                rank: (function(device_label) {
+                    var device_label_split = device_label.split('');
+                    var match_score = 0;
+                    for (var c = 0; c < matched_name_split.length; c++) {
+                        var inRange = typeof device_label_split[c] != 'undefined';
+                        if (inRange && device_label_split[c] === matched_name_split[c]) {
+                            match_score++;
+                        } else if((inRange && device_label_split[c] !== matched_name_split[c]) || !inRange) {
+                            match_score--;
+                        }
                     }
-				}
-               
-                return match_score;
-            })(grModelMatch.u_device_label.toString().toLowerCase())
+
+                    return match_score;
+                })(grModelMatch.u_device_label.toString().toLowerCase())
+            });
+        }
+
+        matches.sort(function(a, b) {
+            if (a.rank < b.rank)
+                return -1;
+            if (a.rank > b.rank)
+                return 1;
+            return 0;
         });
+
+        matches.reverse();
+
+        current.u_automatched = true;
+        gs.log('zmb round 2');
+        current.model_id = matches[0].sys_id;
+        current.update();
     }
-
-    matches.sort(function (a, b) {
-        if (a.rank < b.rank)
-            return -1;
-        if (a.rank > b.rank)
-            return 1;
-        return 0;
-    });
-
-    current.u_automatched = true;
-    current.model_id = matches[0].sys_id;
-    current.update();
-} 
- 

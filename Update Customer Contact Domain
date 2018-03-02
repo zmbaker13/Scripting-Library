@@ -21,3 +21,6 @@ while (grContact.next()) {
 		grContact.u_active=false;
 		grContact.update();
 	}  
+
+
+sys_domain=4671d3cbdb203200f5d770d9af9619e4

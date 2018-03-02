@@ -29,4 +29,22 @@ gs.log("Found records = " + gr.getRowCount());
 		answer = gr.sys_id.toString();
 		
 	}
+
+
+
+
+
+
+
+		var gr = new GlideRecord('proc_po');
+gr.addEncodedQu('company.u_legecyrsq_customerid',source.u_custnmbr);
+gr.addQuery('u_legecy_rsq_department_id',source.u_adrscode);
+
+gr.queryNoDomain();
+gs.log("Found records = " + gr.getRowCount());
+	while(gr.next()){
+		answer = gr.sys_id.toString();
+		
+	}
+	
 	

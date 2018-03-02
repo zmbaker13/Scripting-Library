@@ -1,0 +1,45 @@
+var eq1 = new GlideRecord('u_cmdb_ci_equipment');
+eq1.addEncodedQuery('u_pm_tech=d7262b24dbd88340ae80f8621f96194d^u_account.u_rsqm_pm_generation=true^u_account!=f1ea1e0bdbb6f6003c9a7aa9bf96194d^ORu_account=NULL^u_account.u_cost_center!=NULL');
+eq1.setLimit(100);
+eq1.setWorkflow(false);
+eq1.queryNoDomain();
+	eq1.setValue('u_pm_tech','u_primary_tech');
+		eq1.updateMultiple();
+
+
+
+
+
+var eq1 = new GlideRecord('proc_po');
+eq1.addEncodedQuery('sys_id=5ba3d039db185f04ae80f8621f961915');
+eq1.setWorkflow(false);
+eq1.queryNoDomain();
+	eq1.setValue('sys_domain','02a3a147db32f6003c9a7aa9bf961947');
+		eq1.updateMultiple();
+
+
+
+
+var gr = new GlideRecord('proc_po');
+gr.addEncodedQuery('sys_id=5ba3d039db185f04ae80f8621f961915');
+gr.setWorkflow(false);
+gr.queryNoDomain();
+	while(gr.next()){
+		gr.sys_domain = '91a36147db32f6003c9a7aa9bf9619c8';
+		gr.update();
+		
+	}
+
+
+
+	var grContact = new GlideRecord('customer_contact');
+grContact.addEncodedQuery('sys_domainSTARTSWITHtrimedx^sys_domain=4671d3cbdb203200f5d770d9af9619e4^account.name!=NULL');
+grContact.setWorkflow(false);
+grContact.queryNoDomain();
+while (grContact.next()) {
+		grContact.sys_domain=grContact.company.sys_domain;
+		grContact.update();
+	}  
+	
+
+	

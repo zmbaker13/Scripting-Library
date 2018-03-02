@@ -1,27 +1,15 @@
 
-	//Equipment
-	updateGroups();
-	function updateGroups(){
-		var group = '94b15796dbcc5b0040c0f209af961965';
-		var query = 'u_account.account_parent=4433fb8bdb323a003c9a7aa9bf96195a^u_on_call_rota.name=NULL';
-
-		var grEQGroup = new GlideRecord('u_cmdb_ci_equipment');
-		grEQGroup.addQuery(query);
-		grEQGroup.queryNoDomain();
-		grEQGroup.setValue('u_on_call_rota',group)
-		grEQGroup.setValue('assignment_group',group)
-		grEQGroup.updateMultiple();
-	}
 
 
 
 		//Equipment
 	updateGroups();
 	function updateGroups(){
-		var group = 'b4d529b3dbc057c0ae80f8621f9619b9';
-		var query = 'u_account.u_cost_centerSTARTSWITH6610^ORu_account.u_cost_centerSTARTSWITH6620';
+		var group = 'a409589cdbe85f40f5d770d9af961933';
+		var query = 'u_account.u_cost_centerSTARTSWITH6710^assignment_groupISEMPTY';
 
 		var grEQGroup = new GlideRecord('u_cmdb_ci_equipment');
+		grEQGroup.setWorkflow(false);
 		grEQGroup.addQuery(query);
 		grEQGroup.queryNoDomain();
 		grEQGroup.setValue('u_on_call_rota',group)
@@ -32,13 +20,17 @@
 
 
 
+
+
+
 //Departments
 	updateDeptGroups();
 	function updateDeptGroups(){
-		var group = '21a7a71edb84db402aac77e9af96197a';
-		var query = 'u_active=true^company.account_parent=4433fb8bdb323a003c9a7aa9bf96195a^u_on_call_rota.name=NULL';
+		var group = 'a409589cdbe85f40f5d770d9af961933';
+		var query = 'company.u_cost_centerSTARTSWITH6710^u_on_call_rota.name=NULL';
 
 		var grDeptGroup = new GlideRecord('cmn_department');
+		grDeptGroup.setWorkflow(false);
 		grDeptGroup.addQuery(query);
 		grDeptGroup.queryNoDomain();
 		grDeptGroup.setValue('u_default_assignment_group',group)
@@ -47,20 +39,3 @@
 	}
 
 
-//Departments
-	updateDeptGroups();
-	function updateDeptGroups(){
-		var group = 'b4d529b3dbc057c0ae80f8621f9619b9';
-		var query = 'company.u_cost_centerSTARTSWITH6610^ORcompany.u_cost_centerSTARTSWITH6620';
-
-		var grDeptGroup = new GlideRecord('cmn_department');
-		grDeptGroup.addQuery(query);
-		grDeptGroup.queryNoDomain();
-		grDeptGroup.setValue('u_default_assignment_group',group)
-		grDeptGroup.setValue('u_on_call_rota',group)
-		grDeptGroup.updateMultiple();
-	}
-
-
-8183
-8184

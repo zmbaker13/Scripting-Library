@@ -1,0 +1,67 @@
+--drop RSQ temp table
+if OBJECT_ID('tempdb..#Tmp_RSQ_Coverage', 'U') is not null
+       drop table #Tmp_RSQ_Coverage
+
+--insert RSQ coverage into temp table
+SELECT DISTINCT EquipID, 
+CASE coverage WHEN '100% Billable' THEN 'Documentation Only'
+       WHEN 'All Parts and Labor' THEN 'All Parts & Labor'
+       WHEN 'Documentation Only' THEN 'Documentation Only'
+       WHEN 'In-House Labor Only' THEN 'Labor Only'
+       WHEN 'PA Labor Only' THEN 'PM Labor Only'
+       WHEN 'Parts and Labor Limited Hours' THEN 'All Parts & Labor'
+       ELSE Coverage END AS Coverage
+INTO #Tmp_RSQ_Coverage
+FROM IntegrationVault.dbo.SatEqCoverageandStrategy 
+WHERE CurrentFlag = 'Y'
+
+--drop RSQM temp table
+if OBJECT_ID('tempdb..#Tmp_RSQM_Coverage', 'U') is not null
+       drop table #Tmp_RSQM_Coverage
+
+--insert RSQM coverage into temp table
+SELECT DISTINCT a.u_rsq_equipid, b.dv_u_entitlement_coverage_type 
+INTO #Tmp_RSQM_Coverage
+FROM IntegrationVault.dbo.SatCmdbCiEquipment a 
+LEFT JOIN IntegrationVault.dbo.SatServiceEntitlement b ON a.u_customer_entitlement = b.sys_id
+       AND b.u_entitlement_type = 'Customer Contract Entitlement'
+       AND b.CurrentFlag = 'Y'
+WHERE a.CurrentFlag = 'Y'
+       AND a.u_rsq_equipid <> 0
+
+--drop combined temp table
+if OBJECT_ID('tempdb..#Tmp_CoverageCompare', 'U') is not null
+       drop table #Tmp_CoverageCompare
+
+--insert into combined temp table
+SELECT rsq.Equipid, rsqm.u_rsq_equipid, rsq.Coverage, rsqm.dv_u_entitlement_coverage_type, 
+CASE WHEN ISNULL(rsq.Coverage, '') = ISNULL(rsqm.dv_u_entitlement_coverage_type, '') THEN 1 
+       WHEN rsq.Coverage = 'All Parts & Labor' AND rsqm.dv_u_entitlement_coverage_type = 'Equipment' THEN 1
+       ELSE 0 END AS CoverageMatched
+INTO #Tmp_CoverageCompare
+FROM #Tmp_RSQM_Coverage rsqm
+LEFT JOIN #Tmp_RSQ_Coverage rsq ON rsq.EquipID = rsqm.u_rsq_equipid
+
+SELECT DISTINCT cc.u_rsq_equipid AS EquipID,
+	eq.u_equipment_id AS EquipmentID,
+	eq.sys_id AS EquipmentSysID,
+	cust.number AS AccountNumber,
+	eq.dv_u_account AS CustomerName,
+	cust.sys_id AS CustomerSysID,
+	cust.u_cost_center AS CostCenter,
+	cc.Coverage AS Coverage_RSQ,
+	cc.dv_u_entitlement_coverage_type AS Coverage_RSQM,
+	eq.dv_u_device_status AS DeviceStatus,
+	eq.u_warranty_type AS WarrantyType,
+	eq.u_warranty_start_date AS WarrantyS,
+	cmdb.warranty_expiration AS WarrantyExpiration
+FROM #Tmp_CoverageCompare cc
+JOIN IntegrationVault.dbo.SatCmdbCiEquipment eq ON cc.u_rsq_equipid = eq.u_rsq_equipid
+	AND eq.CurrentFlag = 'Y'
+	AND eq.u_rsq_equipid <> 0
+LEFT JOIN IntegrationVault.dbo.SatCmdb cmdb ON eq.sys_id = cmdb.sys_id
+	AND cmdb.CurrentFlag = 'Y'
+LEFT JOIN IntegrationVault.dbo.SatCustomerAccount cust ON eq.u_account = cust.sys_id
+	AND cust.CurrentFlag = 'Y'
+WHERE cc.CoverageMatched = 0
+AND eq.dv_u_device_status IN ('Active', 'Temporary')  /*comment/uncomment for only active and temporary*/ 

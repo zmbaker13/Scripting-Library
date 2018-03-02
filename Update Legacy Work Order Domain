@@ -22,7 +22,7 @@ while (grLegacy.next()) {
 		grDeptGroup.setValue('sys_domain',group)
 		grDeptGroup.updateMultiple();
 	}
-3413119
+
 
 
 	updateCustomer();
@@ -37,4 +37,3 @@ while (grLegacy.next()) {
 		grDeptGroup.updateMultiple();
 	}
 
-	3423269
