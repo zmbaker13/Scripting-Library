@@ -5,8 +5,8 @@
 		//Equipment
 	updateGroups();
 	function updateGroups(){
-		var group = 'a409589cdbe85f40f5d770d9af961933';
-		var query = 'u_account.u_cost_centerSTARTSWITH6710^assignment_groupISEMPTY';
+		var group = '8d19d4dcdbe85f40f5d770d9af961955';
+		var query = 'u_account.u_cost_centerSTARTSWITH8801^ORu_account.u_cost_centerSTARTSWITH8552^assignment_groupISEMPTY';
 
 		var grEQGroup = new GlideRecord('u_cmdb_ci_equipment');
 		grEQGroup.setWorkflow(false);
@@ -23,11 +23,12 @@
 
 
 
+
 //Departments
 	updateDeptGroups();
 	function updateDeptGroups(){
-		var group = 'a409589cdbe85f40f5d770d9af961933';
-		var query = 'company.u_cost_centerSTARTSWITH6710^u_on_call_rota.name=NULL';
+		var group = '8d19d4dcdbe85f40f5d770d9af961955';
+		var query = 'company.u_cost_centerSTARTSWITH8801^ORcompany.u_cost_centerSTARTSWITH8552^u_on_call_rota.name=NULL';
 
 		var grDeptGroup = new GlideRecord('cmn_department');
 		grDeptGroup.setWorkflow(false);

@@ -1,5 +1,5 @@
 var grLegacy = new GlideRecord('u_legacy_workorders');
-grLegacy.addEncodedQuery('u_customer.name=NULL');
+grLegacy.addEncodedQuery('u_equipidISNOTEMPTY^sys_domain=global');
 grLegacy.setWorkflow(false);
 grLegacy.queryNoDomain();
 while (grLegacy.next()) {
@@ -14,7 +14,7 @@ while (grLegacy.next()) {
 	updateDomain();
 	function updateDomain(){
 		var group = '4671d3cbdb203200f5d770d9af9619e4';
-		var query = 'sys_domain=global';
+		var query = 'u_equipidISNOTEMPTY^sys_domain=global';
 
 		var grDeptGroup = new GlideRecord('u_legacy_workorders');
 		grDeptGroup.addQuery(query);

@@ -1,0 +1,13 @@
+var impMan = current.getValue('u_imported_manufacturer');
+var impMod = current.getValue('u_imported_model');
+var impDesc = current.getValue('u_imported_description');
+
+var closeMatch = new GlideRecord('u_cmdb_ci_equipment_prospect');
+closeMatch.addEncodedQuery('u_automatched=false^model_idISEMPTY^u_imported_manufacturer=' + impMan + '^u_imported_model=' + impMod + '^u_imported_description=' + impDesc);
+closeMatch.queryNoDomain();
+
+while(closeMatch.next()){
+	closeMatch.setWorkflow(false);
+	closeMatch.setValue('u_close_match_do_not_add_alias', true);
+	closeMatch.update();
+}		

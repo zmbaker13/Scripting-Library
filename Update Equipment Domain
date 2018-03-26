@@ -1,10 +1,10 @@
-var grEQ = new GlideRecord('u_cmdb_ci_equipment');
-grEQ.addEncodedQuery('u_device_statusIN1,4^u_account.nameSTARTSWITHbay area^sys_domain=3a3f1a2edb83760059a27e09af961987');
-grEQ.setLimit(10000);
+var grEQ = new GlideRecord('proc_po');
+grEQ.addEncodedQuery('u_primary_tech=d7262b24dbd88340ae80f8621f96194d^ORu_pm_tech=d7262b24dbd88340ae80f8621f96194d');
+grEQ.setLimit(1);
 grEQ.setWorkflow(false);
 grEQ.queryNoDomain();
 while (grEQ.next()) {
-		grEQ.sys_domain=grEQ.u_account.sys_domain;
+		grEQ.u_pm_tech=grEQ.u_primary_tech;
 		grEQ.update();
 	}  
 	

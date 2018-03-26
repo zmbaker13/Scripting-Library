@@ -1,0 +1,21 @@
+removeVisibilityToUser();
+
+function removeVisibilityToUser() {
+	var user = current.variables.visibility_users;
+	var groups = current.variables.customer_domain_list;
+	var domainArray = groups.split(",");
+	for (var j = 0; j < domainArray.length; j++) {
+		var domainID = domainArray[j];
+			
+			var delVis = new GlideRecord("sys_user_visibility");
+			// if user already has role in group, do not add duplicate
+			delVis.addQuery("user", user);
+			delVis.addQuery("sys_domain", domainID);
+			delVis.addQuery("inherited", false);
+			delVis.query();
+			if (delVis.hasNext()) {
+				delVis.deleteRecord();
+			}
+		}
+}
+	
