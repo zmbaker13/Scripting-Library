@@ -1,0 +1,20 @@
+abuPopulate();
+
+function abuPopulate(){
+	
+	var abuEQ = new GlideRecord('u_cmdb_ci_equipment');
+	abuEQ.addEncodedQuery('u_account.u_business_unit_baseline_program=true^u_billing_business_unit=NULL');
+	abuEQ.setWorkflow(false);
+	abuEQ.queryNoDomain();
+	while(abuEQ.next()){
+		
+		var abu = new GlideRecord('u_customer_billing_business_units');
+		abu.addEncodedQuery('u_active=true^u_customer=' +abuEQ.u_account.sys_id);
+		abu.queryNoDomain();
+		while(abu.next()){
+		var	id = abu.sys_id.toString();
+		abuEQ.setValue('u_billing_business_unit',id);
+		abuEQ.update();
+		}
+	}
+}

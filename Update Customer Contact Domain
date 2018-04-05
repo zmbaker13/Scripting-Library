@@ -1,6 +1,5 @@
 var grContact = new GlideRecord('customer_contact');
 grContact.addEncodedQuery('sys_domainSTARTSWITHtrimedx^sys_domain=4671d3cbdb203200f5d770d9af9619e4^account.name!=NULL');
-grContact.setLimit(5000);
 grContact.setWorkflow(false);
 grContact.queryNoDomain();
 while (grContact.next()) {
@@ -23,4 +22,19 @@ while (grContact.next()) {
 	}  
 
 
-sys_domain=4671d3cbdb203200f5d770d9af9619e4
+
+
+
+
+
+var grContact = new GlideRecord('service_entitlement');
+grContact.addEncodedQuery('active=true^u_entitlement_type=Vendor Contract Entitlement^sys_domain=global');
+grContact.setWorkflow(false);
+grContact.queryNoDomain();
+while (grContact.next()) {
+		grContact.sys_domain='4671d3cbdb203200f5d770d9af9619e4';
+		grContact.update();
+	}  
+	
+u_rsq_equipid=1831910^u_last_touch_dtON2017-08-09@javascript:gs.dateGenerate('2017-08-09','start')@javascript:gs.dateGenerate('2017-08-09','end')
+active=true^u_entitlement_type=Vendor Contract Entitlement^sys_domainSTARTSWITHtop^account=ac4b52cbdbb6f6003c9a7aa9bf9619e7

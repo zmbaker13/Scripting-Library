@@ -1,4 +1,25 @@
 ctrl + shift + h - format
 g_form.setValue('u_safety_check_needed', false);
 
-g_form.setValue('acknowledged_on', '2018-02-05 13:02:39');
+g_form.setValue('acknowledged_on', '2018-03-12 13:56:45');
+
+g_form.setValue('state', -2);
+g_form.setValue('u_ceid', '50042263');
+
+
+vark
+
+g_form.setValue('u_work_order_task', 'a8ceddcedba81b002aac77e9af961903');
+
+
+var string = "text to split";
+    string = string.split(" ");
+
+        var matched_name_split = current.u_matched_mfg_imported_model.toString().toLowerCase().split('')
+        var noSpace = matched_name_split.split(" ")
+
+
+var u_matched_mfg_imported_model = 'Hospira A +';
+         var matched_name_split = u_matched_mfg_imported_model.toString().toLowerCase().split('');
+        var noSpace = matched_name_split.split(" ");
+        gs.print(noSpace);

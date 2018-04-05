@@ -22,3 +22,7 @@ while(grDeviceLabel.next()){
 
 
 0700728fdb0cd740844cf1fcbf9619b6
+
+u_software_type
+u_oem_specific_identifier_or_number
+version

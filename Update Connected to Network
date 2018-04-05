@@ -1,9 +1,9 @@
 var eq1 = new GlideRecord('u_cmdb_ci_equipment');
-eq1.addEncodedQuery('u_pm_tech=d7262b24dbd88340ae80f8621f96194d^u_account.u_rsqm_pm_generation=true^u_account!=f1ea1e0bdbb6f6003c9a7aa9bf96194d^ORu_account=NULL^u_account.u_cost_center!=NULL');
-eq1.setLimit(100);
+eq1.addEncodedQuery('u_connected_to_network_1=false^u_mac_address_1ISNOTEMPTY^ORu_ip_address_1ISNOTEMPTY');
 eq1.setWorkflow(false);
+eq1.setAutoSysFields(false);
 eq1.queryNoDomain();
-	eq1.setValue('u_pm_tech','u_primary_tech');
+	eq1.setValue('u_connected_to_network_1',true);
 		eq1.updateMultiple();
 
 
@@ -42,4 +42,4 @@ while (grContact.next()) {
 	}  
 	
 
-	
+	var
