@@ -1,0 +1,25 @@
+
+function onLoad() {
+	addJSONIcon('u_request_content');
+	addJSONIcon('u_response_content');
+}
+
+function addJSONIcon(field_name) {
+	var labelObj = gel('status.' + g_form.getTableName() + '.' + field_name).parentElement;
+	
+	var linkElement = document.createElement('a');
+	linkElement.title ="JSON";
+	linkElement.onclick = function () { openJSONFormatter(field_name); };
+	labelObj.appendChild(linkElement);
+			
+	var spanElem = document.createElement('span');
+	spanElem.className = 'icon icon-script';
+	spanElem.style = 'padding-left: 5px; color: #FF6000; cursor: pointer; vertical-align: text-bottom';
+	linkElement.appendChild(spanElem);
+}
+		
+function openJSONFormatter(field_name){
+	var dialog = new GlideModal('json_formatter', true, 800);
+	dialog.setTitle('JSON Formatter');
+	dialog.setPreference('json_string', g_form.getValue(field_name));
+	dialog.render();

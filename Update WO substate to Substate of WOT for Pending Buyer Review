@@ -1,0 +1,13 @@
+var grWOT = new GlideRecord('wm_task');
+grWOT.addEncodedQuery('substate=-23^parent.ref_sm_order.substate!=-23');
+grWOT.setLimit(1);
+grWOT.queryNoDomain();
+while (grWOT.next()) {
+	var grWO = new GlideRecord('wm_order');
+	grWO.get(grWOT.getValue('parent'));
+	grWO.setValue('substate', grWOT.getValue('substate'));
+	
+	grWOT.autoSysFields(false);
+	grWOT.setWorkflow(false);
+	grWOT.update();
+}

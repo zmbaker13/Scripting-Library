@@ -1,0 +1,50 @@
+var grWOT = new GlideRecord('wm_task');
+grWOT.addEncodedQuery('u_customer.nameSTARTSWITHwashington regional');
+//grWOT.setWorkflow(false);
+grWOT.queryNoDomain();
+while (grWOT.next()) {
+		grWOT.sys_domain=grWOT.u_customer.sys_domain;
+		grWOT.update();
+	}  
+
+	var grWOD = new GlideRecord('wm_order');
+grWOD.addEncodedQuery('u_customer.nameSTARTSWITHwashington regional^sys_domain=4671d3cbdb203200f5d770d9af9619e4');
+grWOD.setLimit(10000);
+grWOD.setWorkflow(false);
+grWOD.queryNoDomain();
+while (grWOD.next()) {
+		grWOD.sys_domain=grWOD.u_account.sys_domain;
+		grWOD.update();
+	} 
+	
+
+
+	var gr = new GlideRecord('cmn_department');
+gr.addQuery('company.u_legecyrsq_customerid',source.u_custnmbr);
+gr.addQuery('u_legecy_rsq_department_id',source.u_adrscode);
+
+gr.queryNoDomain();
+gs.log("Found records = " + gr.getRowCount());
+	while(gr.next()){
+		answer = gr.sys_id.toString();
+		
+	}
+
+
+
+
+
+
+
+		var gr = new GlideRecord('proc_po');
+gr.addEncodedQu('company.u_legecyrsq_customerid',source.u_custnmbr);
+gr.addQuery('u_legecy_rsq_department_id',source.u_adrscode);
+
+gr.queryNoDomain();
+gs.log("Found records = " + gr.getRowCount());
+	while(gr.next()){
+		answer = gr.sys_id.toString();
+		
+	}
+	
+	

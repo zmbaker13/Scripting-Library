@@ -1,0 +1,12 @@
+//Self invoking function:
+(function()
+{
+	//code here
+}();
+
+
+//Normal Function
+function doThis(){
+	//code here
+};
+doThis();

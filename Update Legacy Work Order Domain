@@ -1,12 +1,36 @@
-var grLegacy = new GlideRecord('u_legacy_workorders');
-grLegacy.addEncodedQuery('u_equipidISNOTEMPTY^sys_domain=global');
+var grLegacy = new GlideRecord('u_legacy_expense_lines');
+grLegacy.addEncodedQuery('u_domain=global^u_work_order_number.sys_domain!=global');
 grLegacy.setWorkflow(false);
 grLegacy.queryNoDomain();
 while (grLegacy.next()) {
-		grLegacy.u_customer=grLegacy.u_equipid.u_account;
+		grLegacy.u_domain=grLegacy.u_work_order_number.sys_domain;
 		grLegacy.update();
 	}  
 	
+
+
+var grLegacy = new GlideRecord('u_legacy_expense_lines');
+grLegacy.addEncodedQuery('sys_domain=global^u_equipid!=NULL');
+grLegacy.setWorkflow(false);
+grLegacy.queryNoDomain();
+while (grLegacy.next()) {
+		grLegacy.sys_domain=grLegacy.u_equipid.sys_domain;
+		grLegacy.update();
+	}  
+	
+
+
+
+
+var grLegacy = new GlideRecord('u_legacy_workorders');
+grLegacy.addEncodedQuery('sys_domain=global^u_equipid!=NULL');
+grLegacy.setWorkflow(false);
+grLegacy.queryNoDomain();
+while (grLegacy.next()) {
+		grLegacy.u_domain=grLegacy.u_equipid.sys_domain;
+		grLegacy.update();
+	}  
+
 
 	2986566
 
@@ -37,3 +61,8 @@ while (grLegacy.next()) {
 		grDeptGroup.updateMultiple();
 	}
 
+u_domain=global^u_work_order_number=ea1e71fadbc1cf0083fff438bf9619b9
+sys_id=ea1e71fadbc1cf0083fff438bf9619b9^sys_domain=global
+
+
+sys_domain=global^u_equipid!=NULL^u_customer=f0dad20bdbb6f6003c9a7aa9bf961990

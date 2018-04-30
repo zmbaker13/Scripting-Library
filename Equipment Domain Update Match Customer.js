@@ -76,8 +76,7 @@ while (grEquipDom.next()) {
 
 
 var grEquipDom = new GlideRecord('fm_expense_line');
-grEquipDom.addEncodedQuery("u_customer_invoice_number=NULL^state!=processed^ORstate=^u_customer_invoice_amount>0");
-grEquipDom.setLimit(1);
+grEquipDom.addEncodedQuery("u_work_order_task.u_customer.stateINaz,ca,nv^u_customer_invoice_amount>0^state=pending^u_customer_invoice_number=NULL");
 grEquipDom.setAutoSysFields(false);
 grEquipDom.queryNoDomain();
 while (grEquipDom.next()) {
@@ -87,3 +86,6 @@ while (grEquipDom.next()) {
 
 
 u_customer_invoice_number=NULL^state!=processed^ORstate=^u_customer_invoice_amount>0^short_description=NULL
+
+-20
+

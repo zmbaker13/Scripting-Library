@@ -1,0 +1,4 @@
+var grLeg = new GlideRecord('u_legacy_workorders');
+grLeg.addEncodedQuery('u_equipidISEMPTY');
+grLeg.queryNoDomain();
+grLeg.deleteMultiple();

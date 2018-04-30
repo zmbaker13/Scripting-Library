@@ -1,0 +1,51 @@
+var date1 = '2016-10-25 00:00:00.000';
+var time1 = '1900-01-01 07:28:24.000';
+var dateime1 = (date1 + time1);
+gs.print(dateime1);
+
+
+
+var date_source_field = '2018-03-19 00:00:00';
+var time_source_field = '1900-01-01 08:42:40';
+var date = date_source_field.split(' ')[0];
+var time = time_source_field.split(' ')[1];
+var date_time = date + ' ' + time; 
+gs.print(date_time);
+
+
+
+//Approved Date
+var date = source.u_approveddate.split(' ')[0];
+var time = source.u_approvedtime.split(' ')[1];
+var date_time = date + ' ' + time; 
+return date_time;
+
+//Start Date
+var date = source.u_starteddate.split(' ')[0];
+var time = source.u_startedtime.split(' ')[1];
+var date_time = date + ' ' + time; 
+return date_time;
+
+//Invoice Date
+var date = source.u_invoiceddate.split(' ')[0];
+var time = source.u_invoicedtime.split(' ')[1];
+var date_time = date + ' ' + time; 
+return date_time;
+
+//ETA Date
+var date = source.u_etadate.split(' ')[0];
+var time = source.u_etatime.split(' ')[1];
+var date_time = date + ' ' + time; 
+return date_time;
+
+//Entered Date
+var date = source.u_entereddate.split(' ')[0];
+var time = source.u_enteredtime.split(' ')[1];
+var date_time = date + ' ' + time; 
+return date_time;
+
+//Completed Date
+var date = source.u_completeddate.split(' ')[0];
+var time = source.u_completedtime.split(' ')[1];
+var date_time = date + ' ' + time; 
+return date_time;
