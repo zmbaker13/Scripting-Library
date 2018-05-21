@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-21 16:22:32">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>ZMB - STRY0146828- Last Touch Bulk</name>
+<origin_sys_id/>
+<release_date/>
+<remote_sys_id>a313cffedbb64b003c9a7aa9bf9619f0</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>d8b8ec98dbd29700cbe7fb37bf961977</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_data_source_c63c747adbfa0700844cf1fcbf961959</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_source"><sys_data_source action="INSERT_OR_UPDATE"><category/><connection_timeout>0</connection_timeout><connection_url>attachment://sys_data_source:c63c747adbfa0700844cf1fcbf961959/</connection_url><connection_url_parameters/><csv_delimiter/><database_name/><database_port/><expand_node_children>false</expand_node_children><file_path/><file_retrieval_method>Attachment</file_retrieval_method><format>Excel</format><glide_keystore>false</glide_keystore><header_row>0</header_row><import_set_table_label/><import_set_table_name>u_bulk_update_last_touch</import_set_table_name><instance_name/><jdbc_password/><jdbc_server/><jdbc_user_name/><last_run_database_field/><last_run_datetime/><ldap_target/><maximum_rows/><mid_server/><name>Bulk Last Touch  Import2017-12-06 07:33:</name><oracle_port>1521</oracle_port><oracle_sid>orcl</oracle_sid><properties/><query>All Rows from Table</query><query_timeout>0</query_timeout><scp_authentication>Username and Password</scp_authentication><scp_password/><scp_port/><scp_server/><scp_user_name/><sheet_number>0</sheet_number><sql_statement/><ssh_keyfile_path/><sys_class_name>sys_data_source</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-06 12:33:04</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>c63c747adbfa0700844cf1fcbf961959</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Bulk Last Touch  Import2017-12-06 07:33:</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_data_source_c63c747adbfa0700844cf1fcbf961959</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-06 12:33:04</sys_updated_on><table_name/><type>File</type><use_integrated_authentication>false</use_integrated_authentication><use_last_run_datetime>false</use_last_run_datetime><xpath_root_node/><zipped>false</zipped></sys_data_source></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>10b8ec98dbd29700cbe7fb37bf96197a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>Bulk Last Touch  Import2017-12-06 07:33:</target_name>
+<type>Data Source</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_app_module_b8426895db7a0300844cf1fcbf9619f3</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Regulatory">57dc3a23db044300cbe7fb37bf96197b</application><assessment/><content_page/><device_type/><filter/><hint/><homepage/><image/><link_type>DIRECT</link_type><map_page/><mobile_title>Bulk Last Touch Update</mobile_title><mobile_view_name>Mobile</mobile_view_name><name/><order>1200</order><override_menu_roles>false</override_menu_roles><query>/com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;sysparm_id=c8d4dc91db3a0300844cf1fcbf96199c</query><report/><roles>regulatory</roles><survey/><survey_overwrite>true</survey_overwrite><sys_class_name>sys_app_module</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 18:49:33</sys_created_on><sys_customer_update>true</sys_customer_update><sys_domain>774190f01f1310005a3637b8ec8b70ef</sys_domain><sys_domain_path>!!$/</sys_domain_path><sys_id>b8426895db7a0300844cf1fcbf9619f3</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Bulk Last Touch Update</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_module_b8426895db7a0300844cf1fcbf9619f3</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-01 18:51:01</sys_updated_on><timeline_page/><title>Bulk Last Touch Update</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>14b8ec98dbd29700cbe7fb37bf961979</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>Bulk Last Touch Update</target_name>
+<type>Module</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_transform_map_ee445491db3a0300844cf1fcbf96197a</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_transform_map"&gt;&lt;sys_transform_map action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;copy_empty_fields&gt;false&lt;/copy_empty_fields&gt;&lt;enforce_mandatory_fields&gt;No&lt;/enforce_mandatory_fields&gt;&lt;name&gt;Bulk Update Last Touch Transform Map&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;run_business_rules&gt;false&lt;/run_business_rules&gt;&lt;run_script&gt;false&lt;/run_script&gt;&lt;script&gt;&lt;![CDATA[(function transformRow(source, target, map, log, isUpdate) {
+
+	// Add your code here
+
+})(source, target, map, log, action==="update");]]&gt;&lt;/script&gt;&lt;source_table&gt;u_bulk_update_last_touch&lt;/source_table&gt;&lt;sys_class_name&gt;sys_transform_map&lt;/sys_class_name&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:47:53&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;ee445491db3a0300844cf1fcbf96197a&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Bulk Update Last Touch Transform Map&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_transform_map_ee445491db3a0300844cf1fcbf96197a&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;zmbaker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-12-01 17:47:53&lt;/sys_updated_on&gt;&lt;target_table&gt;u_cmdb_ci_equipment&lt;/target_table&gt;&lt;/sys_transform_map&gt;&lt;/record_update&gt;</payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>14b8ec98dbd29700cbe7fb37bf96197c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>Bulk Update Last Touch Transform Map</target_name>
+<type>Table Transform Map</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_transform_entry_1b6450d1db3a0300844cf1fcbf96194a</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_transform_entry"&gt;&lt;sys_transform_entry action="INSERT_OR_UPDATE"&gt;&lt;choice_action&gt;create&lt;/choice_action&gt;&lt;coalesce&gt;false&lt;/coalesce&gt;&lt;coalesce_case_sensitive&gt;false&lt;/coalesce_case_sensitive&gt;&lt;coalesce_empty_fields&gt;false&lt;/coalesce_empty_fields&gt;&lt;date_format&gt;yyyy-MM-dd HH:mm:ss&lt;/date_format&gt;&lt;map display_value="Bulk Update Last Touch Transform Map"&gt;ee445491db3a0300844cf1fcbf96197a&lt;/map&gt;&lt;reference_value_field/&gt;&lt;source_field&gt;u_last_touch_date&lt;/source_field&gt;&lt;source_script&gt;&lt;![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]&gt;&lt;/source_script&gt;&lt;source_table&gt;u_bulk_update_last_touch&lt;/source_table&gt;&lt;sys_class_name&gt;sys_transform_entry&lt;/sys_class_name&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:48:21&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;1b6450d1db3a0300844cf1fcbf96194a&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;u_last_touch_date&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_transform_entry_1b6450d1db3a0300844cf1fcbf96194a&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;zmbaker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-12-01 17:48:21&lt;/sys_updated_on&gt;&lt;target_field&gt;u_last_touch_date_time&lt;/target_field&gt;&lt;target_table&gt;u_cmdb_ci_equipment&lt;/target_table&gt;&lt;use_source_script&gt;false&lt;/use_source_script&gt;&lt;/sys_transform_entry&gt;&lt;/record_update&gt;</payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>18b8ec98dbd29700cbe7fb37bf96197b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>u_last_touch_date</target_name>
+<type>Field Map</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_dictionary_u_bulk_update_last_touch_u_ceid</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="u_ceid" table="u_bulk_update_last_touch"><active>true</active><array>false</array><array_denormalized>false</array_denormalized><attributes>import_attribute_name=CEID,edge_encryption_enabled=true</attributes><audit>false</audit><calculation/><choice>0</choice><choice_field/><choice_table/><column_label>CEID</column_label><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent/><dependent_on_field/><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element>u_ceid</element><element_reference>false</element_reference><foreign_database/><internal_type display_value="String">string</internal_type><mandatory>false</mandatory><max_length>250</max_length><name>u_bulk_update_last_touch</name><next_element/><primary>false</primary><read_only>false</read_only><read_roles/><reference/><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><sizeclass/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 17:47:30</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>a544d091db3a0300844cf1fcbf9619ce</sys_id><sys_mod_count>1</sys_mod_count><sys_name>CEID</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_dictionary_u_bulk_update_last_touch_u_ceid</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-06 00:37:26</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>false</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>1cb8ec98dbd29700cbe7fb37bf96197a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table>u_bulk_update_last_touch</table>
+<target_name>Bulk Update Last Touch.CEID</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_app_module_b1441491db3a0300844cf1fcbf96196c</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_app_module"><sys_app_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="System Import Sets">import_sets</application><assessment/><content_page/><device_type/><filter/><hint/><homepage/><image/><link_type>LIST</link_type><map_page/><mobile_title>Bulk Update Last Touch</mobile_title><mobile_view_name>Mobile</mobile_view_name><name>u_bulk_update_last_touch</name><order>1100</order><override_menu_roles>false</override_menu_roles><query/><report/><roles/><survey/><survey_overwrite>true</survey_overwrite><sys_class_name>sys_app_module</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 17:47:31</sys_created_on><sys_customer_update>true</sys_customer_update><sys_domain>774190f01f1310005a3637b8ec8b70ef</sys_domain><sys_domain_path/><sys_id>b1441491db3a0300844cf1fcbf96196c</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Bulk Update Last Touch</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_app_module_b1441491db3a0300844cf1fcbf96196c</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-01 17:47:31</sys_updated_on><timeline_page/><title>Bulk Update Last Touch</title><uncancelable>false</uncancelable><view_name/><window_name/></sys_app_module></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>50b8ec98dbd29700cbe7fb37bf961979</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table>u_bulk_update_last_touch</table>
+<target_name>Bulk Update Last Touch</target_name>
+<type>Module</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_transform_entry_ff545491db3a0300844cf1fcbf96197f</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_transform_entry"&gt;&lt;sys_transform_entry action="INSERT_OR_UPDATE"&gt;&lt;choice_action&gt;create&lt;/choice_action&gt;&lt;coalesce&gt;true&lt;/coalesce&gt;&lt;coalesce_case_sensitive&gt;false&lt;/coalesce_case_sensitive&gt;&lt;coalesce_empty_fields&gt;false&lt;/coalesce_empty_fields&gt;&lt;date_format&gt;yyyy-MM-dd HH:mm:ss&lt;/date_format&gt;&lt;map display_value="Bulk Update Last Touch Transform Map"&gt;ee445491db3a0300844cf1fcbf96197a&lt;/map&gt;&lt;reference_value_field/&gt;&lt;source_field&gt;u_ceid&lt;/source_field&gt;&lt;source_script&gt;&lt;![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]&gt;&lt;/source_script&gt;&lt;source_table&gt;u_bulk_update_last_touch&lt;/source_table&gt;&lt;sys_class_name&gt;sys_transform_entry&lt;/sys_class_name&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:47:56&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;ff545491db3a0300844cf1fcbf96197f&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;u_ceid&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_transform_entry_ff545491db3a0300844cf1fcbf96197f&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;zmbaker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-12-01 17:48:04&lt;/sys_updated_on&gt;&lt;target_field&gt;u_ceid&lt;/target_field&gt;&lt;target_table&gt;u_cmdb_ci_equipment&lt;/target_table&gt;&lt;use_source_script&gt;false&lt;/use_source_script&gt;&lt;/sys_transform_entry&gt;&lt;/record_update&gt;</payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>50b8ec98dbd29700cbe7fb37bf96197c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>u_ceid</target_name>
+<type>Field Map</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_dictionary_u_bulk_update_last_touch_u_serial_number</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="u_serial_number" table="u_bulk_update_last_touch"><active>true</active><array>false</array><array_denormalized>false</array_denormalized><attributes>import_attribute_name=Serial Number,edge_encryption_enabled=true</attributes><audit>false</audit><calculation/><choice>0</choice><choice_field/><choice_table/><column_label>Serial Number</column_label><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent/><dependent_on_field/><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element>u_serial_number</element><element_reference>false</element_reference><foreign_database/><internal_type display_value="String">string</internal_type><mandatory>false</mandatory><max_length>250</max_length><name>u_bulk_update_last_touch</name><next_element/><primary>false</primary><read_only>false</read_only><read_roles/><reference/><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><sizeclass/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 17:47:30</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>2d44d091db3a0300844cf1fcbf9619fb</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Serial Number</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_dictionary_u_bulk_update_last_touch_u_serial_number</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-06 00:37:26</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>false</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>54b8ec98dbd29700cbe7fb37bf96197b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table>u_bulk_update_last_touch</table>
+<target_name>Bulk Update Last Touch.Serial Number</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_dictionary_u_bulk_update_last_touch_null</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="" table="u_bulk_update_last_touch"><active>true</active><array>false</array><array_denormalized>false</array_denormalized><attributes/><audit>false</audit><calculation/><choice>0</choice><choice_field/><choice_table/><column_label/><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent/><dependent_on_field/><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element/><element_reference>false</element_reference><foreign_database/><internal_type display_value="Collection">collection</internal_type><mandatory>false</mandatory><max_length>40</max_length><name>u_bulk_update_last_touch</name><next_element/><primary>false</primary><read_only>false</read_only><read_roles/><reference/><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><sizeclass/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 17:47:30</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>2944d091db3a0300844cf1fcbf9619cb</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_bulk_update_last_touch</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_dictionary_u_bulk_update_last_touch_null</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-01 17:47:30</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>false</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>58b8ec98dbd29700cbe7fb37bf96197a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table>u_bulk_update_last_touch</table>
+<target_name>Bulk Update Last Touch</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_data_source_bdbd50dddb3a0300844cf1fcbf961966</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_source"><sys_data_source action="INSERT_OR_UPDATE"><category/><connection_timeout>0</connection_timeout><connection_url>attachment://sys_data_source:bdbd50dddb3a0300844cf1fcbf961966/</connection_url><connection_url_parameters/><csv_delimiter/><database_name/><database_port/><expand_node_children>false</expand_node_children><file_path/><file_retrieval_method>Attachment</file_retrieval_method><format>Excel</format><glide_keystore>false</glide_keystore><header_row>0</header_row><import_set_table_label/><import_set_table_name>u_bulk_update_last_touch</import_set_table_name><instance_name/><jdbc_password/><jdbc_server/><jdbc_user_name/><last_run_database_field/><last_run_datetime/><ldap_target/><maximum_rows/><mid_server/><name>Bulk Last Touch  Import2017-12-01 13:28:</name><oracle_port>1521</oracle_port><oracle_sid>orcl</oracle_sid><properties/><query>All Rows from Table</query><query_timeout>0</query_timeout><scp_authentication>Username and Password</scp_authentication><scp_password/><scp_port/><scp_server/><scp_user_name/><sheet_number>0</sheet_number><sql_statement/><ssh_keyfile_path/><sys_class_name>sys_data_source</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 18:28:57</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>bdbd50dddb3a0300844cf1fcbf961966</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Bulk Last Touch  Import2017-12-01 13:28:</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_data_source_bdbd50dddb3a0300844cf1fcbf961966</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-01 18:28:57</sys_updated_on><table_name/><type>File</type><use_integrated_authentication>false</use_integrated_authentication><use_last_run_datetime>false</use_last_run_datetime><xpath_root_node/><zipped>false</zipped></sys_data_source></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>5cb8ec98dbd29700cbe7fb37bf961979</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>Bulk Last Touch  Import2017-12-01 13:28:</target_name>
+<type>Data Source</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_dictionary_u_bulk_update_last_touch_u_last_touch_date</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="u_last_touch_date" table="u_bulk_update_last_touch"><active>true</active><array>false</array><array_denormalized>false</array_denormalized><attributes>import_attribute_name=Last Touch Date,edge_encryption_enabled=true</attributes><audit>false</audit><calculation/><choice>0</choice><choice_field/><choice_table/><column_label>Last Touch Date</column_label><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent/><dependent_on_field/><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element>u_last_touch_date</element><element_reference>false</element_reference><foreign_database/><internal_type display_value="String">string</internal_type><mandatory>false</mandatory><max_length>40</max_length><name>u_bulk_update_last_touch</name><next_element/><primary>false</primary><read_only>false</read_only><read_roles/><reference/><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><sizeclass/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 17:47:30</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>6144d091db3a0300844cf1fcbf9619f9</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Last Touch Date</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_dictionary_u_bulk_update_last_touch_u_last_touch_date</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-01 17:47:30</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>false</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>90b8ec98dbd29700cbe7fb37bf96197b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table>u_bulk_update_last_touch</table>
+<target_name>Bulk Update Last Touch.Last Touch Date</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_db_object_6544d091db3a0300844cf1fcbf9619c8</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object"><sys_db_object action="INSERT_OR_UPDATE"><access>public</access><actions_access>false</actions_access><alter_access>false</alter_access><client_scripts_access>false</client_scripts_access><configuration_access>false</configuration_access><create_access>false</create_access><create_access_controls>false</create_access_controls><delete_access>false</delete_access><extension_model/><is_extendable>false</is_extendable><label>Bulk Update Last Touch</label><live_feed_enabled>false</live_feed_enabled><name>u_bulk_update_last_touch</name><number_ref/><provider_class/><read_access>true</read_access><super_class display_value="Import Set Row" name="sys_import_set_row">27943b73db23220059a27e09af96197f</super_class><sys_class_name>sys_db_object</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 17:47:30</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>6544d091db3a0300844cf1fcbf9619c8</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Bulk Update Last Touch</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_db_object_6544d091db3a0300844cf1fcbf9619c8</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-06 00:37:27</sys_updated_on><update_access>false</update_access><user_role/><ws_access>true</ws_access></sys_db_object></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>94b8ec98dbd29700cbe7fb37bf96197a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table>u_bulk_update_last_touch</table>
+<target_name>Bulk Update Last Touch</target_name>
+<type>Table</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_data_source_294d949ddb3a0300844cf1fcbf9619af</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_source"><sys_data_source action="INSERT_OR_UPDATE"><category/><connection_timeout>0</connection_timeout><connection_url>attachment://sys_data_source:294d949ddb3a0300844cf1fcbf9619af/</connection_url><connection_url_parameters/><csv_delimiter/><database_name/><database_port/><expand_node_children>false</expand_node_children><file_path/><file_retrieval_method>Attachment</file_retrieval_method><format>Excel</format><glide_keystore>false</glide_keystore><header_row>0</header_row><import_set_table_label/><import_set_table_name>u_bulk_update_last_touch</import_set_table_name><instance_name/><jdbc_password/><jdbc_server/><jdbc_user_name/><last_run_database_field/><last_run_datetime/><ldap_target/><maximum_rows/><mid_server/><name>Bulk Last Touch  Import2017-12-01 13:27:</name><oracle_port>1521</oracle_port><oracle_sid>orcl</oracle_sid><properties/><query>All Rows from Table</query><query_timeout>0</query_timeout><scp_authentication>Username and Password</scp_authentication><scp_password/><scp_port/><scp_server/><scp_user_name/><sheet_number>0</sheet_number><sql_statement/><ssh_keyfile_path/><sys_class_name>sys_data_source</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 18:27:02</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>294d949ddb3a0300844cf1fcbf9619af</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Bulk Last Touch  Import2017-12-01 13:27:</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_data_source_294d949ddb3a0300844cf1fcbf9619af</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-01 18:27:02</sys_updated_on><table_name/><type>File</type><use_integrated_authentication>false</use_integrated_authentication><use_last_run_datetime>false</use_last_run_datetime><xpath_root_node/><zipped>false</zipped></sys_data_source></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>98b8ec98dbd29700cbe7fb37bf961979</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>Bulk Last Touch  Import2017-12-01 13:27:</target_name>
+<type>Data Source</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sc_cat_item_producer_c8d4dc91db3a0300844cf1fcbf96199c</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sc_cat_item_producer"&gt;&lt;sc_cat_item_producer action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;availability&gt;on_desktop&lt;/availability&gt;&lt;billable&gt;false&lt;/billable&gt;&lt;can_cancel&gt;false&lt;/can_cancel&gt;&lt;category/&gt;&lt;cost&gt;0&lt;/cost&gt;&lt;custom_cart/&gt;&lt;delivery_plan/&gt;&lt;delivery_plan_script/&gt;&lt;delivery_time&gt;1970-01-03 00:00:00&lt;/delivery_time&gt;&lt;description&gt;&lt;![CDATA[&lt;p&gt;&lt;img style="align: baseline;" title="" src="TriMedx-Logo-Example.pngx" alt="" align="baseline" border="" hspace="" vspace="" /&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 12pt;"&gt;To bulk update last touch dates attach the excel file to this page and then click submit. Below you can get the template for which the data needs to be in for it to be updated.  &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 12pt;"&gt;Click &lt;a title="here" href="https://trimedxdev.service-now.com/sys_attachment.do?sys_id&amp;#61;3bf41055db3a0300844cf1fcbf9619a9" rel="nofollow"&gt;here&lt;/a&gt; to download the template file.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt; &lt;/p&gt;]]&gt;&lt;/description&gt;&lt;entitlement_script/&gt;&lt;group/&gt;&lt;icon/&gt;&lt;ignore_price&gt;false&lt;/ignore_price&gt;&lt;image/&gt;&lt;list_price&gt;0&lt;/list_price&gt;&lt;location/&gt;&lt;meta/&gt;&lt;mobile_hide_price&gt;false&lt;/mobile_hide_price&gt;&lt;mobile_picture/&gt;&lt;mobile_picture_type&gt;use_desktop_picture&lt;/mobile_picture_type&gt;&lt;model/&gt;&lt;name&gt;Bulk Inventory Last Touch Update&lt;/name&gt;&lt;no_cart&gt;false&lt;/no_cart&gt;&lt;no_order&gt;false&lt;/no_order&gt;&lt;no_order_now&gt;false&lt;/no_order_now&gt;&lt;no_proceed_checkout&gt;false&lt;/no_proceed_checkout&gt;&lt;no_quantity&gt;false&lt;/no_quantity&gt;&lt;no_search&gt;false&lt;/no_search&gt;&lt;omit_price&gt;false&lt;/omit_price&gt;&lt;order&gt;0&lt;/order&gt;&lt;ordered_item_link/&gt;&lt;picture/&gt;&lt;preview&gt;JavaScript: popupOpenStandard("./com.glideapp.servicecatalog_cat_item_view.do?v=1&amp;amp;sysparm_id=c8d4dc91db3a0300844cf1fcbf96199c&amp;amp;sysparm_preview=true", "summary");&lt;/preview&gt;&lt;price&gt;0&lt;/price&gt;&lt;recurring_frequency/&gt;&lt;recurring_price&gt;0&lt;/recurring_price&gt;&lt;roles&gt;snc_internal&lt;/roles&gt;&lt;sc_catalogs/&gt;&lt;sc_ic_item_staging/&gt;&lt;sc_ic_version/&gt;&lt;script&gt;&lt;![CDATA[(function(){
+	
+
+	current.name = "Bulk Last Touch  Import" + gs.nowDateTime(); //append date time to name of data source for audit
+	current.import_set_table_name = "u_bulk_update_last_touch";   //'Bulk Department import table';
+	current.format = 'Excel';
+	current.type = 'File';
+	current.file_retrieval_method = "Attachment";
+	var myNewDataSource = current.insert();
+
+//	gs.log ('Bulk Department - Data source inserted with sys_id - ' + myNewDataSource);
+	
+	//point the scheduled import record to the new data source
+	var gr2 = new GlideRecord ('scheduled_import_set');
+	gr2.addQuery('sys_id', '74685c59dbf6cf00cbe7fb37bf961900'); //sys_id of the Scheduled Data Import record that was manually created
+	gr2.query();
+	
+	if (gr2.next()) {
+//		gs.log ('Bulk Inventory  - Found Scheduled Import definition');
+		gr2.data_source = myNewDataSource;
+		gr2.update();
+//		gs.log ('Bulk Department - Scheduled Import definition updated to point to data source just added');
+		
+		SncTriggerSynchronizer.executeNow(gr2);
+		
+	} else {
+		// add error conditions to email somebody that this has occurred
+//		gs.log('Bulk Inventory  - ERROR - Unable to locate scheduled import definition. Please contact your system administrator');
+	}
+	
+	//gs.log ('Bulk Inventory  - Record Producer email processing complete');
+		producer.redirect='home.do';
+
+	current.setAbortAction(true);  //stop the Record Producer from creating another record
+}
+
+)();
+	]]&gt;&lt;/script&gt;&lt;short_description&gt;Bulk Inventory Last Touch Update&lt;/short_description&gt;&lt;show_variable_help_on_load&gt;false&lt;/show_variable_help_on_load&gt;&lt;start_closed&gt;false&lt;/start_closed&gt;&lt;sys_class_name&gt;sc_cat_item_producer&lt;/sys_class_name&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:49:52&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;c8d4dc91db3a0300844cf1fcbf96199c&lt;/sys_id&gt;&lt;sys_mod_count&gt;7&lt;/sys_mod_count&gt;&lt;sys_name&gt;Bulk Inventory Last Touch Update&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sc_cat_item_producer_c8d4dc91db3a0300844cf1fcbf96199c&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;zmbaker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-12-06 00:35:57&lt;/sys_updated_on&gt;&lt;table_name&gt;sys_data_source&lt;/table_name&gt;&lt;template/&gt;&lt;type&gt;item&lt;/type&gt;&lt;u_part_model/&gt;&lt;use_sc_layout&gt;true&lt;/use_sc_layout&gt;&lt;vendor/&gt;&lt;view/&gt;&lt;visible_bundle&gt;true&lt;/visible_bundle&gt;&lt;visible_guide&gt;true&lt;/visible_guide&gt;&lt;visible_standalone&gt;true&lt;/visible_standalone&gt;&lt;workflow/&gt;&lt;/sc_cat_item_producer&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=c8d4dc91db3a0300844cf1fcbf96199c"/&gt;&lt;fx_price action="delete_multiple" query="id=c8d4dc91db3a0300844cf1fcbf96199c"/&gt;&lt;fx_price action="INSERT_OR_UPDATE"&gt;&lt;amount&gt;0&lt;/amount&gt;&lt;currency display_value="USD"&gt;USD&lt;/currency&gt;&lt;field&gt;price&lt;/field&gt;&lt;id&gt;c8d4dc91db3a0300844cf1fcbf96199c&lt;/id&gt;&lt;parent/&gt;&lt;reference_amount&gt;0&lt;/reference_amount&gt;&lt;reference_currency display_value="USD"&gt;USD&lt;/reference_currency&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:49:52&lt;/sys_created_on&gt;&lt;sys_id&gt;94d4dc91db3a0300844cf1fcbf96199e&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;zmbaker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-12-01 17:49:52&lt;/sys_updated_on&gt;&lt;table&gt;sc_cat_item_producer&lt;/table&gt;&lt;type&gt;calculated&lt;/type&gt;&lt;/fx_price&gt;&lt;fx_price action="INSERT_OR_UPDATE"&gt;&lt;amount&gt;0&lt;/amount&gt;&lt;currency display_value="USD"&gt;USD&lt;/currency&gt;&lt;field&gt;recurring_price&lt;/field&gt;&lt;id&gt;c8d4dc91db3a0300844cf1fcbf96199c&lt;/id&gt;&lt;parent/&gt;&lt;reference_amount&gt;0&lt;/reference_amount&gt;&lt;reference_currency display_value="USD"&gt;USD&lt;/reference_currency&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:49:52&lt;/sys_created_on&gt;&lt;sys_id&gt;10d4dc15db3a0300844cf1fcbf961941&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;zmbaker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-12-01 17:49:52&lt;/sys_updated_on&gt;&lt;table&gt;sc_cat_item_producer&lt;/table&gt;&lt;type&gt;calculated&lt;/type&gt;&lt;/fx_price&gt;&lt;sys_attachment action="INSERT_OR_UPDATE"&gt;&lt;average_image_color/&gt;&lt;compressed&gt;true&lt;/compressed&gt;&lt;content_type&gt;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&lt;/content_type&gt;&lt;encryption_context/&gt;&lt;file_name&gt;Last Touch Template.xlsx&lt;/file_name&gt;&lt;image_height/&gt;&lt;image_width/&gt;&lt;size_bytes&gt;8460&lt;/size_bytes&gt;&lt;size_compressed&gt;6018&lt;/size_compressed&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:50:39&lt;/sys_created_on&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/&lt;/sys_domain_path&gt;&lt;sys_id&gt;3bf41055db3a0300844cf1fcbf9619a9&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;zmbaker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-12-01 17:50:39&lt;/sys_updated_on&gt;&lt;table_name&gt;sc_cat_item_producer&lt;/table_name&gt;&lt;table_sys_id&gt;c8d4dc91db3a0300844cf1fcbf96199c&lt;/table_sys_id&gt;&lt;/sys_attachment&gt;&lt;sys_attachment_doc action="INSERT_OR_UPDATE"&gt;&lt;data&gt;H4sIAAAAAAAAAA==&lt;/data&gt;&lt;length&gt;16&lt;/length&gt;&lt;position&gt;0&lt;/position&gt;&lt;sys_attachment display_value="Last Touch Template.xlsx" sys_id="3bf41055db3a0300844cf1fcbf9619a9"&gt;3bf41055db3a0300844cf1fcbf9619a9&lt;/sys_attachment&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:50:39&lt;/sys_created_on&gt;&lt;sys_id&gt;7bf41055db3a0300844cf1fcbf9619a9&lt;/sys_id&gt;&lt;/sys_attachment_doc&gt;&lt;sys_attachment_doc action="INSERT_OR_UPDATE"&gt;&lt;data&gt;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&lt;/data&gt;&lt;length&gt;3736&lt;/length&gt;&lt;position&gt;1&lt;/position&gt;&lt;sys_attachment display_value="Last Touch Template.xlsx" sys_id="3bf41055db3a0300844cf1fcbf9619a9"&gt;3bf41055db3a0300844cf1fcbf9619a9&lt;/sys_attachment&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:50:39&lt;/sys_created_on&gt;&lt;sys_id&gt;fbf41055db3a0300844cf1fcbf9619a9&lt;/sys_id&gt;&lt;/sys_attachment_doc&gt;&lt;sys_attachment_doc action="INSERT_OR_UPDATE"&gt;&lt;data&gt;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&lt;/data&gt;&lt;length&gt;3736&lt;/length&gt;&lt;position&gt;2&lt;/position&gt;&lt;sys_attachment display_value="Last Touch Template.xlsx" sys_id="3bf41055db3a0300844cf1fcbf9619a9"&gt;3bf41055db3a0300844cf1fcbf9619a9&lt;/sys_attachment&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:50:39&lt;/sys_created_on&gt;&lt;sys_id&gt;7ff41055db3a0300844cf1fcbf9619a9&lt;/sys_id&gt;&lt;/sys_attachment_doc&gt;&lt;sys_attachment_doc action="INSERT_OR_UPDATE"&gt;&lt;data&gt;RDZLd/q5s+uikvUDLzmhacyxjAe3ZvxS0eotX2k8ydmak88W4nhaehnaLFwv2zbWrvObEcf943lOQlFD4typHJ++rNhqXu/ZtJiQwBoTWxJg6BMY1lfRVtAksS+9jbfB8ZrASvAVR+S2Ov43CYF5zaLwLapKI4zKQqLNAWyLy4QDtKoIxSdQI+KXK/rCH64t6kmR1DPQUEIeSBOsRuh9g1u3+Aj5ektp0B8pC4n0aNVpw4SufxWc8wQLrmPt7oo1DUjVKHk0nyXNnA/Y6nZpK0y/t1VBcOGoWOFMma4GeWjDrG4M0DmuBfws6ht0E7Llvdonvq6dxtoE/F/tDQ6eDfCf+s738Zsu9P0F/t4h+xXJd4/8pV923/DvXYNf0YD8RxjyH3oI99e5X0r+C7vAfyss3ze+X3z8Cxeovy9F3l/hfiXvl8ej/baud3+B+7nIX7DHvZeZ3De9H7v9BS+C/xzJ3V/l7470V3ATAQD/5lbvm//97PsVTSS/mP/rJFRVQEL+OYd69wm8s3An/3n3PzZ6pIIMIQAA&lt;/data&gt;&lt;length&gt;544&lt;/length&gt;&lt;position&gt;3&lt;/position&gt;&lt;sys_attachment display_value="Last Touch Template.xlsx" sys_id="3bf41055db3a0300844cf1fcbf9619a9"&gt;3bf41055db3a0300844cf1fcbf9619a9&lt;/sys_attachment&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:50:39&lt;/sys_created_on&gt;&lt;sys_id&gt;fff41055db3a0300844cf1fcbf9619a9&lt;/sys_id&gt;&lt;/sys_attachment_doc&gt;&lt;/record_update&gt;</payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>9cb8ec98dbd29700cbe7fb37bf961978</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table>sys_data_source</table>
+<target_name>Bulk Inventory Last Touch Update</target_name>
+<type>Record Producer</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_transform_entry_fb541c91db3a0300844cf1fcbf9619a8</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_transform_entry"&gt;&lt;sys_transform_entry action="INSERT_OR_UPDATE"&gt;&lt;choice_action&gt;create&lt;/choice_action&gt;&lt;coalesce&gt;true&lt;/coalesce&gt;&lt;coalesce_case_sensitive&gt;false&lt;/coalesce_case_sensitive&gt;&lt;coalesce_empty_fields&gt;false&lt;/coalesce_empty_fields&gt;&lt;date_format&gt;yyyy-MM-dd HH:mm:ss&lt;/date_format&gt;&lt;map display_value="Bulk Update Last Touch Transform Map"&gt;ee445491db3a0300844cf1fcbf96197a&lt;/map&gt;&lt;reference_value_field/&gt;&lt;source_field&gt;u_customer&lt;/source_field&gt;&lt;source_script&gt;&lt;![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]&gt;&lt;/source_script&gt;&lt;source_table&gt;u_bulk_update_last_touch&lt;/source_table&gt;&lt;sys_class_name&gt;sys_transform_entry&lt;/sys_class_name&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:47:56&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;fb541c91db3a0300844cf1fcbf9619a8&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;u_customer&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_transform_entry_fb541c91db3a0300844cf1fcbf9619a8&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;zmbaker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-12-01 17:48:05&lt;/sys_updated_on&gt;&lt;target_field&gt;u_account&lt;/target_field&gt;&lt;target_table&gt;u_cmdb_ci_equipment&lt;/target_table&gt;&lt;use_source_script&gt;false&lt;/use_source_script&gt;&lt;/sys_transform_entry&gt;&lt;/record_update&gt;</payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>9cb8ec98dbd29700cbe7fb37bf96197b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>u_customer</target_name>
+<type>Field Map</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_data_source_dc0c707adbfa0700844cf1fcbf96194c</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_source"><sys_data_source action="INSERT_OR_UPDATE"><category/><connection_timeout>0</connection_timeout><connection_url>attachment://sys_data_source:dc0c707adbfa0700844cf1fcbf96194c/</connection_url><connection_url_parameters/><csv_delimiter/><database_name/><database_port/><expand_node_children>false</expand_node_children><file_path/><file_retrieval_method>Attachment</file_retrieval_method><format>Excel</format><glide_keystore>false</glide_keystore><header_row>0</header_row><import_set_table_label/><import_set_table_name>u_bulk_update_last_touch</import_set_table_name><instance_name/><jdbc_password/><jdbc_server/><jdbc_user_name/><last_run_database_field/><last_run_datetime/><ldap_target/><maximum_rows/><mid_server/><name>Bulk Last Touch  Import2017-12-06 07:32:</name><oracle_port>1521</oracle_port><oracle_sid>orcl</oracle_sid><properties/><query>All Rows from Table</query><query_timeout>0</query_timeout><scp_authentication>Username and Password</scp_authentication><scp_password/><scp_port/><scp_server/><scp_user_name/><sheet_number>0</sheet_number><sql_statement/><ssh_keyfile_path/><sys_class_name>sys_data_source</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-06 12:32:12</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>dc0c707adbfa0700844cf1fcbf96194c</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Bulk Last Touch  Import2017-12-06 07:32:</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_data_source_dc0c707adbfa0700844cf1fcbf96194c</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-06 12:32:12</sys_updated_on><table_name/><type>File</type><use_integrated_authentication>false</use_integrated_authentication><use_last_run_datetime>false</use_last_run_datetime><xpath_root_node/><zipped>false</zipped></sys_data_source></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>d0b8ec98dbd29700cbe7fb37bf96197a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>Bulk Last Touch  Import2017-12-06 07:32:</target_name>
+<type>Data Source</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_data_source_1144d091db3a0300844cf1fcbf9619b8</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_data_source"><sys_data_source action="INSERT_OR_UPDATE"><category/><connection_timeout>0</connection_timeout><connection_url>attachment://sys_data_source:1144d091db3a0300844cf1fcbf9619b8/periop list last touch.xlsx</connection_url><connection_url_parameters/><csv_delimiter/><database_name/><database_port/><expand_node_children>false</expand_node_children><file_path>periop list last touch.xlsx</file_path><file_retrieval_method>Attachment</file_retrieval_method><format>Excel</format><glide_keystore>false</glide_keystore><header_row>1</header_row><import_set_table_label/><import_set_table_name>u_bulk_update_last_touch</import_set_table_name><instance_name/><jdbc_password/><jdbc_server/><jdbc_user_name/><last_run_database_field/><last_run_datetime/><ldap_target/><maximum_rows/><mid_server/><name>periop list last touch.xlsx (Uploaded)</name><oracle_port>1521</oracle_port><oracle_sid>orcl</oracle_sid><properties/><query>All Rows from Table</query><query_timeout>0</query_timeout><scp_authentication>Username and Password</scp_authentication><scp_password/><scp_port/><scp_server/><scp_user_name/><sheet_number>1</sheet_number><sql_statement/><ssh_keyfile_path/><sys_class_name>sys_data_source</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 17:47:29</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>1144d091db3a0300844cf1fcbf9619b8</sys_id><sys_mod_count>1</sys_mod_count><sys_name>periop list last touch.xlsx (Uploaded)</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_data_source_1144d091db3a0300844cf1fcbf9619b8</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-01 17:47:31</sys_updated_on><table_name/><type>File</type><use_integrated_authentication>false</use_integrated_authentication><use_last_run_datetime>false</use_last_run_datetime><xpath_root_node/><zipped>false</zipped></sys_data_source></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>d4b8ec98dbd29700cbe7fb37bf961979</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>periop list last touch.xlsx (Uploaded)</target_name>
+<type>Data Source</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>ua_table_licensing_config_25441491db3a0300844cf1fcbf961910</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="ua_table_licensing_config"><ua_table_licensing_config action="INSERT_OR_UPDATE"><is_fulfillment>false</is_fulfillment><license_condition/><license_model>none</license_model><license_roles/><name>u_bulk_update_last_touch</name><op_delete>true</op_delete><op_insert>true</op_insert><op_update>true</op_update><owner_condition/><sys_class_name>ua_table_licensing_config</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 17:47:30</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>25441491db3a0300844cf1fcbf961910</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_bulk_update_last_touch</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>ua_table_licensing_config_25441491db3a0300844cf1fcbf961910</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-01 17:47:30</sys_updated_on></ua_table_licensing_config></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>d4b8ec98dbd29700cbe7fb37bf96197c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>u_bulk_update_last_touch</target_name>
+<type>Table Subscription Configuration</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>scheduled_import_set_74685c59dbf6cf00cbe7fb37bf961900</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="scheduled_import_set"><scheduled_import_set action="INSERT_OR_UPDATE"><active>true</active><condition/><conditional>false</conditional><data_source display_value="Bulk Last Touch  Import2017-12-06 07:33:">c63c747adbfa0700844cf1fcbf961959</data_source><map/><name>Bulk Inventory Last Touch Update</name><order/><parent/><post_script/><post_script_bool>false</post_script_bool><pre_script/><pre_script_bool>false</pre_script_bool><run_as display_value="System System">153c1ad8db344b802aac77e9af9619ad</run_as><run_as_tz/><run_dayofmonth>1</run_dayofmonth><run_dayofweek>1</run_dayofweek><run_period>5760-09-13 00:00:00</run_period><run_start>2017-09-29 13:28:28</run_start><run_time>1970-01-01 05:00:00</run_time><run_type>periodically</run_type><sys_class_name>scheduled_import_set</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 18:05:28</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>74685c59dbf6cf00cbe7fb37bf961900</sys_id><sys_mod_count>8</sys_mod_count><sys_name>Bulk Inventory Last Touch Update</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>scheduled_import_set_74685c59dbf6cf00cbe7fb37bf961900</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-06 12:33:04</sys_updated_on><upgrade_safe>false</upgrade_safe></scheduled_import_set></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>d8b8ec98dbd29700cbe7fb37bf961978</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>Bulk Inventory Last Touch Update</target_name>
+<type>Scheduled Data Import</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_transform_entry_bb545491db3a0300844cf1fcbf961982</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_transform_entry"&gt;&lt;sys_transform_entry action="INSERT_OR_UPDATE"&gt;&lt;choice_action&gt;create&lt;/choice_action&gt;&lt;coalesce&gt;true&lt;/coalesce&gt;&lt;coalesce_case_sensitive&gt;false&lt;/coalesce_case_sensitive&gt;&lt;coalesce_empty_fields&gt;false&lt;/coalesce_empty_fields&gt;&lt;date_format&gt;yyyy-MM-dd HH:mm:ss&lt;/date_format&gt;&lt;map display_value="Bulk Update Last Touch Transform Map"&gt;ee445491db3a0300844cf1fcbf96197a&lt;/map&gt;&lt;reference_value_field/&gt;&lt;source_field&gt;u_serial_number&lt;/source_field&gt;&lt;source_script&gt;&lt;![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]&gt;&lt;/source_script&gt;&lt;source_table&gt;u_bulk_update_last_touch&lt;/source_table&gt;&lt;sys_class_name&gt;sys_transform_entry&lt;/sys_class_name&gt;&lt;sys_created_by&gt;zmbaker&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2017-12-01 17:47:56&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;bb545491db3a0300844cf1fcbf961982&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;u_serial_number&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_transform_entry_bb545491db3a0300844cf1fcbf961982&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;zmbaker&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2017-12-01 17:48:05&lt;/sys_updated_on&gt;&lt;target_field&gt;serial_number&lt;/target_field&gt;&lt;target_table&gt;u_cmdb_ci_equipment&lt;/target_table&gt;&lt;use_source_script&gt;false&lt;/use_source_script&gt;&lt;/sys_transform_entry&gt;&lt;/record_update&gt;</payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>d8b8ec98dbd29700cbe7fb37bf96197b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table/>
+<target_name>u_serial_number</target_name>
+<type>Field Map</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>retrieved</category>
+<comments/>
+<name>sys_dictionary_u_bulk_update_last_touch_u_customer</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="u_customer" table="u_bulk_update_last_touch"><active>true</active><array>false</array><array_denormalized>false</array_denormalized><attributes>import_attribute_name=Customer,edge_encryption_enabled=true</attributes><audit>false</audit><calculation/><choice/><choice_field/><choice_table/><column_label>Customer</column_label><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent/><dependent_on_field/><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element>u_customer</element><element_reference>false</element_reference><foreign_database/><internal_type display_value="String">string</internal_type><mandatory>false</mandatory><max_length>500</max_length><name>u_bulk_update_last_touch</name><next_element/><primary>false</primary><read_only>false</read_only><read_roles/><reference/><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><sizeclass/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>zmbaker</sys_created_by><sys_created_on>2017-12-01 17:47:30</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>a544d091db3a0300844cf1fcbf9619f6</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Customer</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_dictionary_u_bulk_update_last_touch_u_customer</sys_update_name><sys_updated_by>zmbaker</sys_updated_by><sys_updated_on>2017-12-06 00:33:55</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>false</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+<remote_update_set display_value="ZMB - STRY0146828- Last Touch Bulk">d8b8ec98dbd29700cbe7fb37bf961977</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-21 16:22:32</sys_created_on>
+<sys_id>dcb8ec98dbd29700cbe7fb37bf96197a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-21 16:22:32</sys_updated_on>
+<table>u_bulk_update_last_touch</table>
+<target_name>Bulk Update Last Touch.Customer</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>

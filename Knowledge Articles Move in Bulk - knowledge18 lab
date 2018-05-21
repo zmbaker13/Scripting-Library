@@ -1,0 +1,24 @@
+var TARGET_KB_SYS_ID = '99728208410613007f441bae8bc87acf';
+var TARGET_KB_CATEGORY = '6245c248410613007f441bae8bc87a23';
+var KB_ARTICLES_TO_MOVE = ["KB0000009",
+    "KB0000006"
+];
+
+for (var i = 0; i < KB_ARTICLES_TO_MOVE.length; i++) {
+    moveKBArticle(KB_ARTICLES_TO_MOVE[i]);
+}
+
+function moveKBArticle(kbNumber) {
+    var kb = new GlideRecord('kb_knowledge');
+    kb.setWorkflow(false);
+    kb.addQuery('number', kbNumber);
+    kb.query();
+    if (kb.next()) {
+        kb.kb_knowledge_base = TARGET_KB_SYS_ID;
+        kb.kb_category = TARGET_KB_CATEGORY;
+        kb.update();
+        gs.print('Updated ' + kbNumber);
+    } else {
+        gs.print('Did not find ' + kbNumber);
+    }
+}

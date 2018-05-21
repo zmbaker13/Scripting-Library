@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-21 16:30:22">
+<sys_transform_map action="INSERT_OR_UPDATE">
+<active>true</active>
+<copy_empty_fields>false</copy_empty_fields>
+<enforce_mandatory_fields>No</enforce_mandatory_fields>
+<name>Description Alias Transform Map</name>
+<order>100</order>
+<run_business_rules>true</run_business_rules>
+<run_script>false</run_script>
+<script><![CDATA[(function transformRow(source, target, map, log, isUpdate) {
+
+	// Add your code here
+
+})(source, target, map, log, action==="update");]]></script>
+<source_table>u_description_alias_import_table</source_table>
+<sys_class_name>sys_transform_map</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-02-08 18:13:11</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>bbbfe317dbc45b40cbe7fb37bf961986</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>Description Alias Transform Map</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_map_bbbfe317dbc45b40cbe7fb37bf961986</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-02-08 18:13:11</sys_updated_on>
+<target_table>u_alias_table</target_table>
+</sys_transform_map>
+</unload>

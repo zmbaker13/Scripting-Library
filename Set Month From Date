@@ -1,0 +1,12 @@
+(function executeRule(current, previous /*null when async*/) {
+
+	var today = GlideDateTime(u_completed_date);
+   var monthpm = today.getMonth();
+	
+	
+current.u_completed_pm_month = monthpm;
+
+})(current, previous);
+
+
+u_number=EQUIPM8166726^u_completed_dateON2018-04-10@javascript:gs.dateGenerate('2018-04-10','start')@javascript:gs.dateGenerate('2018-04-10','end')

@@ -1,0 +1,1243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-21 16:29:07">
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map1">a1a452d8dbad03c0608a72ec0f961956</map>
+<reference_value_field>u_legecyrsq_customerid</reference_value_field>
+<source_field>u_custnmbr</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-02-15 20:22:59</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>8d805c75db94570459a27e09af961970</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>u_custnmbr</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_8d805c75db94570459a27e09af961970</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-02-15 20:22:59</sys_updated_on>
+<target_field>u_account</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>reject</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field>u_legecyrsq_customerid</reference_value_field>
+<source_field>u_custnmbr</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 00:26:51</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>bdf1cb78db167600f5d770d9af9619d5</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>u_custnmbr</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_bdf1cb78db167600f5d770d9af9619d5</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:35</sys_updated_on>
+<target_field>u_account</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>true</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_equipid</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 00:26:51</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>31f1cb78db167600f5d770d9af9619d4</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>u_equipid</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_31f1cb78db167600f5d770d9af9619d4</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-08-22 11:48:39</sys_updated_on>
+<target_field>u_rsq_equipid</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>true</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map1">a1a452d8dbad03c0608a72ec0f961956</map>
+<reference_value_field/>
+<source_field>u_equipid</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-02-13 20:59:31</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>acd58e81db54dbc059a27e09af961910</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>u_equipid</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_acd58e81db54dbc059a27e09af961910</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-02-13 20:59:31</sys_updated_on>
+<target_field>u_rsq_equipid</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format/>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_instdte</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 13:13:42</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>3671b189db92f20059a27e09af961936</sys_id>
+<sys_mod_count>5</sys_mod_count>
+<sys_name>u_instdte</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_3671b189db92f20059a27e09af961936</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:36</sys_updated_on>
+<target_field>u_install_date</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>reject</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field>u_rsq_item_model_id</reference_value_field>
+<source_field>u_itemnmbr</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 13:13:42</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>3271b189db92f20059a27e09af961938</sys_id>
+<sys_mod_count>7</sys_mod_count>
+<sys_name>u_itemnmbr</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_3271b189db92f20059a27e09af961938</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-08-25 11:50:37</sys_updated_on>
+<target_field>model_id</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_lstpmdte</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-11-16 18:10:17</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>959983d0db62834c608a72ec0f96198b</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>u_lstpmdte</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_959983d0db62834c608a72ec0f96198b</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-11-16 18:10:17</sys_updated_on>
+<target_field>u_last_pm_date</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_lstsrvdte</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-09-27 16:06:37</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>eccd05dcdbad83803c9a7aa9bf96191c</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>u_lstsrvdte</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_eccd05dcdbad83803c9a7aa9bf96191c</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-02-01 18:29:32</sys_updated_on>
+<target_field>u_last_touch_dt</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map1">a1a452d8dbad03c0608a72ec0f961956</map>
+<reference_value_field/>
+<source_field>u_pmmonth</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-03-01 22:10:33</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>d58fe45edbe853402aac77e9af96192c</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>u_pmmonth</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_d58fe45edbe853402aac77e9af96192c</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-03-01 22:10:33</sys_updated_on>
+<target_field>u_pm_month</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_refrence</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 13:13:41</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>fe713189db92f20059a27e09af9619af</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>u_refrence</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_fe713189db92f20059a27e09af9619af</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:36</sys_updated_on>
+<target_field>u_ceid</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map1">a1a452d8dbad03c0608a72ec0f961956</map>
+<reference_value_field/>
+<source_field>u_serlnmbr</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-03-30 13:29:32</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>ab5e8067db055f04ac43f839af961923</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>u_serlnmbr</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_ab5e8067db055f04ac43f839af961923</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-03-30 13:29:32</sys_updated_on>
+<target_field>serial_number</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format/>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_shipped_date</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-05-03 14:23:29</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>f764bf30dba2fe00f5d770d9af9619b6</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>u_shipped_date</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_f764bf30dba2fe00f5d770d9af9619b6</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:36</sys_updated_on>
+<target_field>sys_created_on</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_svc_asset_tag</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 13:13:42</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>fe713189db92f20059a27e09af9619b2</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>u_svc_asset_tag</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_fe713189db92f20059a27e09af9619b2</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:36</sys_updated_on>
+<target_field>asset_tag</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_svc_pm_date</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 15:49:32</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>71251e8ddb16f20059a27e09af96190b</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>u_svc_pm_date</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_71251e8ddb16f20059a27e09af96190b</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:36</sys_updated_on>
+<target_field>u_pm_month</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field>user_name</reference_value_field>
+<source_field>u_techid</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 16:23:43</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>2efc9205db56f20059a27e09af9619e6</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>u_techid</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_2efc9205db56f20059a27e09af9619e6</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-08-24 01:45:10</sys_updated_on>
+<target_field>u_primary_tech</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>ignore</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map1">a1a452d8dbad03c0608a72ec0f961956</map>
+<reference_value_field>user_name</reference_value_field>
+<source_field>u_techid</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-02-13 20:59:53</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>b8e54e81db54dbc059a27e09af961924</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>u_techid</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_b8e54e81db54dbc059a27e09af961924</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-02-13 21:01:25</sys_updated_on>
+<target_field>u_primary_tech</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field>user_name</reference_value_field>
+<source_field>u_techid2</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 16:27:06</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>48cd1605db56f20059a27e09af9619f4</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>u_techid2</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_48cd1605db56f20059a27e09af9619f4</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-08-24 01:45:20</sys_updated_on>
+<target_field>u_secondary_tech</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>ignore</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map1">a1a452d8dbad03c0608a72ec0f961956</map>
+<reference_value_field>user_name</reference_value_field>
+<source_field>u_techid2</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-02-13 21:00:16</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>bef5c2c1db54dbc059a27e09af9619f8</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>u_techid2</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_bef5c2c1db54dbc059a27e09af9619f8</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-03-02 18:28:51</sys_updated_on>
+<target_field>u_secondary_tech</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>ignore</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map1">a1a452d8dbad03c0608a72ec0f961956</map>
+<reference_value_field>user_name</reference_value_field>
+<source_field>u_usrdef03</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-03-02 18:29:31</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>52768d6edb28d7402aac77e9af9619eb</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>u_usrdef03</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_52768d6edb28d7402aac77e9af9619eb</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-03-02 18:29:31</sys_updated_on>
+<target_field>u_pm_tech</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field>user_name</reference_value_field>
+<source_field>u_usrdef03</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 16:27:06</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>c4cd1605db56f20059a27e09af9619f6</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>u_usrdef03</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_c4cd1605db56f20059a27e09af9619f6</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-08-24 01:45:14</sys_updated_on>
+<target_field>u_pm_tech</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format/>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_usrdef05</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>ZMBAKER</sys_created_by>
+<sys_created_on>2017-05-16 17:46:23</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>e89f970ddb72b200efeef1fcbf9619ed</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>u_usrdef05</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_e89f970ddb72b200efeef1fcbf9619ed</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:36</sys_updated_on>
+<target_field>u_disposition_date</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_vendorsiteid</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 15:47:03</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>5d94168ddb16f20059a27e09af961943</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>u_vendorsiteid</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_5d94168ddb16f20059a27e09af961943</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-03-01 22:37:00</sys_updated_on>
+<target_field>u_vendor_site_id</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map1">a1a452d8dbad03c0608a72ec0f961956</map>
+<reference_value_field/>
+<source_field>u_vendorsiteid</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-03-01 22:37:38</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>8cb5b812dbac53402aac77e9af96190d</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>u_vendorsiteid</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_8cb5b812dbac53402aac77e9af96190d</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-03-01 22:37:38</sys_updated_on>
+<target_field>u_vendor_site_id</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>u_version</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-03-05 19:23:13</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>019fa06bdb2c1b00f5d770d9af9619ba</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>u_version</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_019fa06bdb2c1b00f5d770d9af9619ba</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-03-05 19:23:13</sys_updated_on>
+<target_field>u_old_ceid</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format/>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[if (source.u_warrstart == '1900-01-01 00:00:00') {
+	answer ='';
+} else answer = source.u_warrstart;
+		]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-05-10 17:44:50</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>0cc5e097db22364059a27e09af96197f</sys_id>
+<sys_mod_count>6</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_0cc5e097db22364059a27e09af96197f</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-09-05 18:21:54</sys_updated_on>
+<target_field>u_warranty_start_date</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>reject</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field>u_legecy_rsq_department_id</reference_value_field>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[var gr = new GlideRecord('cmn_department');
+gr.addQuery('company.u_legecyrsq_customerid',source.u_custnmbr);
+gr.addQuery('u_legecy_rsq_department_id',source.u_adrscode);
+
+gr.query();
+//gs.log("Found records = " + gr.getRowCount());
+	while(gr.next()){
+		answer = gr.sys_id.toString();
+		
+	}
+	]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>ZMBAKER</sys_created_by>
+<sys_created_on>2017-06-05 18:35:07</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>368a2aa3db47f60059a27e09af96197f</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_368a2aa3db47f60059a27e09af96197f</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:21:31</sys_updated_on>
+<target_field>department</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format/>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[if (source.u_warrend == '1900-01-01 00:00:00') {
+	answer ='';
+} else answer = source.u_warrend;
+		]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-05-10 17:44:50</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>4cc5e097db22364059a27e09af961983</sys_id>
+<sys_mod_count>8</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_4cc5e097db22364059a27e09af961983</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-09-05 18:23:27</sys_updated_on>
+<target_field>warranty_expiration</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[if (source.u_srlstat == 'RETIRED') {
+	answer = 4;
+} else answer = '';]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-09-08 11:41:23</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>549adecadb090f00efeef1fcbf961981</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_549adecadb090f00efeef1fcbf961981</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-09-08 11:41:23</sys_updated_on>
+<target_field>u_sub_status</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>ignore</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[if (source.u_warrcde == 'PARTSLAB8Y') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB7Y') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB6Y') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB5Y') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB4Y') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB3Y') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB2Y') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB1Y') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB15Y') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB12Y') {
+	answer ='Vendor Warranty - Full Service';
+}
+if (source.u_warrcde == 'PARTLAB30D') {
+	answer ='Vendor Warranty - Full Service';
+}
+if (source.u_warrcde == 'PARTLAB90D') {
+	answer ='Vendor Warranty - Full Service';
+}
+if (source.u_warrcde == 'PARTSLAB10') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB60D') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB30M') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLAB6M') {
+	answer ='Vendor Warranty - Full Service';
+} 
+if (source.u_warrcde == 'PARTSLA99Y') {
+	answer ='Vendor Warranty - Full Service';
+}
+if (source.u_warrcde == 'PARTLAB15M') {
+	answer ='Vendor Warranty - Full Service';
+}
+if (source.u_warrcde == 'PARTLAB16M') {
+	answer ='Vendor Warranty - Full Service';
+}
+if (source.u_warrcde == 'PARTLAB18M') {
+	answer ='Vendor Warranty - Full Service';
+}
+if (source.u_warrcde == 'PARTSLA99Y') {
+	answer ='Vendor Warranty - Full Service';
+}
+if (source.u_warrcde == 'PARTS1Y') {
+	answer ='Vendor Warranty - Parts Only';
+}
+if (source.u_warrcde == 'PARTS2Y') {
+	answer ='Vendor Warranty - Parts Only';
+}
+if (source.u_warrcde == 'PARTS3Y') {
+	answer ='Vendor Warranty - Parts Only';
+}
+if (source.u_warrcde == 'PARTS5Y') {
+	answer ='Vendor Warranty - Parts Only';
+}
+if (source.u_warrcde == 'PARTS8Y') {
+	answer ='Vendor Warranty - Parts Only';
+}
+if (source.u_warrcde == 'PARTS99Y') {
+	answer ='Vendor Warranty - Parts Only';
+}
+if (source.u_warrcde == 'CAL99YWR10Y') {
+	answer ='Vendor Warranty - Full Service';
+}
+if (source.u_warrcde == 'PART3YLAB1Y') {
+	answer ='Vendor Warranty - Parts Only';
+}
+]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-05-10 18:33:18</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>70b0f8dfdb22364059a27e09af961944</sys_id>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_70b0f8dfdb22364059a27e09af961944</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:36</sys_updated_on>
+<target_field>u_warranty_type</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[if (source.u_serlnmbr.indexOf("*")> -1){
+	target.u_serial_number_not_known = true;
+}]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>ZMBAKER</sys_created_by>
+<sys_created_on>2017-05-17 18:32:24</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>75a37825dbfeb2003c9a7aa9bf9619b3</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_75a37825dbfeb2003c9a7aa9bf9619b3</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:37</sys_updated_on>
+<target_field>u_serial_number_not_known</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[if (source.u_warrcde == 'CAL99YWR10Y') {
+	answer ='1';
+}]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-05-10 18:55:19</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>c7a5b893db62364059a27e09af9619af</sys_id>
+<sys_mod_count>1</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_c7a5b893db62364059a27e09af9619af</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:37</sys_updated_on>
+<target_field>u_calibration_lifetime</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>reject</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[if (source.u_srlstat == 'ACTIVE') {
+	answer ='1';
+}
+if (source.u_srlstat == 'Active') {
+	answer ='1';
+}
+if (source.u_srlstat == 'RETIRED') {
+	answer ='3';
+}
+if (source.u_srlstat == 'Retired') {
+	answer ='3';
+}
+if (source.u_srlstat == 'TEMPORARY') {
+	answer ='4';	
+}
+if (source.u_srlstat == 'Temporary') {
+	answer ='4';	
+}]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 13:06:17</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>dacfe5c5db92f20059a27e09af9619ba</sys_id>
+<sys_mod_count>10</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_dacfe5c5db92f20059a27e09af9619ba</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-09-13 17:23:42</sys_updated_on>
+<target_field>u_device_status</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map">4481cb78db167600f5d770d9af9619ce</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[if (source.u_serlnmbr.indexOf("*")> -1){
+	answer = "Not Known";
+}
+else answer = source.u_serlnmbr;]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 15:49:32</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>f1251e8ddb16f20059a27e09af961909</sys_id>
+<sys_mod_count>5</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_f1251e8ddb16f20059a27e09af961909</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2017-07-27 12:15:37</sys_updated_on>
+<target_field>serial_number</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Equipment SVC00300 Transform Map1">a1a452d8dbad03c0608a72ec0f961956</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return "false"; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-03-30 13:27:48</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>f9fd04e3db055f04ac43f839af961915</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_f9fd04e3db055f04ac43f839af961915</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-03-30 13:27:48</sys_updated_on>
+<target_field>u_serial_number_not_known</target_field>
+<target_table>u_cmdb_ci_equipment</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+</unload>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-04 19:36:27">
+<sys_script action="INSERT_OR_UPDATE">
+<abort_action>false</abort_action>
+<access>package_private</access>
+<action_delete>false</action_delete>
+<action_insert>true</action_insert>
+<action_query>false</action_query>
+<action_update>true</action_update>
+<active>true</active>
+<add_message>false</add_message>
+<advanced>true</advanced>
+<change_fields>false</change_fields>
+<client_callable>false</client_callable>
+<collection>u_pm_equipment_schedule</collection>
+<condition/>
+<description/>
+<execute_function>false</execute_function>
+<filter_condition table="u_pm_equipment_schedule">u_completed_dateVALCHANGES^EQ<item goto="false" or="false" field="u_completed_date" endquery="false" value="" operator="VALCHANGES" newquery="false"/>
+<item goto="false" or="false" field="" endquery="true" value="" operator="=" newquery="false"/>
+</filter_condition>
+<is_rest>false</is_rest>
+<message/>
+<name>Set Month</name>
+<order>100</order>
+<priority>100</priority>
+<rest_method display_value=""/>
+<rest_method_text/>
+<rest_service display_value=""/>
+<rest_service_text/>
+<rest_variables/>
+<role_conditions/>
+<script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	var today = GlideDateTime();
+   var monthpm = today.getMonth();
+	
+	
+current.u_completed_pm_month = monthpm;
+
+})(current, previous);]]></script>
+<sys_class_name>sys_script</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-05-04 19:23:28</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_domain>774190f01f1310005a3637b8ec8b70ef</sys_domain>
+<sys_domain_path>!!$/</sys_domain_path>
+<sys_id>3fcea97adb799740e2e8f8621f961972</sys_id>
+<sys_mod_count>6</sys_mod_count>
+<sys_name>Set Month</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_script_3fcea97adb799740e2e8f8621f961972</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-05-04 19:34:28</sys_updated_on>
+<template/>
+<when>before</when>
+</sys_script>
+</unload>

@@ -1,0 +1,69 @@
+	resetUserVisDoms: function(user, manager) {
+		// this function takes a user and removes existing visibility domains and resets visibility domains 
+		// based on those of the users Manager
+		// param: user = sys_id of user to reset visibility groups for
+		// param: manager = sys_id of users manager.  this managers visiblity groups will be cloned to 
+		//    user.
+		if (user=='' || manager=='') {
+			return;
+		}
+		
+		var userRec = new GlideRecord('sys_user');
+		var managerRec = new GlideRecord('sys_user');
+		
+		if (userRec.get(user) && managerRec.get(manager)) {
+									
+			//query for old visibility groups user is to be removed from
+			var sysGrMemberOld = new GlideRecord('sys_user_grmember');
+			sysGrMemberOld.setLimit(10);
+			sysGrMemberOld.addQuery('user.sys_id', user);
+			sysGrMemberOld.addQuery('group.type', 'f42a77f70a0a3c9801a4696828a0fd7c');
+			sysGrMemberOld.query();
+			gs.log('SDP: sysGrMemberOld record count: '+sysGrMemberOld.getRowCount().toString());
+			if (sysGrMemberOld.next()) {
+				sysGrMemberOld.deleteMultiple();
+			}
+			
+			// Get visibility groups of manager to add to user
+			var sysGrMemberMan = new GlideRecord('sys_user_grmember');
+			sysGrMemberMan.setLimit(10);
+			sysGrMemberMan.addQuery('user.sys_id', manager);
+			sysGrMemberMan.addQuery('group.type', 'f42a77f70a0a3c9801a4696828a0fd7c');
+			sysGrMemberMan.query();
+			gs.log('SDP: sysGrMemberMan record count: '+sysGrMemberMan.getRowCount().toString());
+			while (sysGrMemberMan.next()) {
+				
+				var sysGrMemberNew = new GlideRecord('sys_user_grmember');
+				sysGrMemberNew.initialize();
+				sysGrMemberNew.user = userRec.sys_id;
+				sysGrMemberNew.group = sysGrMemberMan.group;
+				sysGrMemberNew.insert();				
+				 
+			}
+			
+			//query for old visibility domains that are not inherited
+			var sysVisDomOld = new GlideRecord('sys_user_visibility');
+			sysVisDomOld.setLimit(10);
+			sysVisDomOld.addQuery('user.sys_id', user);
+			sysVisDomOld.addQuery('inherited', false);
+			sysVisDomOld.query();
+			if (sysVisDomOld.next()) {
+				gs.log('SDP: sysVisDomOld record count: '+sysVisDomOld.getRowCount().toString());		
+				sysVisDomOld.deleteMultiple();
+			}
+			
+			// Get visibility domains of manager that are not inherited
+			var sysVisDomMan = new GlideRecord('sys_user_visibility');
+			sysVisDomMan.addQuery('user.sys_id', manager);
+			sysVisDomMan.addQuery('inherited', false);
+			sysVisDomMan.query();
+			while (sysVisDomMan.next()) {
+				gs.log('SDP: sysVisDomMan record count: '+sysVisDomMan.getRowCount().toString());
+				var sysVisDomNew = new GlideRecord('sys_user_visibility');
+				sysVisDomNew.initialize();
+				sysVisDomNew.user = userRec.sys_id;
+				sysVisDomNew.sys_domain = sysVisDomMan.sys_domain;
+				sysVisDomNew.parent_visibility = sysVisDomMan.parent_visibility;
+				sysVisDomNew.insert();				
+				 
+			}

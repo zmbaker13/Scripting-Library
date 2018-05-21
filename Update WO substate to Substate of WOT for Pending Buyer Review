@@ -11,3 +11,28 @@ while (grWOT.next()) {
 	grWOT.setWorkflow(false);
 	grWOT.update();
 }
+
+
+
+
+	var ceID = current.getValue("u_ceid");
+	if(ceID === null) {
+		ceID = 'NULL';
+	}
+	
+	var gRCase = new GlideRecord("sn_customerservice_case");
+	gRCase.get(current.getValue("initiated_from"));
+	
+	gRCase.setValue("contact",current.getValue("u_contact"));
+	gRCase.setValue("u_ceid",ceID);
+	
+	gRCase.setValue('account', current.getValue('u_customer'));
+	gRCase.setValue("u_department",current.getValue("u_hospital_department"));
+	gRCase.setValue("u_service_location",current.getValue("u_service_location"));
+	gRCase.setValue('u_work_order_type',current.getValue('u_work_order_type'));
+	
+	gRCase.update();
+
+
+
+	sysparm_query=u_device_scan%3D038bbdbcdb077e003c9a7aa9bf961986%5Eu_location%3DRepair&sysparm_view=

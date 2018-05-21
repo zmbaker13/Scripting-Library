@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-21 16:33:34">
+<sys_ui_action action="INSERT_OR_UPDATE">
+<action_name/>
+<active>true</active>
+<client>true</client>
+<comments/>
+<condition/>
+<form_action>true</form_action>
+<form_button>false</form_button>
+<form_context_menu>false</form_context_menu>
+<form_link>true</form_link>
+<hint/>
+<list_action>false</list_action>
+<list_banner_button>false</list_banner_button>
+<list_button>false</list_button>
+<list_choice>false</list_choice>
+<list_context_menu>false</list_context_menu>
+<list_link>false</list_link>
+<list_save_with_form_button>false</list_save_with_form_button>
+<name>Add New Alias</name>
+<onclick>openModalAlias();</onclick>
+<order>100</order>
+<script><![CDATA[function openModalAlias() {
+	var value = g_form.getUniqueValue();
+	var modalAlias = new GlideModalForm("Add New Alias","u_alias_table");
+	modalAlias.addParm('u_source_table',g_form.getTableName());
+	modalAlias.addParm('u_source_record',value);
+//	gs.log('zmb '+ value);
+	modalAlias.render();
+}
+]]></script>
+<show_insert>true</show_insert>
+<show_multiple_update>false</show_multiple_update>
+<show_query>false</show_query>
+<show_update>true</show_update>
+<sys_class_name>sys_ui_action</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-02-08 16:31:46</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_domain>774190f01f1310005a3637b8ec8b70ef</sys_domain>
+<sys_domain_path>!!$/</sys_domain_path>
+<sys_id>c1a8d35fdb445b40cbe7fb37bf9619fa</sys_id>
+<sys_id_display/>
+<sys_mod_count>4</sys_mod_count>
+<sys_name>Add New Alias</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_ui_action_c1a8d35fdb445b40cbe7fb37bf9619fa</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-03-07 02:36:29</sys_updated_on>
+<table>core_company</table>
+<ui11_compatible>true</ui11_compatible>
+<ui16_compatible>false</ui16_compatible>
+</sys_ui_action>
+</unload>

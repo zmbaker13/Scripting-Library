@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-21 16:40:56">
+<sys_script_include action="INSERT_OR_UPDATE">
+<access>package_private</access>
+<active>true</active>
+<api_name>global.sendExpLines</api_name>
+<client_callable>false</client_callable>
+<description>Using this script include to build the payload object. We will pass in the Work Order object to build out the expense lines and header information</description>
+<name>sendExpLines</name>
+<script><![CDATA[function sendExpLines(workOrderObj) {	
+	var payload;
+	var invLines = [];
+	var wsObject = {};
+	var foundExpGrtZero = false;
+		
+	var getExpLines = new GlideRecord('fm_expense_line');
+	getExpLines.addQuery('u_work_order_task', workOrderObj.sys_id);
+	getExpLines.queryNoDomain();
+	while (getExpLines.next()) {
+		if (getExpLines.getValue('u_customer_invoice_amount') > 0) {
+			foundExpGrtZero = true;
+			
+			var expLineNum = getExpLines.number.toString();
+			var partNum = getExpLines.u_initiated_from.purchase_line.request_line.u_vpn.toString();
+			var uom = getExpLines.u_initiated_from.purchase_line.request_line.u_uom.toString();
+			var quantBilled = 0;
+			var unitPrice = getExpLines.u_unit_price.getCurrencyValue();
+			var tech = getExpLines.u_technician.getDisplayValue().toString();
+			var ShipToCustCode = getExpLines.u_work_order_task.u_customer.u_legecyrsq_customerid.toString();
+			var workOrderClosedDate = getExpLines.u_work_order_task.parent.closed_at.getDisplayValue();
+			var custBillable = getExpLines.u_customer_invoice_amount.toString();
+			var quantSold;
+			var shipToAddCode = getExpLines.u_work_order_task.parent.u_hospital_department.u_workorder_shiptocode.toString();
+			
+			if (getExpLines.type == 'Parts' || getExpLines.type == 'Vendor Parts' || getExpLines.type == 'Vendor Labor' || getExpLines.type == 'Vendor Travel' ){
+				partDescr = getExpLines.u_initiated_from.purchase_line.request_line.u_oem_description.toString();
+				quantSold = getExpLines.u_quantity_billed.getDisplayValue();  // STRY0166711 - EXPENSE : Correct Quantity Sold Amount
+			}
+			else {
+				partDescr = getExpLines.type.toString();
+				quantSold = getExpLines.u_quantity_sold.getDisplayValue();
+			}
+
+			invLines.push(
+				{
+					"ExpenseLineNumber": expLineNum,
+					"PartNumber": partNum,
+					"ItemNumber":"do we need",
+					"ItemDescription": partDescr,
+					"UOM": uom,
+					"QuantityBilled": quantBilled,
+					"UnitPrice": unitPrice,
+					"TechId": tech,
+					"ShipToCustomerCode": ShipToCustCode,
+					"WorkOrderTaskClosedDate": workOrderClosedDate,
+					"LocationCode": "doweneed",
+					"CalculatedBillableField": custBillable,
+					"QuantitySold": quantSold,
+					"ShipToAddressCode":shipToAddCode
+				});
+		}
+	}
+	
+	if (foundExpGrtZero) {
+		payload = {
+			"WorkOrderTaskNumber": workOrderObj.number.toString(),
+			"CEID": workOrderObj.parent.u_ceid.getDisplayValue().toString(),
+			"CEIDSerialNumber":workOrderObj.parent.u_ceid.serial_number.toString(),
+			"CEIDBusinessUnit":workOrderObj.parent.u_ceid.u_billing_business_unit.getDisplayValue().toString(),
+			"MMDDescription": workOrderObj.parent.u_ceid.model_id.u_description_id.u_description.toString(),
+			"WorkOrderReportedProblem":workOrderObj.parent.short_description.toString(),
+			"WorkOrderCreatedDate" : workOrderObj.parent.sys_created_on.toString(),
+			"LegacyRSQCustomerID": workOrderObj.parent.u_account.u_legecyrsq_customerid.toString(),
+			"CustomerName": workOrderObj.parent.u_account.getDisplayValue().toString(),
+			"BillToCustomerCode": workOrderObj.parent.u_account.u_legecyrsq_customerid.toString(),
+			"BillToAddressCode": workOrderObj.parent.u_account.u_primary_bill_to_address_code.toString(),
+			"DepartmentName": workOrderObj.parent.u_hospital_department.getDisplayValue().toString(),
+			"DepartmentShipToAddressCode": workOrderObj.parent.u_hospital_department.u_workorder_shiptocode.toString(),
+			"CustomerPONumber": workOrderObj.u_customer_po.toString(),
+			"ContactName": workOrderObj.u_contact.getDisplayValue().toString(),
+			"InvoiceLine": invLines
+		};
+
+		wsObject.targetTbl = workOrderObj.getTableName(); //set to table name you are working with
+		wsObject.itemSysId = workOrderObj.getValue('sys_id'); //Record of sys_id initiating the call
+		wsObject.dataObj = payload;
+		wsObject.correlation_id = workOrderObj.sys_id;
+		wsObject.oBject = '11a';
+		wsObject.tranType = 'POST';	
+	
+		var piu = new PurchasingIntegrationUtils();
+		piu.doCRUDAction('POST', wsObject, '11a');
+	}
+}]]></script>
+<sys_class_name>sys_script_include</sys_class_name>
+<sys_created_by>slucas</sys_created_by>
+<sys_created_on>2017-07-10 19:54:51</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>fdab037edbfb7ec0cbe7fb37bf9619a9</sys_id>
+<sys_mod_count>156</sys_mod_count>
+<sys_name>sendExpLines</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_script_include_fdab037edbfb7ec0cbe7fb37bf9619a9</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-04-23 14:47:03</sys_updated_on>
+</sys_script_include>
+</unload>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-21 16:31:00">
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Description Alias Transform Map">bbbfe317dbc45b40cbe7fb37bf961986</map>
+<reference_value_field/>
+<source_field>u_aliastext</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	// Add your code here
+	return ""; // return the value to be put into the target field
+
+})(source);]]></source_script>
+<source_table>u_description_alias_import_table</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-02-08 18:13:30</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>f3df6717dbc45b40cbe7fb37bf96190e</sys_id>
+<sys_mod_count>2</sys_mod_count>
+<sys_name>u_aliastext</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_f3df6717dbc45b40cbe7fb37bf96190e</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-02-21 23:06:16</sys_updated_on>
+<target_field>u_alias</target_field>
+<target_table>u_alias_table</target_table>
+<use_source_script>false</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Description Alias Transform Map">bbbfe317dbc45b40cbe7fb37bf961986</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+	
+	return 'u_model_description';
+	
+})(source);]]></source_script>
+<source_table>u_description_alias_import_table</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-02-08 18:15:21</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>6b10f317dbc45b40cbe7fb37bf96198f</sys_id>
+<sys_mod_count>7</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_6b10f317dbc45b40cbe7fb37bf96198f</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-02-21 23:06:16</sys_updated_on>
+<target_field>u_source_table</target_field>
+<target_table>u_alias_table</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+<sys_transform_entry action="INSERT_OR_UPDATE">
+<choice_action>create</choice_action>
+<coalesce>false</coalesce>
+<coalesce_case_sensitive>false</coalesce_case_sensitive>
+<coalesce_empty_fields>false</coalesce_empty_fields>
+<date_format>yyyy-MM-dd HH:mm:ss</date_format>
+<map display_value="Description Alias Transform Map">bbbfe317dbc45b40cbe7fb37bf961986</map>
+<reference_value_field/>
+<source_field>[Script]</source_field>
+<source_script><![CDATA[answer = (function transformEntry(source) {
+
+	var model_desc = new GlideRecord('u_model_description');
+	model_desc.addQuery('u_description_id', source.u_description_id);
+	model_desc.query();
+	if(model_desc.next()) {
+		return model_desc.sys_id.toString();
+	}
+
+})(source);]]></source_script>
+<source_table>u_description_alias_import_table</source_table>
+<sys_class_name>sys_transform_entry</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2018-02-08 18:13:59</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>faff2317dbc45b40cbe7fb37bf9619fa</sys_id>
+<sys_mod_count>5</sys_mod_count>
+<sys_name>[Script]</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_entry_faff2317dbc45b40cbe7fb37bf9619fa</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-02-21 23:06:16</sys_updated_on>
+<target_field>u_document_id</target_field>
+<target_table>u_alias_table</target_table>
+<use_source_script>true</use_source_script>
+</sys_transform_entry>
+</unload>

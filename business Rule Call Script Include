@@ -1,0 +1,6 @@
+(function executeRule(current, previous /*null when async*/) {
+
+	var result = new userUtils().resetUserVisDoms(current.sys_id,current.manager.sys_id);
+	gs.addInfoMessage('User Visibility domains changed as per new manager assignment.');
+
+})(current, previous);

@@ -1,0 +1,1484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-21 16:39:42">
+<sys_script_include action="INSERT_OR_UPDATE">
+<access>public</access>
+<active>true</active>
+<api_name>global.ISMUtils</api_name>
+<client_callable>true</client_callable>
+<description/>
+<name>ISMUtils</name>
+<script><![CDATA[//
+// jsloan 11.29.2016
+//
+var ISMUtils = Class.create();
+ISMUtils.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+	
+	calcEmScore: function() {
+		var sys_id = this.getParameter("sysparm_u_sys_id");
+		var gRModel = new GlideRecord("cmdb_hardware_product_model");
+		gRModel.addQuery("sys_id",sys_id);
+		gRModel.queryNoDomain();
+		gRModel.next();
+		
+		var sum = gRModel.u_equipment_risk.u_point_score +
+				  gRModel.u_consequence_of_failure.u_point_score +
+				  gRModel.u_regulatory_rating.u_point_score;
+		gs.log("JES :: sum " + sum);
+		return sum;
+		
+	},
+	
+	isCEIDDisposition: function(ceid) {
+		
+		var gREquipment = new GlideRecord("u_cmdb_ci_equipment");
+		gREquipment.addEncodedQuery("sys_id="+ceid+"^u_device_status=3^u_sub_status=4^ORu_sub_status=5");
+		gREquipment.queryNoDomain();
+		
+		if(gREquipment.hasNext()) {
+			return true;
+		}
+		return false;
+	},
+	
+	getLocalTimeForTZ: function() {
+		var tz = this.getParameter("sysparm_u_tz");
+		if(tz == "") {
+			var localDT = new GlideDateTime();
+			var lTZ = Packages.java.util.TimeZone.getTimeZone("US/Eastern");
+			localDT.setTZ(lTZ);
+			var localStr = localDT.getDisplayValue();
+			return localStr.split(' ')[1];
+		} else {
+			var localeDT = new GlideDateTime();
+			var gTZ = Packages.java.util.TimeZone.getTimeZone(tz);
+			localeDT.setTZ(gTZ);
+			var localeStr = localeDT.getDisplayValue();
+			return localeStr.split(' ')[1];
+			//return localeStr;
+		}
+		
+	},
+	
+	preAcknowledgeFromCase: function() {
+		var case_sys_id = this.getParameter("sysparm_u_case_sysid");
+		var tech = this.getParameter("sysparm_u_tech");
+		
+		var gRCase = new GlideRecord("sn_customerservice_case");
+		gRCase.addEncodedQuery("sys_id=" + case_sys_id);
+		gRCase.query();
+		
+		if(gRCase.hasNext()) {
+			gRCase.setValue("u_pre_acknowledged_by_tech",tech);
+			//gRCase.update();
+		}
+	},
+	
+	caseHasWOT: function() {
+		var case_sys_id = this.getParameter("sysparm_u_case_sysid");
+		var gR = new GlideRecord("wm_task");
+		gR.addEncodedQuery("initiated_from=" + case_sys_id);
+		gR.query();
+		var retVal = {};
+		retVal.value = gR.hasNext();
+		return JSON.stringify(retVal);
+	},
+	
+	ackTechRefQual: function() {
+		var users = [];
+		var gRUser = new GlideRecord("sys_user");
+		gRUser.addEncodedQuery("active=true^sys_class_name!=customer_contact");
+		gRUser.queryNoDomain();
+		while(gRUser.next()) {
+			users.push(gRUser.getValue("sys_id"));
+		}
+		return "sys_idIN" + users.join(",");
+	},
+	
+	acknowledgeFromCase: function() {
+		var case_sys_id = this.getParameter("sysparm_u_case_sysid");
+		var tech = this.getParameter("sysparm_u_tech");
+		//
+		// find the task and acknowledge it
+		//
+		var gRWorkOrder = new GlideRecord("wm_order");
+		gRWorkOrder.addEncodedQuery("initiated_from=" + case_sys_id);
+		gRWorkOrder.query();
+		if(gRWorkOrder.next()) {
+			var gRWOT = new GlideRecord("wm_task");
+			gRWOT.addEncodedQuery("parent=" + gRWorkOrder.sys_id+"^acknowledged_onISEMPTY^u_acknowledged_byISEMPTY");
+			gRWOT.query();
+			if(gRWOT.next()) {
+				gRWOT.state=18;
+				gRWOT.substate=-2;
+				gRWOT.acknowledged_on = gs.nowDateTime();
+				gRWOT.u_acknowledged_by = tech;
+				gRWOT.update();
+				var url = "/wm_task.do?sys_id=" + gRWOT.sys_id;
+				gs.addInfoMessage("Task <a href='" + url + "' >" + gRWOT.number + "</a> successfully acknowledged.");
+				//gs.setRedirect("/sn_customerservice_case.do?sys_id=" + case_sys_id);
+			}
+			else {
+				gs.addInfoMessage("All work order tasks related to this case have already been acknowledged.");
+			}
+		}
+	},
+	canAck : function(/*sys_id*/ case_id) {
+	var caseGR = new GlideRecord("sn_customerservice_case");
+	caseGR.get(case_id); //Get the case record;
+	var query = "acknowledged_onISEMPTY^u_acknowledged_byISEMPTY";
+	var woGR = new GlideRecord("wm_order");
+	woGR.addQuery("initiated_from",case_id);
+	woGR.query();
+	if (woGR.next()) {
+		query +="^parent="+woGR.sys_id;
+		var wotGR = new GlideRecord("wm_task");
+		wotGR.addEncodedQuery(query);
+		wotGR.query(); 
+			if (wotGR.hasNext()) {
+				return true; //There are unacknowledged work order tasks
+			}
+			else {
+				return false;  //There are no unacknowledged work order tasks
+			}
+		
+	}
+
+},
+	
+	getManagersForPrimaryTech: function(wot) {
+		var gR = new GlideRecord("sn_customerservice_case");
+		gR.get(wot.parent.initiated_from.sys_id);
+		
+		if(!gR.isValidRecord()) {
+			gs.log("JES :: getManagersForPrimaryTech Failed. (no matching case record)");
+			return {};
+		}
+		
+		var gRUser = new GlideRecord("sys_user");
+		gRUser.get(gR.u_primary_technician.manager);
+		
+		if(!gRUser.isValidRecord()) {
+			gs.log("JES :: getManagersForPrimaryTech Failed. (no matching manager record)");
+			return {};
+		}
+		
+		var retVal = {};
+		retVal.manager1 = gRUser.sys_id;
+		retVal.manager1name = gRUser.name;
+		retVal.manager2 = gRUser.manager;
+		retVal.manager2name = gRUser.manager.name;
+		return retVal;
+	},
+	
+	shouldDelay: function() {
+		var tech1 = this.getParameter("sysparm_u_primary_technician");
+		var tech2 = this.getParameter("sysparm_u_secondary_technician");
+		var result1 =  this._determineScheduleDelta(tech1);
+		var result2 =  this._determineScheduleDelta(tech2);
+		
+		if((/^unavail/i.test(result1) || /^no/i.test(result1) ) && (/^unavail/i.test(result2) || /^no/i.test(result2))) {
+			return "Delay Escalation";
+		} else {
+			return "";
+		}
+		
+	},
+	
+	locationQual: function(csCase) {
+		if(csCase.account != "") {
+			return "company=" + csCase.account;
+		} else {
+			return "companyISNOTEMPTY^ORcompanyISEMPTY";
+		}
+	},
+	
+	compareDates: function() {
+		var date1 = this.getParameter("sysparm_u_date_1");
+		var date2 = this.getParameter("sysparm_u_date_2");
+		
+		var retVal = {};
+		
+		if(new GlideDateTime(date1) >= new GlideDateTime(date2) ) {
+			retVal["value"] = true;
+		} else {
+			retVal["value"] = false;
+		}
+		
+		return JSON.stringify(retVal);
+	},
+	
+	_isNumericValue: function(value) {
+		if(/^[0-9]+$/.test(value)) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	
+	calcExpenseLines: function(sysID) {
+		
+		var laborHoursTotal = 0.00;
+		var vendorLaborTotal = 0;
+		var partsTotal = 0;
+		var vendorPartsTotal = 0;
+		var temp = 0;
+		
+		var gRExp = new GlideRecord("fm_expense_line");
+		gRExp.addEncodedQuery("typeINLabor,Parts,Vendor Labor,Vendor Parts,Vendor Travel^task=" + sysID);
+		gRExp.query();
+		
+		while(gRExp.next()) {
+			if(gRExp.getValue("type") == "Labor") {
+				laborHoursTotal += parseFloat(gRExp.getValue("u_labor_hours"));
+			}
+			if(gRExp.getValue("type") == "Vendor Labor") {
+				vendorLaborTotal += parseFloat(gRExp.getValue("u_extended_price"));
+			}
+			if(gRExp.getValue("type") == "Parts") {
+				partsTotal += parseFloat(gRExp.getValue("u_extended_price"));
+			}
+			if(gRExp.getValue("type") == "Vendor Parts") {
+				vendorPartsTotal += parseFloat(gRExp.getValue("u_extended_price"));
+			}
+			if(gRExp.getValue("type") == "Vendor Travel") {
+				vendorLaborTotal +=  parseFloat(gRExp.getValue("u_extended_price")); 
+			}
+		}
+		
+		var retVal = {
+			"labor_hours_total": laborHoursTotal.toFixed(2),
+			"vendor_labor_total":  vendorLaborTotal.toFixed(2),
+			"parts_total": partsTotal.toFixed(2),
+			"vendor_parts_total": vendorPartsTotal.toFixed(2),
+		};
+		
+		return retVal;
+	},
+	
+	canCloseWOT: function(WOT) {
+		if((WOT.substate != -5 && WOT.substate != -11) && WOT.state== 18) {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	
+	canCloseWO: function(WO) {
+		
+		var gRTask = new GlideRecord("wm_task");
+		gRTask.addEncodedQuery("substateNOT IN-9,-24^stateNOT IN3,-10^parent=" + WO.sys_id);
+		gRTask.query();
+	
+		if(gRTask.hasNext()) {
+			return false;
+		}
+		
+		return true;
+		
+	},
+	
+	getDeptFromLocation: function() {
+		var location = this.getParameter("sysparm_u_location");
+		var gRLocation = new GlideRecord("cmn_location");
+		gRLocation.get(location);
+		
+		if(!gRLocation.isValidRecord()) {
+			return "";
+		}
+		
+		var retVal = {};
+		retVal["company"] = gRLocation.getValue("account");
+		retVal["company_display"] = gRLocation.getDisplayValue("account");
+		retVal["department"] = gRLocation.getValue("u_department");
+		retVal["department_display"] = gRLocation.getDisplayValue("u_department");
+		return JSON.stringify(retVal);
+	},
+	
+	getActiveVendor: function() {
+		var ceID = this.getParameter("sysparm_u_ceid");
+		var gREquip = new GlideRecord("u_cmdb_ci_equipment");
+		gREquip.get(ceID);
+		
+		var retVal = {};
+		retVal["warranty"] = false;
+		retVal["coverage"] = false;
+		
+		var today = new GlideDate();
+		var todayT = new GlideDateTime();
+		
+		if(gREquip.getValue("warranty_expiration") != "") {
+			if(gREquip.warranty_expiration >= today) {
+				retVal["warranty"] = true;
+			}
+		}
+		
+		if(gREquip.u_entitlement.end_date != "") {
+			if(gREquip.u_entitlement.end_date >= todayT) {
+				retVal["coverage"] = true;
+			}
+		}
+		return JSON.stringify(retVal);
+	},
+	
+	getPrimaryTechFromWOT: function(wot) {
+		var gR = new GlideRecord("sn_customerservice_case");
+		gR.get(wot.parent.initiated_from.sys_id);
+		
+		if(!gR.isValidRecord()) {
+			gs.log("JES :: getPrimaryTechFromWOT Failed. (no matching case record)");
+			return {};
+		}
+		
+		var retVal = {};
+		retVal.sys_id = gR.getValue("u_primary_technician");
+		retVal.name = gR.u_primary_technician.name;
+		retVal.email = gR.u_primary_technician.email;
+		retVal.tz = gR.u_primary_technician.time_zone;
+		return retVal;
+	},
+	
+	getSecondaryTechFromWOT: function(wot) {
+		var gR = new GlideRecord("sn_customerservice_case");
+		gR.get(wot.parent.initiated_from.sys_id);
+		
+		if(!gR.isValidRecord()) {
+			gs.log("JES :: getSecondaryTechFromWOT Failed. (no matching case record)");
+			return {};
+		}
+		
+		var retVal = {};
+		retVal.sys_id = gR.getValue("u_secondary_technician");
+		retVal.name = gR.u_secondary_technician.name;
+		retVal.email = gR.u_secondary_technician.email;
+		retVal.tz = gR.u_secondary_technician.time_zone;
+		return retVal;
+	},
+	
+	closeWorkOrder: function() {
+		var woID = this.getParameter("sysparm_u_wo_id");
+		var ceID = this.getParameter("sysparm_u_ceid");
+		var gRWO = new GlideRecord("wm_order");		
+		gRWO.get(woID);
+		gRWO.closed_at = gs.nowDateTime(); // STRY0012694 WO All:need Clsd Dt vs Wrk Cmpltd Dt-AJR 051717
+		gRWO.setValue('state', -10);
+		gRWO.setValue('substate', -21);
+		gRWO.update();
+		
+
+		
+		var gR = new GlideRecord("wm_task");
+		gR.addQuery("parent", gRWO.sys_id);
+		gR.query();
+
+		while(gR.next()) {
+			//
+			// closed/closed unless one of the two below
+			//
+			gR.setValue("state",-10);
+			gR.setValue("substate",-21);
+			
+			if(/^disposition$/i.test(gR.getValue("u_cancellation_reason"))) {
+				gR.setValue("state",-10);
+				gR.setValue("substate",-30);
+			}
+			if(/not needed$/i.test(gR.getValue("u_cancellation_reason"))) {
+				gR.setValue("state",-10);
+				gR.setValue("substate",-32);
+			} 
+			gR.setValue("closed_at",gs.nowDateTime());
+			gR.update();
+		}		
+		
+		if ( gRWO.u_work_order_type == "Repair" || gRWO.u_work_order_type == "Service Request") { // corrected current.u_work_order_type jsloan 5.24.17
+			var gRCase = new GlideRecord("sn_customerservice_case");
+			gRCase.get(gRWO.initiated_from);
+			gRCase.state = 3;
+			gRCase.update();
+		}
+		gs.addInfoMessage("Work order " + gRWO.getDisplayValue("number") + " closed.");
+		action.setRedirectURL(gRWO);
+	}, 
+	
+	getModelInfo: function() {
+		var modelID = this.getParameter("sysparm_u_model_id");
+		var gR = new GlideRecord("cmdb_hardware_product_model");
+		gR.get(modelID);
+		
+		if(!gR.isValidRecord()) {
+			return "";
+		}
+		
+		var retVal = {};
+		retVal["manufacturer"] = gR.manufacturer.getDisplayValue();
+		retVal["name"] = gR.getValue("name");
+		retVal["number"] = gR.getValue("model_number");
+		retVal["description"] = gR.u_description_id.u_description.getDisplayValue();
+		retVal["modality"] = gR.u_description_id.u_modality.getDisplayValue();
+		return JSON.stringify(retVal);
+	},
+	
+	//u_close_notes_choices
+	getCloseNoteChoices: function() {
+		var sys_id = this.getParameter("sysparm_u_sys_id");
+		var choice = this.getParameter("sysparm_u_choice");
+		var gR = new GlideRecord("wm_task");
+		gR.get(sys_id);
+		var options = gR.getValue("u_actions_taken_remediate_alert").split(",");
+		gs.log("options: " + options);
+	},
+	
+	acknowledgeEscalation: function(ackUser,ackWOT,ackDate) {
+		var gR = new GlideRecord("u_escalation_history");
+		
+		gR.initialize();
+		gR.u_type = "task";
+		gR.u_user = ackUser;
+		gR.u_work_order_task = ackWOT;
+		gR.u_work_order = ackWOT.parent;
+		gR.u_case = ackWOT.parent.initiated_from;
+		gR.u_comments = ".:: Acknowledged ::.";
+		gR.u_escalation_order = 999;
+		gR.insert();
+	},
+	
+	getUserIDFromEmail: function(email){
+		var gr = new GlideRecord("sys_user");
+		gr.addQuery('email',email);
+		gr.query(); 
+		if(gr.next()) {
+			return gr.getValue("sys_id");
+		}else{
+			return "";
+		}
+	},
+	
+	initEscalationHistory_divr: function(data) {
+// 		var gRCase = new GlideRecord("sn_customerservice_case");
+// 		gRCase.get(data["case"]);
+		
+// 		if(!gRCase.isValidRecord()) {
+// 			return;
+// 		}
+		
+		var primaryTech = data.cscase.u_primary_technician;
+		var secondaryTech = data.cscase.u_secondary_technician;
+		var processed = 1;
+		
+		var gREH = new GlideRecord("u_escalation_history");
+		gREH.initialize();
+		
+		gREH.setValue("u_type", "task");
+		gREH.setValue("u_work_order_task",data["work_order_task"]);
+		gREH.setValue("u_work_order",data["work_order"]);
+		gREH.setValue("u_case",data["case"]);
+		gREH.setValue("u_role","Primary Technician");
+		gREH.setValue("u_comments","Pending");
+		gREH.setValue("u_user",primaryTech);
+		gREH.setValue("u_escalation_order",processed);
+		gREH.setValue("u_rota",data.cscase.getValue("u_on_call_rota"));
+		gREH.insert();
+		
+		processed++;
+		
+		gREH.initialize();
+		gREH.setValue("u_type", "task");
+		gREH.setValue("u_work_order_task",data["work_order_task"]);
+		gREH.setValue("u_work_order",data["work_order"]);
+		gREH.setValue("u_case",data["case"]);
+		gREH.setValue("u_role","Secondary Technician");
+		gREH.setValue("u_comments","Pending");
+		gREH.setValue("u_user",secondaryTech);
+		gREH.setValue("u_escalation_order",processed);
+		gREH.setValue("u_rota",data.cscase.getValue("u_on_call_rota"));
+		gREH.insert();
+	},
+	
+	initEscalationHistory: function(data) {
+		var gRCase = new GlideRecord("sn_customerservice_case");
+		gRCase.get(data["case"]);
+		
+		if(!gRCase.isValidRecord()) {
+			return;
+		}
+		
+		var primaryTech = gRCase.u_primary_technician.sys_id;
+		var secondaryTech = gRCase.u_secondary_technician.sys_id;
+		var processed = 1;
+		
+		var gREH = new GlideRecord("u_escalation_history");
+		gREH.initialize();
+		
+		gREH.setValue("u_type", "task");
+		gREH.setValue("u_work_order_task",data["work_order_task"]);
+		gREH.setValue("u_work_order",data["work_order"]);
+		gREH.setValue("u_case",data["case"]);
+		gREH.setValue("u_role","Primary Technician");
+		gREH.setValue("u_comments","Pending");
+		gREH.setValue("u_user",primaryTech);
+		gREH.setValue("u_escalation_order",processed);
+		gREH.setValue("u_rota",gRCase.getValue("u_on_call_rota"));
+		gREH.insert();
+		
+		processed++;
+		
+		gREH.initialize();
+		gREH.setValue("u_type", "task");
+		gREH.setValue("u_work_order_task",data["work_order_task"]);
+		gREH.setValue("u_work_order",data["work_order"]);
+		gREH.setValue("u_case",data["case"]);
+		gREH.setValue("u_role","Secondary Technician");
+		gREH.setValue("u_comments","Pending");
+		gREH.setValue("u_user",secondaryTech);
+		gREH.setValue("u_escalation_order",processed);
+		gREH.setValue("u_rota",gRCase.getValue("u_on_call_rota"));
+		gREH.insert();
+	},
+	
+	zeroFill: function(number,width) {
+		width -= number.toString().length;
+		if ( width > 0 ) {
+			return new Array( width + (/\./.test( number ) ? 2 : 1) ).join( '0' ) + number;
+		}
+		  return number + ""; 
+	},
+	
+	WF_isOkayToDelay: function(wot) {
+		var gRWO = new GlideRecord("wm_order");
+		gRWO.get(wot.parent);
+		
+		if(!gRWO.isValidRecord()) {
+			return;
+		}
+		
+		var gRCase = new GlideRecord("sn_customerservice_case");
+		gRCase.get(gRWO.initiated_from);
+		
+		if(!gRCase.isValidRecord()) {
+			return;
+		}
+		//gs.log("Okay to delay: " + gRCase.u_okay_to_delay);
+	    return gRCase.u_okay_to_delay;
+	},
+	
+	getTechnicianInfo: function()  {
+		var gR = new GlideRecord("sys_user");
+		gR.addQuery("sys_id",this.getParameter("sysparm_u_technician"));
+		gR.query();
+		
+		if(!gR.next()) {
+			return;
+		}
+		
+		var retParams = {};
+		retParams.schedule = gR.getValue("schedule");
+		retParams.schedule_display = gR.schedule.getDisplayValue();
+		retParams.email = gR.getValue("email");
+		retParams.title = gR.getValue("title");
+		retParams.phone = gR.getValue("phone");
+		return JSON.stringify(retParams);
+
+	},
+	
+	ackWOTFromEmail: function(wot,user) {
+		this._ackWOT(wot,user);
+	},
+	
+	updateEscalationSchedule: function(user, sys_id, status) {		
+		var gREscSch = new GlideRecord("u_escalation_history");
+		gREscSch.addQuery("u_work_order_task",sys_id);
+		gREscSch.addQuery("u_user",user);
+		gREscSch.addQuery("u_type","task");
+		gREscSch.orderByDesc("u_escalation_order");
+		gREscSch.query();
+		
+		// Logging added per STRY0174964
+		gs.log('user: ' + user + '\nsys_id: ' + sys_id + '\nstatus: ' + status + '\nRecord count: ' + gREscSch.getRowCount(), 'ISMUtils.updateEscalationSchedule');
+		
+		if(gREscSch.next()) {
+			if(/^Notification/.test(status)) { 
+				gREscSch.u_notified_on = new GlideDateTime(); 
+			}
+			gREscSch.u_comments = status;
+			gREscSch.update();
+		}
+		
+	},
+	
+	_ackWOT: function(wot,user) {
+		var gREscSch = new GlideRecord("u_escalation_history");
+		gREscSch.addQuery("u_work_order_task",wot.sys_id);
+		gREscSch.addQuery("u_work_order",wot.parent);
+		gREscSch.addQuery("u_case",wot.parent.initiated_from);
+		gREscSch.addQuery("u_type","task");
+		gREscSch.addQuery("u_user",user);
+		
+		gREscSch.query();
+		
+		if(gREscSch.next()) {
+			gREscSch.u_comments = ".:: Acknowledged ::."; 
+			gREscSch.update();
+		}
+	},
+		
+	getDateDiff: function() {
+		var dtStart = new GlideDateTime(this.getParameter("sysparm_u_start_date"));
+		var dtEnd = new GlideDateTime(this.getParameter("sysparm_u_end_date"));
+		var exp = new expenseLineUtils();
+		var hours = 0.00;
+		var totalSeconds = 0.00;
+		var fraction = 0.00;
+		
+		while(dtStart < dtEnd) {
+			totalSeconds += 60;
+			dtStart.addSeconds(60);
+		}
+
+		hours = Math.floor(totalSeconds / 3600);
+		totalSeconds %= 3600;
+		fraction = Math.floor(totalSeconds / 60) * 0.0166667;
+		
+		var totalHours = parseFloat(hours + fraction);
+		
+		return exp.round(totalHours,2);
+		
+    },
+	
+	createDispositionWO: function(params) {
+		var gRWO = new GlideRecord("wm_order");
+		gRWO.initialize();
+		
+		gRWO.short_description = params["wo_description"];
+		gRWO.u_work_order_type = "Disposition";
+		gRWO.u_ceid = params["ceid"];
+		gRWO.assigned_to = params["assigned_to"];
+		
+		gRWO.state = 18;
+		var gRCEID = new GlideRecord("u_cmdb_ci_equipment");
+		gRCEID.get(params["ceid"]);
+		
+		if(!gRCEID.isValidRecord()) {
+			gs.addErrorMessage("CEID is invalid!");
+			return;
+		}
+		
+		gRWO.assignment_group = gRCEID.u_on_call_rota;
+		//ken's edit
+		gRWO.u_account = gRCEID.u_account;
+		gRWO.u_hospital_department = gRCEID.department;
+		//end ken's edit
+		
+		gRWO.insert();
+		
+		var gRWOT = new GlideRecord("wm_task");
+		gRWOT.initialize();
+		
+		gRWOT.u_work_order_type = "Disposition";
+		gRWOT.u_ceid = params["ceid"];
+		gRWOT.short_description = params["tk_description"];
+		gRWOT.assigned_to = params["assigned_to"];
+		gRWOT.assignment_group = gRCEID.u_on_call_rota;
+		//ken's edit to pull over customer
+		gRWOT.u_customer = gRWO.u_account;
+		//end ken's edit
+		gRWOT.u_hospital_department = gRWO.u_hospital_department;  // STRY0165434 - WOT-D : Set Hospital Department
+		gRWOT.parent = gRWO.sys_id;
+		gRWOT.state = 1;
+		gRWOT.substate = -1;
+		gRWOT.insert();
+		gs.addInfoMessage("Generated " + gRWO.number + " and " + gRWOT.number);
+		return gRWOT.getValue("sys_id");
+	},
+	
+	
+	getContactsFromModel: function(model) {
+		var gR = new GlideRecord("u_model_type_technicians");
+		gR.get(model);
+		
+		if(!gR.isValidRecord()) {
+			return;
+		}
+		
+		var retVal = {};
+		retVal.primary_tech = gR.getValue("u_technician");
+		retVal.primary_tech_display = gR.u_technician.getDisplayValue();
+		retVal.secondary_tech = gR.getValue("u_secondary_technician");
+		retVal.secondary_tech_display = gR.u_secondary_technician.getDisplayValue();
+		retVal.rota = gR.getValue("u_on_call_rota");
+		retVal.rota_display = gR.u_on_call_rota.getDisplayValue();
+		
+		return retVal;
+	},
+	
+	getContactsFromModelType: function() {
+		var model = this.getParameter("sysparm_u_model_type");
+		var gR = new GlideRecord("u_model_type_technicians");
+		gR.get(model);
+		
+		if(!gR.isValidRecord()) {
+			return;
+		}
+		
+		var retVal = {};
+		retVal.primary_tech = gR.getValue("u_technician");
+		retVal.primary_tech_display = gR.u_technician.getDisplayValue();
+		retVal.secondary_tech = gR.getValue("u_secondary_technician");
+		retVal.secondary_tech_display = gR.u_secondary_technician.getDisplayValue();
+		retVal.rota = gR.getValue("u_on_call_rota");
+		retVal.rota_display = gR.u_on_call_rota.getDisplayValue();
+		
+		return JSON.stringify(retVal);
+	},
+	
+	WF_notifyOnScheduleROTA: function(WOT) {
+		gs.log("entering...");
+		var gRROTA = new GlideRecord("cmn_rota");
+		gRROTA.addEncodedQuery("group=" + WOT.initiated_from.u_on_call_rota);
+		gRROTA.queryNoDomain();
+		
+		if(!gRROTA.hasNext()) {
+			gs.log("WF_notifyOnScheduleROTA: assignment group invalid, aborting!");
+			WOT.u_rota_exhausted = true;
+			return;
+		}
+		
+		var gREsc = new GlideRecord("u_escalation_history");
+		gREsc.addEncodedQuery("u_type=task^u_work_order_task="+ WOT.sys_id+"^u_commentsSTARTSWITHNotification");
+		gREsc.query();
+		
+		while(gREsc.next()) {
+			gREsc.u_comments = "No Response. Skipped.";
+			gREsc.update();
+		}
+		
+		var gREscalation = new GlideRecord("u_escalation_history");
+		gREscalation.addEncodedQuery("u_type=task^u_work_order_task="+ WOT.sys_id+"^u_roleSTARTSWITHROTA" + "^ORDERBYu_escalation_order^u_commentsLIKEPending");
+		gREscalation.query();
+		
+		if(gREscalation.next()) {
+			var role = gREscalation.getValue("u_role");
+			gs.eventQueue("WOT.notify.rota", WOT, gREscalation.u_user.sys_id, gREscalation.u_user.name.getDisplayValue() + " as " + role);
+			gREscalation.u_comments = "Notification sent.";
+			gREscalation.u_notified_on = gs.nowDateTime(); 
+			gREscalation.update();
+		} else {
+			WOT.u_rota_exhausted = true;
+		}
+	},
+		
+	getSecondaryTech: function(wo) {
+		var gRWO = new GlideRecord("wm_order");
+		gRWO.get(wo);
+		
+		if(!gRWO.isValidRecord()) {
+			return;
+		}
+		
+		var gRCS = new GlideRecord("sn_customerservice_case");
+		gRCS.get(gRWO.initiated_from);
+		
+		if(!gRCS.isValidRecord()) {
+			return;
+		}
+		
+		return gRCS.u_secondary_technician;
+	},
+	
+	//
+	// wrapper for ajax calls
+	//
+	getTechSchedule: function() {
+		var tech = this.getParameter("sysparm_u_technician");
+		return this._determineScheduleDelta(tech);
+	},
+	//
+	// wrapper for workflow
+	//
+	getTechAvailability: function(user) {
+		return this._determineScheduleDelta(user);
+	},
+	
+	//
+	// wrapper for legacy calls
+	//
+	_determineScheduleDelta: function(user) {
+		var esc = new escalationUtils();
+		return esc.getAvailability(user);
+	},
+	
+	getTechFromDept: function() {
+		var dept = this.getParameter("sysparm_u_dept");
+		var gR = new GlideRecord("cmn_department");
+		gR.addQuery("sys_id", dept);
+		gR.query();
+		if(gR.next()) {
+			var retVal = { };
+			retVal["primary"] = gR.getValue("u_default_primary_tech");
+			retVal["primary_display"] = gR.u_default.primary_tech.getDisplayValue();
+			retVal["rota"] = gR.getValue("u_on_call_rota");
+			retVal["rota_display"] = gR.u_on_call_rota.getDisplayValue();
+			retVal["secondary"] = gR.getValue("u_default_secondary_tech");
+			retVal["secondary_display"] = gR.u_default_secondary_tech.getDisplayValue();
+			return JSON.stringify(retVal);
+		}
+	},
+	
+	fetchTechForDept: function() {
+		var dept = this.getParameter("sysparm_u_dept");
+		var gR = new GlideRecord("cmn_department");
+		gR.addQuery("sys_id", dept);
+		gR.query();
+		if(gR.next()) {
+			return gR.u_default_primary_tech + "," + gR.u_default_assignment_group;
+		}
+	},
+	showWorkCompleted: function(record) {
+		if(record.u_work_order_type == "Recall"
+		|| record.u_work_order_type == "Alert") {
+			if(record.state == 18 && record.u_affected != "") {
+				return true;
+			}
+		} else {
+			if(record.state == 18) {
+				return true;
+			}
+		}
+		return false;
+	},
+	
+	hasTechSkills: function() {
+		var ceid = this.getParameter("sysparm_u_ceid");
+		var gR = new GlideRecord('u_cmdb_ci_equipment');
+		gR.addQuery('sys_id', ceid);
+		gR.query();
+		gR.next();
+
+		var techSkill = new GlideRecord('sys_user_has_skill');
+		techSkill.addQuery("skill","IN", gR.model_id.u_skills);
+		techSkill.query();
+
+		if (techSkill.hasNext()) {
+			return true;
+		}
+		return false;
+	},
+	
+	getCaseFields: function() {
+		var gR = new GlideRecord("sn_customerservice_case");
+		gR.query();
+		gR.next();
+		var arrFields = gR.getFields();
+		//gs.log(arrFields.join(","));
+	},
+	
+	checkOpenWOT: function (wo) {
+		var answer = true;
+		var gr = new GlideRecord('wm_task');
+		gr.addQuery('parent', wo.sys_id);
+		gr.addActiveQuery();
+		gr.query();
+		
+		if (gr.getRowCount() > 0) {
+			answer = false;
+			gs.addShowFieldMsg('','','');
+		}
+		return answer;
+	},
+	
+	getPMScheduleFromCEID: function() {
+		var ceid = this.getParameter("sysparm_u_ceid");
+		
+		var gR = new GlideRecord("u_pm_equipment_schedule");
+		gR.addEncodedQuery("u_ceid=" + ceid  + "^ORDERBYu_scheduled_date");
+		gR.query();
+		
+		if(gR.next()) {
+			return  gR.u_scheduled_date + "," + gR.u_pm_procedure.u_code;
+		}
+	},
+	
+	//
+	// Copies Close Notes Tab from WOT to parent WO
+	//
+	copyWOTRepairNotes: function(WOT) {
+		
+		//
+		// query for parent work order
+		//
+		var grWO = new GlideRecord("wm_order");
+		grWO.addQuery("sys_id",WOT.parent);
+		grWO.query();
+		
+		//
+		// populate WO close notes
+		//
+		if (grWO.next()) {
+			grWO.u_error_code = WOT.u_error_code;
+			grWO.u_actions_taken = WOT.u_actions_taken;
+			grWO.u_pm_procedure = WOT.u_pm_procedure;
+			grWO.u_procedures = WOT.u_procedures;
+			grWO.u_use_provided_procedure = WOT.u_use_provided_procedure;
+			grWO.u_choice_6  = WOT.u_choice_6;
+			grWO.u_choice_1  = WOT.u_choice_1;
+			grWO.u_choice_2  = WOT.u_what_were_the_results;
+			grWO.u_choice_3  = WOT.u_choice_3;
+			grWO.u_choice_4  = WOT.u_choice_4;
+			grWO.u_choice_5  = WOT.u_choice_5;
+			grWO.u_string_11 = WOT.u_comments_1;
+			grWO.u_string_6  = WOT.u_comments_2;
+			grWO.u_string_7  = WOT.u_comments_3;
+			grWO.u_string_8  = WOT.u_comments_4;
+			grWO.u_string_9  = WOT.u_comments_5;
+			grWO.u_string_10 = WOT.u_comments_6;
+			grWO.update();
+		} 
+	}, // end function
+		
+		//
+		// Create Work Order From Case
+		//
+		createWorkOrderFromCase: function(cscase) {
+		var workOrder = new GlideRecord("wm_order");//this._retrieveWorkOrder(true, cscase, true);
+		 //workOrder.initialize();
+		 workOrder.newRecord();
+			
+			//gs.log("JES :: " + cscase.u_primary_technician);
+		//
+		// complete the work order definition and creation
+		//
+		workOrder.u_account 			= cscase.getValue("account");
+		workOrder.caller 				= cscase.getValue("contact");
+		workOrder.caller.phone 			= cscase.getValue("contact.phone");
+		workOrder.short_description 	= cscase.getValue("short_description"); 
+		workOrder.u_service_location 	= cscase.getValue("u_service_location");
+		workOrder.priority 				= cscase.getValue("priority");
+		workOrder.initiated_from 		= cscase.getValue("sys_id");
+		workOrder.u_initiated_from_case	= cscase.getValue("sys_id");
+		workOrder.u_ceid 				= cscase.getValue("u_ceid");
+		workOrder.u_work_order_type 	= cscase.getValue("u_work_order_type");
+		workOrder.u_hospital_department = cscase.getValue("u_department");
+		workOrder.u_model_type 			= cscase.getValue("u_model_type_tech.u_model_type");
+		workOrder.u_potential_damage 	= cscase.getValue("u_potential_damage");
+		workOrder.u_potential_incident 	= cscase.getValue("u_potential_incident");	
+	    workOrder.u_damage_comments 	= cscase.getValue("u_potential_damage_notes");
+		workOrder.u_hot_notes 			= cscase.getValue("u_hot_notes");
+		workOrder.u_current_efs 		= cscase.getValue("u_current_efs");
+		workOrder.assignment_group 		= cscase.getValue("u_on_call_rota");
+		workOrder.assigned_to  			= cscase.getValue("u_primary_technician");
+
+		workOrder.u_hot_notes.setJournalEntry(cscase.u_internal_notes); 
+		workOrder.u_hot_notes.setJournalEntry(cscase.u_safety_check_details);
+		workOrder.u_hot_notes.setJournalEntry(cscase.getValue("u_potential_damage_notes"));
+		workOrder.state 				= 18; // set to open
+		workOrder.substate             = -20; //set to remediation underway
+		workOrder.sys_domain 			= cscase.getValue("sys_domain");
+			
+		var location = "";
+		if(!gs.nil(cscase.asset)){
+			workOrder.asset = cscase.asset;
+			workOrder.cmdb_ci = cscase.asset.ci;
+			location = cscase.asset.location;
+		}
+		
+		if(gs.nil(location) && !gs.nil(cscase.contact)){
+			location = cscase.contact.location;
+		}
+		
+		workOrder.location = location;
+		workOrder.insert();
+		var wot = this._createWOTforWO(workOrder,cscase);
+
+		// update the Case with the WO and WOT records
+		cscase.u_work_order = workOrder.getValue("sys_id");
+		cscase.u_work_order_task = wot.getValue("sys_id");
+		cscase.update();
+			
+		var retVal = { };
+		retVal["work_order"] = workOrder.sys_id;
+		retVal["work_order_task"] = wot.sys_id;
+		retVal["case"] = cscase.sys_id;
+		retVal["cscase"] = cscase;
+		retVal["rota"] = cscase.u_on_call_rota;
+		retVal["wot_number"] = wot.number;
+		var WOLink = "<a href='/wm_order.do?sys_id=" + workOrder.sys_id + "'>" + workOrder.number + "</a>";
+		var WOTLink = "<a href='/wm_task.do?sys_id=" + wot.sys_id + "'>" + wot.number + "</a>";
+		var CSLink = "<a href='/sn_customerservice_case.do?sys_id=" + cscase.sys_id + "'>" + cscase.number + "</a>";
+		gs.addInfoMessage("Work order " + WOLink + " and Work Order Task " + WOTLink + " created from " + CSLink);
+		return  retVal;
+		//return "Work order " + workOrder.number + " and Work Order Task " + wot + " created from " + cscase.number;
+	},
+	
+    //
+	// Copy work order fields to a new task
+	//
+	_createWOTforWO: function(WO,cscase) {
+		var grWOT = new GlideRecord("wm_task");
+		grWOT.initialize();
+		
+		grWOT.parent 				= WO.getValue('sys_id');
+		grWOT.u_customer 			= WO.getValue('u_account');
+		grWOT.u_contact 			= WO.getValue('caller');
+		grWOT.u_ceid 				= WO.getValue('u_ceid');
+		grWOT.name 					= WO.getValue('name');
+		grWOT.serial_number 		= WO.getValue('serial_number');
+		grWOT.manufacturer 			= WO.getValue('manufacturer');
+		grWOT.u_service_location 	= WO.getValue('u_service_location');
+		grWOT.priority 				= WO.getValue('priority');
+		grWOT.short_description 	= WO.getValue('short_description');
+		grWOT.description 	        = cscase.getValue('u_internal_notes');
+		grWOT.initiated_from        = cscase.getValue('sys_id');
+		grWOT.u_initiated_from_case = cscase.getValue('sys_id');
+		grWOT.u_tech_id 			= WO.getValue('u_tech_id');
+		grWOT.u_physical_location 	= WO.getValue('u_physical_location_text');
+		grWOT.u_hospital_department = WO.getValue('u_hospital_department');  // STRY0165660 - WOT : Set Hospital Department
+		grWOT.skills 				= WO.getValue('skills');
+		grWOT.u_work_order_type 	= cscase.getValue('u_work_order_type');
+// 		grWOT.work_notes.setJournalEntry(cscase.getValue('u_internal_notes')); 
+		
+		grWOT.assignment_group 		= cscase.getValue("u_on_call_rota");
+		grWOT.assigned_to 			= cscase.getValue("u_primary_technician");
+
+		grWOT.u_potential_incident = cscase.getValue('u_potential_incident');
+		grWOT.u_potential_damage = cscase.getValue('u_potential_damage');
+		// pass internal notes and potential incident notes to WOT - KJK
+		if (cscase.u_internal_notes){
+			grWOT.u_hot_notes.setJournalEntry('Case Internal Notes: ' + cscase.getValue('u_internal_notes'));
+		}	
+		if (cscase.u_potential_incident_notes){
+			grWOT.u_hot_notes.setJournalEntry('Potential Incident Notes: ' + cscase.getValue('u_potential_incident_notes'));
+		}
+		if (cscase.u_potential_damage_notes) {
+			grWOT.u_hot_notes.setJournalEntry('Potential Damage Notes: ' + cscase.getValue("u_potential_damage_notes"));
+		}
+		// End notes update - KJK
+		grWOT.u_potential_damage = cscase.getValue('u_potential_damage');
+		grWOT.u_safety_check_needed = cscase.getValue('u_safety_check_needed');
+		grWOT.u_is_device_patient_owned = cscase.getValue('u_is_device_patient_owned');
+		grWOT.state 				=  1; 
+		grWOT.substate				= -1;
+// 		grWOT.u_work_order_type 	= "Repair";
+		
+		//
+		// Supress workflow from starting if pre-acknowledged - STRY0032436 - jsloan 7/26/2017
+		//
+		if(!gs.nil(cscase.getValue("u_pre_acknowledged_by_tech"))) {
+			WO.setValue("u_acknowledged_by_tech",new GlideDateTime());
+			WO.setValue("u_first_notice", new GlideDateTime());
+			WO.work_notes.setJournalEntry(".:: Acknowledged ::. \n\n Technician: " + 
+											 cscase.getDisplayValue("u_pre_acknowledged_by_tech") + "\n" + 
+											 "Timestamp: " + new GlideDateTime().getDisplayValue());
+			WO.update();
+			
+			grWOT.setValue("u_first_notice",new GlideDateTime());
+			grWOT.setValue("u_workflow_started",new GlideDateTime());
+			grWOT.setValue("acknowledged_on",new GlideDateTime());
+			grWOT.setValue("u_acknowledged_by",cscase.getValue("u_pre_acknowledged_by_tech"));
+			grWOT.setValue("state",18);
+			grWOT.setValue("substate",-2);
+			grWOT.work_notes.setJournalEntry(".:: Acknowledged ::. \n\n Technician: " + 
+											 cscase.getDisplayValue("u_pre_acknowledged_by_tech") + "\n" + 
+											 "Timestamp: " + new GlideDateTime().getDisplayValue());
+		}
+		
+		grWOT.sys_domain 			= WO.getValue('sys_domain');
+		grWOT.insert();
+		
+		var channel = cscase.getValue("contact_type");
+		
+		//if(/^divr/i.test(channel)) {
+		//	GlideSysAttachment.copy('sn_customerservice_case', cscase.getValue("sys_id"), 'wm_task', grWOT.getValue("sys_id"));
+		//}
+		
+		return grWOT;
+	},
+	
+	//
+	// Generates WOs/WOTs for Alerts and Recalls and Generics
+	//
+	generateRecallTasks: function(params) {				
+		var countWO = 0;
+		var countWOT = 0;
+		var grWO = new GlideRecord('wm_order');
+		var grWOT = new GlideRecord('wm_task');
+	
+		var query_clean = params.search_query.split('+').join(' ');
+		
+		var gaEquip = new GlideAggregate('u_cmdb_ci_equipment');
+		gaEquip.addAggregate('COUNT');		
+		gaEquip.addAggregate('MAX', 'u_account.number');		
+		gaEquip.addEncodedQuery(query_clean);
+		gaEquip.groupBy('u_account.number');  // BUG: Cannot groupBy "u_account" (Not sure why)
+		gaEquip.query();
+		while (gaEquip.next()) {
+			var acctNum = gaEquip.getAggregate('MAX', 'u_account.number');
+			
+			var acctSysID = '';
+			var acctGroup = '';
+			var acctTech = '';
+			
+			var grCustomer = new GlideRecord('customer_account');
+			grCustomer.addQuery('number', acctNum);
+			grCustomer.query();
+			if (grCustomer.next()) {
+				acctSysID = grCustomer.getValue('sys_id');
+				acctGroup = grCustomer.getValue('u_generic_alert_group');
+				acctTech = grCustomer.getValue('u_generic_alert_technician');
+			}
+
+			grWO.initialize();
+			grWO.setValue('short_description', params.wo_description);
+			//grWO.setValue('u_physical_location', locations[customer]);
+			grWO.setValue('u_account', acctSysID);
+			grWO.setValue('u_work_order_type', params.wo_type);
+			grWO.setValue('assignment_group', acctGroup);
+			grWO.setValue('assigned_to', acctTech);
+			grWO.setValue('u_reference_number', params.ref_num);
+			grWO.setValue('state', 18);
+			grWO.setValue('substate', -20);
+			grWO.setValue('u_anticipated_service_provider', params.service_provider_type);	
+			grWO.insert();
+			countWO++;
+			
+			if (params.wo_type == "Generic") {
+				grWOT.initialize();
+				grWOT.setValue('parent', grWO.getValue('sys_id'));
+				grWOT.setValue('short_description', params.tk_description);
+				grWOT.setValue('u_work_order_type', params.wo_type);
+				grWOT.setValue('u_reference_number', params.ref_num);
+				grWOT.setValue('u_customer', acctSysID);
+				grWOT.setValue('assignment_group', acctGroup);
+				grWOT.setValue('assigned_to', acctTech);
+				grWOT.setValue('u_anticipated_service_provider', params.service_provider_type);
+				grWOT.setValue('substate', -1);
+				grWOT.insert();
+				countWOT++;
+			}
+			else {
+				var grEquip = new GlideRecord('u_cmdb_ci_equipment');
+				grEquip.addQuery('u_account.number', acctNum);
+				grEquip.addEncodedQuery(query_clean);
+				grEquip.query();
+				while(grEquip.next()) {
+					grWOT.initialize();
+					grWOT.setValue('parent', grWO.getValue('sys_id'));
+					grWOT.setValue('short_description', params.tk_description);
+					grWOT.setValue('u_work_order_type', params.wo_type);
+					grWOT.setValue('u_ceid', grEquip.getValue('sys_id'));
+					grWOT.setValue('u_customer', grEquip.getValue('u_account'));
+					grWOT.setValue('assignment_group', grEquip.getValue('u_on_call_rota'));
+					grWOT.setValue('assigned_to', grEquip.getValue('u_primary_tech'));
+					grWOT.setValue('u_reference_number', params.ref_num);
+					grWOT.setValue('u_hospital_department', grEquip.getValue('department'));
+					grWOT.setValue('u_anticipated_service_provider', params.service_provider_type);
+					grWOT.setValue('substate', -1);
+					grWOT.insert();
+					countWOT++;
+				}
+			}
+		}
+		
+		var retVal = {};
+		retVal.wo_count = countWO;
+		retVal.wot_count = countWOT;
+		return retVal;
+	},
+	
+	//
+	// update the prevenative maintenance schedule on medical device
+	//
+	rotatePMSchedule: function() {
+		var grMD = new GlideRecord("cmdb_ci_acc");
+		grMD.addQuery("sys_id",this.getParameter("sysparm_u_device_name"));
+		grMD.query();
+		
+		while(grMD.next()) {
+			//
+			// set todays date
+			//
+			var curDT = new GlideDateTime(GlideDateTime().getDisplayValue());
+			grMD.u_last_pm_1_date = curDT.getDate();
+			//
+			// generate new date based on 'frequency' value
+			//
+			var delta = grMD.u_frequency_1;
+			var epoch = delta.split('-');
+			
+			if(epoch[0] == 'WEEK') {
+				curDT.addWeeksUTC(epoch[1]);
+			} else if(epoch[0] == 'MONTH') {
+				curDT.addMonthsUTC(epoch[1]);
+			} else if(epoch[0] == 'YEAR') {
+				curDT.addYearsUTC(epoch[1]);
+			} else {
+				gs.log("rotatePMSchedule: bug!");
+			}
+			//
+			// set next pm date
+			//
+			grMD.u_next_pm_1_date = curDT.getDate();
+			grMD.update();
+			//
+			// return teh data
+			//
+			return grMD.u_procedure_1 + "," + grMD.u_next_pm_1_date + "," + grMD.u_ceid;
+		}
+	},
+	//
+	// close work order
+	//
+	closeWO: function() {
+		var grWO = new GlideRecord("wm_order");
+		grWO.addQuery("sys_id",this.getParameter("sysparm_sys_id"));
+		grWO.query();
+		
+		while(grWO.next()) {
+			grWO.state = 40;
+			grWO.update();
+		}
+	},
+	//
+	// retrieve open work order count for a given medical device
+	//
+	getWorkOrderCount: function() {
+		var ceid = this.getParameter("sysparm_u_device_name");
+		if(ceid != '') {
+			var grWO = new GlideRecord("wm_task");
+			grWO.addEncodedQuery("stateNOT IN3,-10^u_ceid="+ceid );		
+			grWO.query();
+		
+			return grWO.getRowCount();
+		}
+		return 0;
+	},
+	caseHasOpenWorkOrders: function() {
+		var sys_id = this.getParameter("sysparm_case");
+		var gR = new GlideRecord("wm_order");
+		gr.addQuery("initiated_from",sys_id);
+		gr.query();
+		if(gr.getRowCount() > 0) {
+			return true;
+		}
+		return false;
+	},
+	//
+	// 
+	//
+	getPMTech: function() {
+		var ceid = this.getParameter("sysparm_u_device_name");
+	 	var grMD = new GlideRecord("cmdb_ci_acc");
+	    grMD.addEncodedQuery("sys_id=" + ceid);
+	    grMD.query();
+	
+	    while(grMD.next()) {
+		    return grMD.u_pm_technician;
+	    }	
+	},
+	//
+	//
+	//
+	duplicateCase: function() {
+		var data = JSON.parse(this.getParameter('sysparm_fields'));
+		var grCase = new GlideRecord("sn_customerservice_case");
+		grCase.initialize();	
+		grCase.short_description = data.short_description;
+		grCase.u_service_location = data.service_location;
+		grCase.u_department = data.department;
+		grCase.account = data.account;
+		grCase.u_model_type_tech = data.model_type_tech;
+		grCase.u_service_offering = data.service_offering;
+		grCase.u_work_order_type = data.work_order_type;
+		grCase.contact = data.contact;
+		grCase.u_alt_contact = data.alt_contact;
+		grCase.u_reported_by_tech = data.u_reported_by_tech;
+		grCase.insert();
+		return grCase.sys_id;
+	},
+	getHealthSystemFromAccount: function() {
+		var caseAccount = this.getParameter("sysparm_account");
+		var grAccount = new GlideRecord("customer_account");
+		//gs.log("Case Account: " + caseAccount);
+		grAccount.addQuery("sys_id",caseAccount);
+		//grAccount.addQuery("u_health_system",true);
+		grAccount.query();
+		grAccount.next();
+		//if(grAccount.next()) {
+		//gs.log("grAccount: " + grAccount.account_parent);
+		return grAccount.account_parent;
+		//}
+	},
+	getCEIDUpdates: function() {
+		var ceid = this.getParameter("sysparm_u_ceid");
+		
+		if(ceid == '') {
+			return "";
+		}
+		var grCEID = new GlideRecord("u_cmdb_ci_equipment");
+		grCEID.addQuery("sys_id",ceid);
+		grCEID.queryNoDomain();
+		grCEID.next();
+		
+		var grWO = new GlideRecord("wm_order");
+		//grWO.addQuery("u_ceid", ceid);
+		//grWO.addEncodedQuery("state!=-4^u_ceid="+ceid);
+		grWO.addEncodedQuery("state!=-10^u_ceid="+ceid);
+		grWO.queryNoDomain();
+		grWO.next();
+		var workOrderCount = 0;
+		if(grWO.isValidRecord()) {
+		    workOrderCount = grWO.getRowCount();
+		}
+		var retVal = {};
+		retVal["mission_critical"] = grCEID.getValue("u_mission_critical");
+		retVal["account"] = grCEID.getValue("u_account");
+		retVal["account_display"] =  grCEID.getDisplayValue("u_account")
+		retVal["model_type"] = grCEID.model_id.u_model_type;
+		retVal["model_type_display"] = grCEID.model_id.u_model_type.getDisplayValue();
+		retVal["wo_count"] = workOrderCount;
+		retVal["department"] = grCEID.getValue("department");
+		retVal["department_display"] = grCEID.getDisplayValue("department");
+		retVal["device_status"] = grCEID.getValue("u_device_status");
+		//retVal["ephi"] = grCEID.model_id.u_device_stores_ephi;
+		retVal["primary"] = grCEID.getValue("u_primary_tech");
+		retVal["primary_display"] = grCEID.getDisplayValue("u_primary_tech");
+		retVal["rota"] = grCEID.getValue("u_on_call_rota");
+		retVal["rota_display"] = grCEID.getDisplayValue("u_on_call_rota");
+		retVal["secondary"] = grCEID.getValue("u_secondary_tech");
+		retVal["secondary_display"] = grCEID.getDisplayValue("u_secondary_tech");
+		retVal["location"] = grCEID.getValue("u_physical_location_text");
+		retVal["location_display"] = grCEID.getDisplayValue("u_physical_location_text");
+
+		var gRModel = new GlideRecord("cmdb_hardware_product_model");
+		gRModel.get(grCEID.getValue("model_id"));
+		retVal["ephi"] = gRModel.getValue("u_device_stores_ephi");
+// 		retVal["model_type"] = gRModel.getValue('u_model_type');
+// 		retVal["model_type_display"] = gRModel.getDisplayValue('u_model_type');
+		
+		return JSON.stringify(retVal);
+	},
+	/**********************************************************/
+	/* PRIVATE FUNCTIONS **************************************/
+	/**********************************************************/
+	
+	//
+ 	// Check for prior existence of a work order for this itil task or create a shell of one if none
+ 	//Actual work order insert is the responsibility of caller so that they get a chance to populate non shared fields
+ 	//Returns null if work order already exists (and redirects), returns non-inserted work order if new one required
+ 	//
+	_retrieveWorkOrder: function(shouldCheck, itilTask, display) {
+		if(shouldCheck && this._checkCreatedWorkOrder(itilTask, display))
+			return null;
+		
+		var workOrder = new GlideRecord("wm_order");
+		
+		workOrder.short_description = itilTask.short_description;
+		workOrder.description = itilTask.description;
+		workOrder.priority = itilTask.priority;
+		workOrder.state = SMConstants.ORDER_DRAFT;
+		workOrder.cmdb_ci = itilTask.cmdb_ci;
+		workOrder.initiated_from = itilTask.sys_id;
+		
+		return workOrder;
+	},
+	
+	_redirectToNewWorkOrder: function(workOrder, previousItilTask) {
+		gs.addInfoMessage(gs.getMessage("Work Order created for {0}", previousItilTask.number));
+		action.setRedirectURL(workOrder);
+		action.setReturnURL(previousItilTask);
+	},
+	
+	_checkCreatedWorkOrder: function(task, display) {
+		var gr = new GlideRecord("wm_order");
+		gr.addQuery('initiated_from', task.sys_id);
+		gr.addEncodedQuery('stateNOT IN' + SMConstants.ORDER_CLOSED_COMPLETE + ',' + SMConstants.ORDER_CLOSED_INCOMPLETE + ',' + SMConstants.ORDER_CANCELLED);
+		gr.query();
+		if(gr.next()) {
+			if (display)
+				gs.addInfoMessage(gs.getMessage("Viewing the work order that was created for {0}", task.number));
+			action.setRedirectURL(gr);
+			action.setReturnURL(task);
+			return true;
+		}
+		return false;
+	},
+	
+	hasValidAssignee: function(record) {
+		var sc = new sn_sm.SMConfiguration();
+		var dispatchOn = sc.isEnabled(current, 'dispatch_queue', false);
+		
+		if (dispatchOn) {
+			if (record.instanceOf('sm_task')) {
+				if (record.dispatch_group.nil()) 
+					return false;
+			}
+			else
+				return true;
+		}
+		
+		var grMember = new GlideRecord('sys_user_grmember');
+		grMember.addQuery('user', record.assigned_to);
+		grMember.addQuery('group', record.assignment_group);
+		grMember.setLimit(1);
+		grMember.queryNoDomain();
+		var assigneeInAssignmentGroup = grMember.hasNext();
+		if (assigneeInAssignmentGroup)
+			return true;
+		
+		var asmtGroup = new GlideRecord('sys_user_group');
+		asmtGroup.get(record.assignment_group);
+		var assigneeIsAssignmentGroupMgr = asmtGroup.manager + '' == record.assigned_to + '';
+		if (assigneeIsAssignmentGroupMgr)
+			return true;
+		
+		return false;
+	},
+	
+	getPOData: function() {
+		var retVal = "";
+		var poSysid = this.getParameter("sysparm_receipt");
+		var poRec = new GlideRecord('proc_po_item');
+		poRec.get(poSysid);
+		retVal = poRec.request_line.price+","+poRec.purchase_order.vendor+","+poRec.purchase_order.vendor.u_rsqm_coupa_vendor;
+		return retVal;
+		
+		
+	},
+	
+	getReceiptData: function() {
+		var retVal = "";
+		var recSysid = this.getParameter("sysparm_receipt");
+		var recRec = new GlideRecord('proc_rec_slip_item');
+		recRec.get(recSysid);
+		retVal = recRec.purchase_line;
+		return retVal;
+		
+		
+	},
+	
+	getVendor: function() {
+		var retVal = "";
+		var recSysid = this.getParameter("sysparm_vendor");
+		var vendRec = new GlideRecord('core_company');
+		vendRec.get(recSysid);
+		retVal = vendRec.u_rsqm_coupa_vendor;
+		return retVal;
+		
+		
+	},
+
+    type: 'ISMUtils'
+});]]></script>
+<sys_class_name>sys_script_include</sys_class_name>
+<sys_created_by>jsloan</sys_created_by>
+<sys_created_on>2017-02-10 19:56:43</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>105e62a2db38f2003c9a7aa9bf96196c</sys_id>
+<sys_mod_count>1013</sys_mod_count>
+<sys_name>ISMUtils</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_script_include_105e62a2db38f2003c9a7aa9bf96196c</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-04-02 19:17:46</sys_updated_on>
+</sys_script_include>
+</unload>

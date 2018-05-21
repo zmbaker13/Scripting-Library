@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-21 16:40:19">
+<sys_script_include action="INSERT_OR_UPDATE">
+<access>package_private</access>
+<active>true</active>
+<api_name>global.wotCancelUtils</api_name>
+<client_callable>false</client_callable>
+<description>Conditions for when a work order task should be able to be cancelled by a technician</description>
+<name>wotCancelUtils</name>
+<script><![CDATA[var wotCancelUtils = Class.create();
+wotCancelUtils.prototype = {
+    initialize: function() {
+    },
+	
+	wotCanCancel : function(/* @parm gliderecord */ record){
+		var cancelWOT;
+		if (record.sys_class_name == "sn_customerservice_case") { //If being initiated from a case, find the associated WOT
+			var wotGR = new GlideRecord("wm_task");
+			wotGR.addQuery("initiated_from",record.sys_id);
+			wotGR.query();
+			if (wotGR.next()) {
+				cancelWOT = wotGR;
+			} else { //If no WOT, show the button. Effects case form only
+				return true;
+			}
+		} 
+		else {
+			cancelWOT = record;  //Not initated from a Case, assume wm_task
+		}
+		
+		var type = this.wotType(cancelWOT);
+		var state = this.wotState(cancelWOT);
+		var substate = this.wotSub(cancelWOT);
+		var vsr = this.wotVSR(cancelWOT);
+		var incident = this.wotIncident(cancelWOT);
+		var reqs = this.hasreqs(cancelWOT);
+		if(type == true && state == true && substate == true && vsr == true && incident == true && reqs == true){
+			return true;
+		}
+		else {
+			return false;
+		}
+	},
+	
+	wotType : function(record){
+		if(record.getValue('u_work_order_type')=='Repair'||record.getValue('u_work_order_type')=='Service Request'){
+			return true;
+		} else
+	{
+			return false;
+		}
+	},
+	
+	wotState : function(record){
+		if(record.getValue('state')!=3 && record.getValue('state')!=-10){
+			return true;
+		} else
+			{
+				return false;
+			}	
+	},
+	
+	wotSub : function(record){
+		if(record.getValue('substate')!=-40 &&record.getValue('substate')!=-13&&record.getValue('substate')!=-6&&record.getValue('substate')!=-12){
+			return true;
+		} else
+			{
+				return false;
+			}	
+	},
+	
+		wotVSR : function(record){
+		if(record.getValue('u_vsr_present')==false){
+			return true;
+		} else
+			{
+				return false;
+			}	
+	},
+	
+	wotIncident: function(record){
+		if(record.getValue('u_potential_incident')==true && record.getValue('u_confirmed_incident')==false){
+			return false;
+		} else
+			{
+				return true;
+			}
+	},
+
+	hasreqs : function(record) {
+		var blnHasRequests = this.hasOpenRequests(record.sys_id);
+		if (blnHasRequests == false) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	},
+	hasOpenRequests: function(id) {
+		var reqGR = new GlideRecord("sc_request");
+		reqGR.addQuery("u_work_order_task",id);
+		reqGR.addQuery("state","IN","3,2,1,-6,-5,-4,-3,-2,-1");
+		reqGR.query();
+		if (reqGR.next()) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	},
+
+    type: 'wotCancelUtils'
+};]]></script>
+<sys_class_name>sys_script_include</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-12-06 20:37:44</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>5afaaa3adb364300cbe7fb37bf9619f6</sys_id>
+<sys_mod_count>36</sys_mod_count>
+<sys_name>wotCancelUtils</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_script_include_5afaaa3adb364300cbe7fb37bf9619f6</sys_update_name>
+<sys_updated_by>hsgill</sys_updated_by>
+<sys_updated_on>2018-05-03 12:44:57</sys_updated_on>
+</sys_script_include>
+</unload>

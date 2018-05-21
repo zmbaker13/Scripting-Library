@@ -1,4 +1,9 @@
 var grLeg = new GlideRecord('u_legacy_workorders');
-grLeg.addEncodedQuery('u_equipidISEMPTY');
+grLeg.addEncodedQuery('u_start_date=NULL^u_work_order_number!=NULL^sys_created_on>=javascript:gs.dateGenerate('2017-10-01','00:00:00')');
+grLeg.queryNoDomain();
+grLeg.deleteMultiple();
+
+var grLeg = new GlideRecord('u_legacy_expense_lines');
+grLeg.addEncodedQuery('u_work_order_number.u_workorder_number=NULL');
 grLeg.queryNoDomain();
 grLeg.deleteMultiple();

@@ -1,0 +1,27 @@
+var grEq = new GlideRecord('u_cmdb_ci_equipment');
+grEq.addEncodedQuery("u_device_status=1^ORu_device_status=4^u_entitlementISNOTEMPTY^u_current_strategyNSAMEASu_entitlement.u_trimedx_coverage_level^u_warranty_start_dateON1900-01-01@javascript:gs.dateGenerate('1900-01-01','start')@javascript:gs.dateGenerate('1900-01-01','end')");
+grEq.queryNoDomain();
+  while (grEq.next()) {
+        grEq.u_warranty_start_date ="";
+        grEq.warranty_expiration = "";
+        grEq.update();
+    }
+
+
+
+
+
+var grEq = new GlideRecord('u_cmdb_ci_equipment');
+grEq.addEncodedQuery("sys_id=a71a55b0dbcf3e003c9a7aa9bf9619e1");
+grEq.queryNoDomain();
+  while (grEq.next()) {
+  		grEq.setForceUpdate(true);
+        grEq.update();
+    }
+
+
+
+    	18-80152/0714546253NX
+
+    	u_entitlement.end_date<javascript:gs.daysAgoStart(0)
+    	u_entitlement.end_date<javascript:gs.daysAgoStart(1)

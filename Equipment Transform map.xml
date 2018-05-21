@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-21 16:27:52">
+<sys_transform_map action="INSERT_OR_UPDATE">
+<active>true</active>
+<copy_empty_fields>false</copy_empty_fields>
+<enforce_mandatory_fields>No</enforce_mandatory_fields>
+<name>Equipment SVC00300 Transform Map</name>
+<order>200</order>
+<run_business_rules>false</run_business_rules>
+<run_script>true</run_script>
+<script><![CDATA[(function transformRow(source, target, map, log, isUpdate) {
+	
+	// Abort if a duplicate Model/Serial Number combination exists
+// 	var grEquip = new GlideRecord('u_cmdb_ci_equipment');
+// 	grEquip.addQuery('serial_number', target.serial_number);
+// 	grEquip.addQuery('model_id', target.model_id);
+// 	grEquip.addQuery('u_rsq_equipid', '!=', target.u_rsq_equipid);
+// 	grEquip.setLimit(1);
+// 	grEquip.query();
+// 	if(grEquip.next()) {
+// 		ignore = true;
+// 	}
+	
+	// Set the Equipment's Name and Short Description fields.
+	var name = target.model_id.manufacturer.getDisplayValue();
+	name += " " + target.model_number;
+	name += " " + target.u_ceid;
+	name += " " + target.serial_number;
+	
+	target.name = name;
+	target.short_description = name;
+	
+	// Set the Equipment's Domain
+	target.sys_domain = target.u_account.sys_domain;
+	
+})(source, target, map, log, action==="update");]]></script>
+<source_table>u_svc00300_import_set_row</source_table>
+<sys_class_name>sys_transform_map</sys_class_name>
+<sys_created_by>zmbaker</sys_created_by>
+<sys_created_on>2017-04-21 00:25:15</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_id>4481cb78db167600f5d770d9af9619ce</sys_id>
+<sys_mod_count>11</sys_mod_count>
+<sys_name>Equipment SVC00300 Transform Map</sys_name>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_transform_map_4481cb78db167600f5d770d9af9619ce</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-02-07 22:00:08</sys_updated_on>
+<target_table>u_cmdb_ci_equipment</target_table>
+</sys_transform_map>
+</unload>
