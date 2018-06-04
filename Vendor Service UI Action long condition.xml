@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-24 12:49:10">
+<sys_ui_action action="INSERT_OR_UPDATE">
+<action_name>trimedx_service_request</action_name>
+<active>true</active>
+<client>false</client>
+<comments/>
+<condition>['Recall', 'Repair', 'Alert', 'Preventative Maintenance','CE CYBER'].indexOf(current.u_work_order_type.toString()) &gt; -1 &amp;&amp; new global.ISMUtils().isCEIDDisposition(current.getValue('u_ceid')) == false &amp;&amp; current.state == 18 &amp;&amp; current.work_start != ''</condition>
+<form_action>true</form_action>
+<form_button>false</form_button>
+<form_context_menu>false</form_context_menu>
+<form_link>true</form_link>
+<hint/>
+<list_action>false</list_action>
+<list_banner_button>false</list_banner_button>
+<list_button>false</list_button>
+<list_choice>false</list_choice>
+<list_context_menu>false</list_context_menu>
+<list_link>false</list_link>
+<list_save_with_form_button>false</list_save_with_form_button>
+<name>On-Site Vendor Service</name>
+<onclick/>
+<order>101</order>
+<script><![CDATA[if (current.u_ceid != '') {
+	var comments = "WOT_REF:"+current.sys_id;
+	
+	getCart();
+	
+	action.setRedirectURL('com.glideapp.servicecatalog_cat_item_view.do?sysparm_id=bff43b7adba23640f5d770d9af9619f2&sysparm_ceid=' + current.u_ceid);
+	
+}
+else {
+	gs.addErrorMessage('CEID is required to be populated before selecting this option.');
+	action.setRedirectURL(current);
+}
+
+function getCart() {
+	var cart = new GlideRecord('sc_cart');
+	var userid = gs.getUserID();
+	cart.addQuery('user', userid);
+	cart.addQuery('name', 'DEFAULT');
+	cart.query();
+	if (cart.next()) {
+		// We already have a cart so override the requested for value and empty it
+		cart.special_instructions = comments;
+		cart.update();
+		var cartItems = new GlideRecord('sc_cart_item');
+		cartItems.addQuery('cart', cart.sys_id);
+		cartItems.deleteMultiple();
+	} else {
+		cart.initialize();
+		cart.user = userid;
+		cart.special_instructions = comments;
+		cart.insert();
+	}
+	return cart;
+}
+
+
+]]></script>
+<show_insert>true</show_insert>
+<show_multiple_update>false</show_multiple_update>
+<show_query>false</show_query>
+<show_update>true</show_update>
+<sys_class_name>sys_ui_action</sys_class_name>
+<sys_created_by>tprovin@ism4it.com</sys_created_by>
+<sys_created_on>2017-07-27 15:22:21</sys_created_on>
+<sys_customer_update>true</sys_customer_update>
+<sys_domain>774190f01f1310005a3637b8ec8b70ef</sys_domain>
+<sys_domain_path>!!$/</sys_domain_path>
+<sys_id>8121fdd0dbd44300844cf1fcbf96198a</sys_id>
+<sys_id_display/>
+<sys_mod_count>21</sys_mod_count>
+<sys_name>On-Site Vendor Service</sys_name>
+<sys_overrides display_value=""/>
+<sys_package display_value="Global">global</sys_package>
+<sys_policy/>
+<sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+<sys_scope display_value="Global">global</sys_scope>
+<sys_update_name>sys_ui_action_8121fdd0dbd44300844cf1fcbf96198a</sys_update_name>
+<sys_updated_by>zmbaker</sys_updated_by>
+<sys_updated_on>2018-04-20 19:31:17</sys_updated_on>
+<table>wm_task</table>
+<ui11_compatible>true</ui11_compatible>
+<ui16_compatible>false</ui16_compatible>
+</sys_ui_action>
+</unload>

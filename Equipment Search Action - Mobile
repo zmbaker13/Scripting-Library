@@ -1,0 +1,58 @@
+// Make sure there is actually a value in the Device scan search box
+if (current.u_ceid_serial) {
+
+	var gr = new GlideRecord('u_inventory_validation');
+	gr.addEncodedQuery('u_old_ceidCONTAINS' + current.u_ceid_serial);
+	gr.query();
+
+	if (gr.getRowCount() != 1) {
+		gr = new GlideRecord('u_inventory_validation');
+		gr.addEncodedQuery('u_old_ceidCONTAINS' + current.u_ceid_serial + 
+						   '^ORu_original_serial_numberCONTAINS' + current.u_ceid_serial + 
+						  // '^ORserial_numberCONTAINS' + current.u_ceid_serial + 
+						   '^ORu_new_ceidCONTAINS' + current.u_ceid_serial);
+		gr.query();
+	}
+
+	if (gr.getRowCount() == 1) {
+
+		// A successful scan of a CEID automatically redirects the user to
+		// that equipment record.
+
+		gr.next();
+
+		var _url = gs.getProperty('glide.servlet.uri');
+			_url = 'u_inventory_validation.do?sys_id=' + gr.sys_id;
+		action.setRedirectURL(_url);
+
+	} else if (gr.getRowCount() > 1) {
+
+		// This error should never be seen.  If it is, there is a data anomaly
+		// that needs to be addressed.  There is either not uniqueness amongst
+		// the primary CEIDs or a device has an Old CEID that maps to a new CEID.
+		// In any case, there is a data error.
+
+		gs.addErrorMessage('Multiple equipment records found for CEID ' + current.u_ceid_serial);
+		var _url = gs.getProperty('glide.servlet.uri');
+			_url = 'u_inventory_validation_list.do?sysparm_query=u_old_ceidCONTAINS' + current.u_ceid_serial + '^ORu_original_serial_numberCONTAINS' + current.u_ceid_serial;
+		action.setRedirectURL(_url);
+
+	} else {
+
+		// If there is no equipment record for the device just scanned,
+		// display a message to the user that includes a link to create a
+		// new record.  The user will need to scan the CEID a second time
+		// when creating the record, but given the fact that this scenario
+		// is very rare, that should not be an issue.
+
+		// Build the URL to the new equipment record (medical device) page
+		var _url = gs.getProperty('glide.servlet.uri');
+			_url += 'u_inventory_validation.do?sys_id=-1';
+		var _msg = 'Unable to find an equipment record for CEID ' + current.u_ceid_serial + '.';
+		
+		gs.addErrorMessage(_msg);
+		action.setRedirectURL('u_inventory_validation.do?sys_id=-1');
+	}
+
+}
+

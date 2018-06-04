@@ -1,0 +1,9 @@
+var num = new GlideRecord('u_cmdb_ci_equipment');
+num.addEncodedQuery('sys_id=78f05226db18c300f5d770d9af961917');
+num.queryNoDomain();
+while (num.next()) {
+    num.u_equipment_id = new NumberManager('u_cmdb_ci_equipment').getNextObjNumberPadded();
+    num.setWorkflow(false);
+    num.autoSysFields(false);
+    num.update();
+}

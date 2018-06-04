@@ -1,0 +1,1622 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2018-05-22 14:31:36">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<application display_value="Global">global</application>
+<application_name>Global</application_name>
+<application_scope>global</application_scope>
+<application_version/>
+<collisions/>
+<commit_date/>
+<deleted/>
+<description/>
+<inserted/>
+<name>Mobile Image Tables</name>
+<origin_sys_id/>
+<parent display_value=""/>
+<release_date/>
+<remote_base_update_set display_value=""/>
+<remote_parent_id/>
+<remote_sys_id>44d8d5200f5213003ed8cbdce1050e1d</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_class_name>sys_remote_update_set</sys_class_name>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>f4e8ddec0f1213003ed8cbdce1050ef0</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_attached_image_u_related_record</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="u_related_record" table="u_attached_image"><active>true</active><array>false</array><array_denormalized>false</array_denormalized><attributes/><audit>false</audit><calculation/><choice/><choice_field/><choice_table/><column_label>Related Record</column_label><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent>u_related_record_table</dependent><dependent_on_field>u_related_record_table</dependent_on_field><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element>u_related_record</element><element_reference>false</element_reference><foreign_database/><internal_type display_value="">document_id</internal_type><mandatory>false</mandatory><max_length>32</max_length><name>u_attached_image</name><next_element/><primary>false</primary><read_only>true</read_only><read_roles/><reference/><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><sizeclass/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-22 14:22:43</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>74189739dbb7c700cbe7fb37bf96197e</sys_id><sys_mod_count>2</sys_mod_count><sys_name>Related Record</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_dictionary_u_attached_image_u_related_record</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-02-01 02:40:21</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>true</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>30e899200f5213003ed8cbdce1050e33</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Related Record</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_6881b646db101700cbe7fb37bf9619c7</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="4671d3cbdb203200f5d770d9af9619e4" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;sys_created_on&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;messages/&gt;&lt;name&gt;Check for Attachments - Mobile&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit() {
+	if($scope.attachments.length == 0){
+		
+		alert("You must attach a file to submit");
+		
+		return false;
+		
+	}
+	
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-02-17 02:44:47&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;4671d3cbdb203200f5d770d9af9619e4&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/!!!/!!!/&lt;/sys_domain_path&gt;&lt;sys_id&gt;6881b646db101700cbe7fb37bf9619c7&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Check for Attachments - Mobile&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_6881b646db101700cbe7fb37bf9619c7&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-02-17 02:47:12&lt;/sys_updated_on&gt;&lt;table&gt;u_attached_image&lt;/table&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;1&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>30e899200f5213003ed8cbdce1050e36</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Check for Attachments - Mobile</target_name>
+<type>Client Script</type>
+<update_domain>4671d3cbdb203200f5d770d9af9619e4</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>DELETE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_ng_action_a87e6094db1e9740844cf1fcbf961998</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_ui_ng_action"&gt;&lt;sys_ui_ng_action action="DELETE"&gt;&lt;action_name/&gt;&lt;active&gt;true&lt;/active&gt;&lt;color/&gt;&lt;comments/&gt;&lt;condition&gt;current.canWrite()&lt;/condition&gt;&lt;form_button&gt;true&lt;/form_button&gt;&lt;form_more_item&gt;false&lt;/form_more_item&gt;&lt;hide_when_disabled&gt;true&lt;/hide_when_disabled&gt;&lt;hint/&gt;&lt;list_button&gt;false&lt;/list_button&gt;&lt;name&gt;Submit Image&lt;/name&gt;&lt;navigate_back&gt;false&lt;/navigate_back&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[checkAttachment();
+
+
+function checkAttachment() {
+	var grAttach = new GlideRecord("sys_attachment");
+	gr.addQuery("table_name", "ZZ_YYu_attached_image");
+	gr.addQuery("table_sys_id", current.sys_id.toString());
+	gr.query();
+	if (gr.hasNext()) {
+		current.setValue('u_has_attachment',true);
+		current.update();
+	}
+	else{
+		gs.addErrorMessage('You must attach a picture to continue');
+		
+	}
+}]]&gt;&lt;/script&gt;&lt;show_for&gt;any&lt;/show_for&gt;&lt;sys_class_name&gt;sys_ui_ng_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;amKatulak&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-05-21 16:51:23&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/&lt;/sys_domain_path&gt;&lt;sys_id&gt;a87e6094db1e9740844cf1fcbf961998&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Submit Image&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_ng_action_a87e6094db1e9740844cf1fcbf961998&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;amKatulak&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-05-21 16:54:43&lt;/sys_updated_on&gt;&lt;table&gt;u_attached_image&lt;/table&gt;&lt;/sys_ui_ng_action&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>30e899200f5213003ed8cbdce1050e39</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Submit Image</target_name>
+<type>UI Action - Mobile</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_attached_image_u_equipment</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="u_equipment" table="u_attached_image"><active>true</active><array>false</array><array_denormalized>false</array_denormalized><attributes/><audit>false</audit><calculation/><choice/><choice_field/><choice_table/><column_label>Equipment</column_label><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent/><dependent_on_field/><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element>u_equipment</element><element_reference>false</element_reference><foreign_database/><internal_type display_value="Reference">reference</internal_type><mandatory>false</mandatory><max_length>32</max_length><name>u_attached_image</name><next_element/><primary>false</primary><read_only>true</read_only><read_roles/><reference display_value="" name="u_cmdb_ci_equipment">u_cmdb_ci_equipment</reference><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><sizeclass/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 02:32:25</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>3c5226c9dbb74700cbe7fb37bf96191c</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Equipment</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_dictionary_u_attached_image_u_equipment</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 03:24:52</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>false</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>34e899200f5213003ed8cbdce1050e32</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Equipment</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_917d5f45db5cdf40cbe7fb37bf9619f3</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;true&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;u_attached_image&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message&gt;&lt;![CDATA[&lt;p&gt;Image has been successfully added.&lt;/p&gt;]]&gt;&lt;/message&gt;&lt;name&gt;Confirmation Message&lt;/name&gt;&lt;order&gt;50000&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	var gr = new GlideRecord("sys_attachment");
+		gr.addQuery("table_name", "ZZ_YYu_attached_image");
+		gr.addQuery("table_sys_id", current.sys_id.toString());
+		gr.query();
+		if (gr.hasNext()) {
+			return true;
+		}
+		else{
+			gs.addInfoMessage('You must attach a picture to continue');
+			current.setAbortAction(true);
+		}
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-02-14 03:22:10&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/&lt;/sys_domain_path&gt;&lt;sys_id&gt;917d5f45db5cdf40cbe7fb37bf9619f3&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Confirmation Message&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_917d5f45db5cdf40cbe7fb37bf9619f3&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-02-14 03:22:23&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;after&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=917d5f45db5cdf40cbe7fb37bf9619f3"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>34e899200f5213003ed8cbdce1050e35</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Confirmation Message</target_name>
+<type>Business Rule</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_role_872c0689db774700cbe7fb37bf9619fc</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:38</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>872c0689db774700cbe7fb37bf9619fc</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image.u_attached_image_user</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_security_acl display_value="u_attached_image">f22c0689db774700cbe7fb37bf9619f8</sys_security_acl><sys_update_name>sys_security_acl_role_872c0689db774700cbe7fb37bf9619fc</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:38</sys_updated_on><sys_user_role display_value="u_attached_image_user" name="u_attached_image_user">a22c4a09db774700cbe7fb37bf9619c2</sys_user_role><transaction_id/></sys_security_acl_role></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>34e899200f5213003ed8cbdce1050e38</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>u_attached_image.u_attached_image_user</target_name>
+<type>Access Roles</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_db_object_b11b8a49db774700cbe7fb37bf9619fe</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_db_object"><sys_db_object action="INSERT_OR_UPDATE"><access>public</access><actions_access>false</actions_access><alter_access>false</alter_access><client_scripts_access>false</client_scripts_access><configuration_access>false</configuration_access><create_access>false</create_access><create_access_controls>true</create_access_controls><delete_access>false</delete_access><extension_model/><is_extendable>false</is_extendable><label>Attached Image</label><live_feed_enabled>false</live_feed_enabled><name>u_attached_image</name><number_ref/><provider_class/><read_access>true</read_access><super_class/><sys_class_name>sys_db_object</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:38</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>b11b8a49db774700cbe7fb37bf9619fe</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Attached Image</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_db_object_b11b8a49db774700cbe7fb37bf9619fe</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:38</sys_updated_on><update_access>false</update_access><user_role display_value="u_attached_image_user" name="u_attached_image_user">a22c4a09db774700cbe7fb37bf9619c2</user_role><ws_access>true</ws_access></sys_db_object></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>38e899200f5213003ed8cbdce1050e31</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image</target_name>
+<type>Table</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_attached_image_u_related_record_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_related_record" label="Related Record" language="en" table="u_attached_image"><sys_documentation action="INSERT_OR_UPDATE"><element>u_related_record</element><help/><hint/><label>Related Record</label><language>en</language><name>u_attached_image</name><plural>Related Records</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-22 14:22:43</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>34189739dbb7c700cbe7fb37bf96197f</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Related Record</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_attached_image_u_related_record_en</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-22 14:22:43</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>38e899200f5213003ed8cbdce1050e34</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Related Record</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_f22c0689db774700cbe7fb37bf9619f8</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description>Default access control on u_attached_image</description><name>u_attached_image</name><operation display_value="read">read</operation><script/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:38</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>f22c0689db774700cbe7fb37bf9619f8</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_security_acl_f22c0689db774700cbe7fb37bf9619f8</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:38</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>38e899200f5213003ed8cbdce1050e37</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>u_attached_image</target_name>
+<type>Access Control</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_attached_image_u_equipment_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_equipment" label="Equipment" language="en" table="u_attached_image"><sys_documentation action="INSERT_OR_UPDATE"><element>u_equipment</element><help/><hint/><label>Equipment</label><language>en</language><name>u_attached_image</name><plural>Equipments</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 02:32:25</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>f85226c9dbb74700cbe7fb37bf96191d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Equipment</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_attached_image_u_equipment_en</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 02:32:25</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>3ce899200f5213003ed8cbdce1050e33</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Equipment</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_d83c12c5dbb74700cbe7fb37bf9619df</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.customerAttachmentUtils&lt;/api_name&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;description&gt;source: https://snprotips.com/blog/2016/2/25/understanding-and-using-glideattachment&amp;#13;
+&lt;/description&gt;&lt;name&gt;customerAttachmentUtils&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var customerAttachmentUtils = Class.create();
+customerAttachmentUtils.prototype = {
+    initialize: function() {
+    },
+copySpecificAttachment: function(donorTable, donorID, recipientTable, recipientID, fileName, picturetype) {
+			var donorAttSysID;
+			var newAttRecord;
+			var linkToNewRecord;
+			var attDataRecord;
+			var newDocRecord;
+			var attRecord = new GlideRecord('sys_attachment');
+			attRecord.addQuery('table_name', donorTable);
+			attRecord.addQuery('table_sys_id', donorID);
+			attRecord.addQuery('file_name', fileName);
+			attRecord.query();
+			while (attRecord.next()) {
+				donorAttSysID = attRecord.getValue('sys_id');
+				newAttRecord = this._copyRecord(attRecord, picturetype);
+				newAttRecord.setValue('table_name', recipientTable);
+				newAttRecord.setValue('table_sys_id', recipientID);
+				newAttRecord.update();
+				linkToNewRecord = gs.getProperty('glide.servlet.uri') + newAttRecord.getLink();
+				attDataRecord = new GlideRecord('sys_attachment_doc');
+				attDataRecord.addQuery('sys_attachment', donorAttSysID);
+				attDataRecord.query();
+				while (attDataRecord.next()) {
+					newDocRecord = this._copyRecord(attDataRecord);
+					newDocRecord.setValue('sys_attachment', newAttRecord.getValue('sys_id'));
+					newDocRecord.update();
+				}
+			}
+			//gs.print(linkToNewRecord);
+		},
+
+		_copyRecord: function(record, pictureType) {
+			var recordElement;
+			var recordElementName;
+			var recordTable = record.getTableName();
+			var recordFields = record.getFields();
+			var newRecord = new GlideRecord(recordTable);
+			newRecord.initialize();
+			for (var i = 0; i &lt; recordFields.size(); i++) {
+				recordElement = recordFields.get(i);
+				if(recordElement.getName() != 'sys_id' &amp;&amp; recordElement.getName() != 'number')
+					{
+					if(recordElement.getName()=='file_name'){
+						newRecord.setValue('file_name', pictureType);
+					}
+					else{
+						recordElementName = recordElement.getName();
+						newRecord.setValue(recordElementName, record.getValue(recordElementName));
+					}
+				}
+			}
+			var newSysId = newRecord.insert();
+			return newRecord;
+		},
+    type: 'customerAttachmentUtils'
+};]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 02:10:09&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;d83c12c5dbb74700cbe7fb37bf9619df&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;customerAttachmentUtils&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_d83c12c5dbb74700cbe7fb37bf9619df&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-01-20 03:20:09&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>3ce899200f5213003ed8cbdce1050e36</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table/>
+<target_name>customerAttachmentUtils</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_section_d0cd8e89db774700cbe7fb37bf9619bc</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_ui_section caption="" section_id="d0cd8e89db774700cbe7fb37bf9619bc" sys_domain="774190f01f1310005a3637b8ec8b70ef" table="u_attached_image" version="3" view=""><sys_ui_element action="INSERT_OR_UPDATE"><element>u_equipment</element><position>0</position><sys_created_by>amKatulak</sys_created_by><sys_created_on>2018-05-21 15:25:24</sys_created_on><sys_id>479b5458db5a9740844cf1fcbf961932</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_attached_image" sys_domain="774190f01f1310005a3637b8ec8b70ef" view="Default view">d0cd8e89db774700cbe7fb37bf9619bc</sys_ui_section><sys_updated_by>amKatulak</sys_updated_by><sys_updated_on>2018-05-21 15:25:24</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_picture_type</element><position>1</position><sys_created_by>amKatulak</sys_created_by><sys_created_on>2018-05-21 15:25:24</sys_created_on><sys_id>439b5458db5a9740844cf1fcbf961933</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_attached_image" sys_domain="774190f01f1310005a3637b8ec8b70ef" view="Default view">d0cd8e89db774700cbe7fb37bf9619bc</sys_ui_section><sys_updated_by>amKatulak</sys_updated_by><sys_updated_on>2018-05-21 15:25:24</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_image</element><position>2</position><sys_created_by>amKatulak</sys_created_by><sys_created_on>2018-05-21 15:25:24</sys_created_on><sys_id>c39b5458db5a9740844cf1fcbf961933</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_attached_image" sys_domain="774190f01f1310005a3637b8ec8b70ef" view="Default view">d0cd8e89db774700cbe7fb37bf9619bc</sys_ui_section><sys_updated_by>amKatulak</sys_updated_by><sys_updated_on>2018-05-21 15:25:24</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_element action="INSERT_OR_UPDATE"><element>u_has_attachment</element><position>3</position><sys_created_by>amKatulak</sys_created_by><sys_created_on>2018-05-21 15:25:24</sys_created_on><sys_id>479b5458db5a9740844cf1fcbf961933</sys_id><sys_mod_count>0</sys_mod_count><sys_ui_formatter/><sys_ui_section caption="NULL" display_value="" name="u_attached_image" sys_domain="774190f01f1310005a3637b8ec8b70ef" view="Default view">d0cd8e89db774700cbe7fb37bf9619bc</sys_ui_section><sys_updated_by>amKatulak</sys_updated_by><sys_updated_on>2018-05-21 15:25:24</sys_updated_on><sys_user/><type/></sys_ui_element><sys_ui_section action="INSERT_OR_UPDATE"><caption/><header>false</header><name>u_attached_image</name><roles/><sys_class_name>sys_ui_section</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 01:02:34</sys_created_on><sys_customer_update>true</sys_customer_update><sys_domain>774190f01f1310005a3637b8ec8b70ef</sys_domain><sys_domain_path>!!$/</sys_domain_path><sys_id>d0cd8e89db774700cbe7fb37bf9619bc</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image</sys_name><sys_overrides/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_ui_section_d0cd8e89db774700cbe7fb37bf9619bc</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 01:02:34</sys_updated_on><sys_user/><title>true</title><view display_value="Default view" name="NULL">Default view</view><view_name/></sys_ui_section></sys_ui_section></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:36</sys_created_on>
+<sys_id>3ce899200f5213003ed8cbdce1050e39</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:36</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image</target_name>
+<type>Form Layout</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history>f128d9ec301213008862874095e591bc:1128912428</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_choice_u_attached_image_u_picture_type</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_choice action="INSERT_OR_UPDATE" field="u_picture_type" table="u_attached_image" version="3"><sys_choice action="INSERT_OR_UPDATE"><dependent_value>u_cmdb_ci_equipment</dependent_value><element>u_picture_type</element><hint/><inactive>false</inactive><label>Front Image</label><language>en</language><name>u_attached_image</name><sequence>100</sequence><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 01:09:28</sys_created_on><sys_domain>774190f01f1310005a3637b8ec8b70ef</sys_domain><sys_domain_path>!!$/</sys_domain_path><sys_id>e95f860ddb774700cbe7fb37bf9619ad</sys_id><sys_mod_count>3</sys_mod_count><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 01:11:01</sys_updated_on><value>u_front_image</value></sys_choice><sys_choice action="INSERT_OR_UPDATE"><dependent_value>u_cmdb_ci_equipment</dependent_value><element>u_picture_type</element><hint/><inactive>false</inactive><label>Name Plate Image</label><language>en</language><name>u_attached_image</name><sequence>200</sequence><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 01:09:28</sys_created_on><sys_domain>774190f01f1310005a3637b8ec8b70ef</sys_domain><sys_domain_path>!!$/</sys_domain_path><sys_id>6d5f860ddb774700cbe7fb37bf9619ae</sys_id><sys_mod_count>3</sys_mod_count><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 01:11:14</sys_updated_on><value>u_name_plate_image</value></sys_choice><sys_choice_set action="INSERT_OR_UPDATE"><element>u_picture_type</element><name>u_attached_image</name><sys_class_name>sys_choice_set</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 01:09:28</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>295f860ddb774700cbe7fb37bf9619ae</sys_id><sys_mod_count>6</sys_mod_count><sys_name>u_picture_type</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_choice_u_attached_image_u_picture_type</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 01:11:03</sys_updated_on></sys_choice_set></sys_choice></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>70e899200f5213003ed8cbdce1050e31</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Picture Type</target_name>
+<type>Choice list</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>DELETE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_attached_image_u_document_table</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="DELETE" element="u_document_table" table="u_attached_image"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Document Table&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_document_table&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;internal_type display_value="String"&gt;string&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;40&lt;/max_length&gt;&lt;name&gt;u_attached_image&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;true&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 00:55:37&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;48ab4a49db774700cbe7fb37bf9619eb&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Document Table&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_attached_image_u_document_table&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-01-20 02:46:30&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>70e899200f5213003ed8cbdce1050e32</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.u_document_table</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_3f765381db5cdf40cbe7fb37bf96191e</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;false&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;u_attached_image&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Check for Attachment on Insert&lt;/name&gt;&lt;order&gt;10&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+var url = '/u_attached_image.do?sys_id=-1&amp;sysparm_query=u_equipment=' + current.u_equipment + '^u_related_record=' + current.u_related_record + '^u_related_record_table=' + current.u_related_record_table;
+	var gr = new GlideRecord("sys_attachment");
+		gr.addQuery("table_name", "ZZ_YYu_attached_image");
+		gr.addQuery("table_sys_id", current.sys_id.toString());
+		gr.query();
+		if (gr.hasNext()) {
+			current.setValue("u_has_attachment","true");
+			//gs.setRedirect(url);
+			return true;
+			
+		}
+		else{
+			current.setAbortAction(true);
+		//	gs.addErrorMessage('You must attach a picture to continue');
+			
+		}
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-02-14 02:53:25&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/&lt;/sys_domain_path&gt;&lt;sys_id&gt;3f765381db5cdf40cbe7fb37bf96191e&lt;/sys_id&gt;&lt;sys_mod_count&gt;8&lt;/sys_mod_count&gt;&lt;sys_name&gt;Check for Attachment on Insert&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_3f765381db5cdf40cbe7fb37bf96191e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;amKatulak&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-05-21 18:17:32&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=3f765381db5cdf40cbe7fb37bf96191e"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>70e899200f5213003ed8cbdce1050e35</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Check for Attachment on Insert</target_name>
+<type>Business Rule</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history>6128d9ec50121300de7e3dc657d2ff78:-1971377527</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_role_432c4689db774700cbe7fb37bf961919</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:39</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>432c4689db774700cbe7fb37bf961919</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image.u_attached_image_user</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_security_acl display_value="u_attached_image">8f2c4689db774700cbe7fb37bf961914</sys_security_acl><sys_update_name>sys_security_acl_role_432c4689db774700cbe7fb37bf961919</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:39</sys_updated_on><sys_user_role display_value="u_attached_image_user" name="u_attached_image_user">a22c4a09db774700cbe7fb37bf9619c2</sys_user_role><transaction_id/></sys_security_acl_role></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>70e899200f5213003ed8cbdce1050e38</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>u_attached_image.u_attached_image_user</target_name>
+<type>Access Roles</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_attached_image_u_picture_type_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_picture_type" label="Picture Type" language="en" table="u_attached_image"><sys_documentation action="INSERT_OR_UPDATE"><element>u_picture_type</element><help/><hint/><label>Picture Type</label><language>en</language><name>u_attached_image</name><plural>Picture Types</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 01:08:39</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>652f4e0ddb774700cbe7fb37bf961964</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Picture Type</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_attached_image_u_picture_type_en</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 01:08:39</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>74e899200f5213003ed8cbdce1050e34</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Picture Type</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_8f2c4689db774700cbe7fb37bf961914</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description>Default access control on u_attached_image</description><name>u_attached_image</name><operation display_value="delete">delete</operation><script/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:38</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>8f2c4689db774700cbe7fb37bf961914</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_security_acl_8f2c4689db774700cbe7fb37bf961914</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:38</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>74e899200f5213003ed8cbdce1050e37</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>u_attached_image</target_name>
+<type>Access Control</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>ua_table_licensing_config_d72c4689db774700cbe7fb37bf96193b</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="ua_table_licensing_config"><ua_table_licensing_config action="INSERT_OR_UPDATE"><is_fulfillment>false</is_fulfillment><license_condition/><license_model>none</license_model><license_roles/><name>u_attached_image</name><op_delete>true</op_delete><op_insert>true</op_insert><op_update>true</op_update><owner_condition/><sys_class_name>ua_table_licensing_config</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:39</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>d72c4689db774700cbe7fb37bf96193b</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>ua_table_licensing_config_d72c4689db774700cbe7fb37bf96193b</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:39</sys_updated_on></ua_table_licensing_config></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:36</sys_created_on>
+<sys_id>74e899200f5213003ed8cbdce1050e3a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:36</sys_updated_on>
+<table/>
+<target_name>u_attached_image</target_name>
+<type>Table Subscription Configuration</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>DELETE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_attached_image_u_document_table_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation action="DELETE" element="u_document_table" label="Document Table" language="en" table="u_attached_image"><sys_documentation action="DELETE"><element>u_document_table</element><help/><hint/><label>Document Table</label><language>en</language><name>u_attached_image</name><plural>Document Tables</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:39</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>c72c4689db774700cbe7fb37bf961927</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Document Table</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_attached_image_u_document_table_en</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:39</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>78e899200f5213003ed8cbdce1050e33</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.u_document_table</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_include_1d509f0ddb1cdf40cbe7fb37bf9619e8</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_include"&gt;&lt;sys_script_include action="INSERT_OR_UPDATE"&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;active&gt;true&lt;/active&gt;&lt;api_name&gt;global.imageAttachmentAjax&lt;/api_name&gt;&lt;client_callable&gt;true&lt;/client_callable&gt;&lt;description/&gt;&lt;name&gt;imageAttachmentAjax&lt;/name&gt;&lt;script&gt;&lt;![CDATA[var imageAttachmentAjax = Class.create();
+imageAttachmentAjax.prototype = Object.extendsObject(AbstractAjaxProcessor, {
+	hasAttachment : function(){
+		gs.log('checking for attachment', 'imageAttachmentAjax.hasAttachment');
+		var tableName = this.getParameter('sysparm_tableName');
+		var tableSYSID = this.getParameter('sysparm_tableSYS');
+		
+		var gr = new GlideRecord("sys_attachment");
+		gr.addQuery("table_name", tableName);
+		gr.addQuery("table_sys_id", tableSYSID);
+		gr.query();
+		if (gr.hasNext()) {
+			return true;
+		}
+		else{
+			return false;
+		}
+	},
+	type: 'imageAttachmentAjax'
+});]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_include&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-02-14 02:31:05&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;1d509f0ddb1cdf40cbe7fb37bf9619e8&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;imageAttachmentAjax&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_include_1d509f0ddb1cdf40cbe7fb37bf9619e8&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-02-14 02:37:31&lt;/sys_updated_on&gt;&lt;/sys_script_include&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>78e899200f5213003ed8cbdce1050e36</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table/>
+<target_name>imageAttachmentAjax</target_name>
+<type>Script Include</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_policy_action_728b5958db12d740844cf1fcbf9619ef</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action"><sys_ui_policy_action action="INSERT_OR_UPDATE"><disabled>ignore</disabled><field>u_has_attachment</field><mandatory>ignore</mandatory><sys_class_name>sys_ui_policy_action</sys_class_name><sys_created_by>amKatulak</sys_created_by><sys_created_on>2018-05-21 20:04:52</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>728b5958db12d740844cf1fcbf9619ef</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_has_attachment</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_ui_policy_action_728b5958db12d740844cf1fcbf9619ef</sys_update_name><sys_updated_by>amKatulak</sys_updated_by><sys_updated_on>2018-05-21 20:04:52</sys_updated_on><table>u_attached_image</table><ui_policy display_value="Hide Has Attachment">0b7b1958db12d740844cf1fcbf9619e8</ui_policy><visible>false</visible></sys_ui_policy_action></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>78e899200f5213003ed8cbdce1050e39</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>u_has_attachment</target_name>
+<type>UI Policy Action</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_attached_image_u_picture_type</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="u_picture_type" table="u_attached_image"><active>true</active><array>false</array><array_denormalized>false</array_denormalized><attributes>edge_encryption_enabled=true</attributes><audit>false</audit><calculation/><choice>1</choice><choice_field/><choice_table/><column_label>Picture Type</column_label><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent/><dependent_on_field/><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element>u_picture_type</element><element_reference>false</element_reference><foreign_database/><internal_type display_value="String">string</internal_type><mandatory>true</mandatory><max_length>40</max_length><name>u_attached_image</name><next_element/><primary>false</primary><read_only>false</read_only><read_roles/><reference/><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><sizeclass/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 01:08:39</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>a52f4e0ddb774700cbe7fb37bf961963</sys_id><sys_mod_count>3</sys_mod_count><sys_name>Picture Type</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_dictionary_u_attached_image_u_picture_type</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 02:52:39</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>false</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>7ce899200f5213003ed8cbdce1050e32</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Picture Type</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_49812c94dbda9740844cf1fcbf961922</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;sys_created_on&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;messages/&gt;&lt;name&gt;Check for Attachments - Mobile&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit() {
+
+	var ga = new GlideAjax('imageAttachmentAjax');
+	ga.addParam('sysparm_name', 'hasAttachment');
+	ga.addParam('sysparm_tableName', "ZZ_YYu_attached_image");
+	ga.addParam('sysparm_tableSYS', g_form.getUniqueValue());
+	ga.getXML(function checkAttachment(response) {
+		var answer = response.responseXML.documentElement.getAttribute("answer");
+		if (answer == "null") {
+			setTimeout(hasAttachment(answer),2000);
+		}
+		else {
+				if (answer == "false") {
+					g_form.hideFieldMsg("u_image");
+					g_form.showFieldMsg("u_image","You must attach a file to continue.","error");
+					g_form.submitted = false;
+					return false;
+				}
+			}
+			
+		});
+		function hasAttachment(answer) {
+			if (answer == "true") {
+				g_form.setValue("u_has_attachment","true");
+			}
+		}
+	}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;amKatulak&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-05-21 15:51:11&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/&lt;/sys_domain_path&gt;&lt;sys_id&gt;49812c94dbda9740844cf1fcbf961922&lt;/sys_id&gt;&lt;sys_mod_count&gt;23&lt;/sys_mod_count&gt;&lt;sys_name&gt;Check for Attachments - Mobile&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_49812c94dbda9740844cf1fcbf961922&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;amKatulak&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-05-21 18:55:31&lt;/sys_updated_on&gt;&lt;table&gt;u_attached_image&lt;/table&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;1&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>7ce899200f5213003ed8cbdce1050e35</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Check for Attachments - Mobile</target_name>
+<type>Client Script</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_action_c3e01a8ddb774700cbe7fb37bf961998</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_ui_action"&gt;&lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;&lt;action_name/&gt;&lt;active&gt;true&lt;/active&gt;&lt;client&gt;false&lt;/client&gt;&lt;comments/&gt;&lt;condition&gt;current.canWrite()&lt;/condition&gt;&lt;form_action&gt;true&lt;/form_action&gt;&lt;form_button&gt;false&lt;/form_button&gt;&lt;form_context_menu&gt;true&lt;/form_context_menu&gt;&lt;form_link&gt;false&lt;/form_link&gt;&lt;hint/&gt;&lt;list_action&gt;false&lt;/list_action&gt;&lt;list_banner_button&gt;false&lt;/list_banner_button&gt;&lt;list_button&gt;false&lt;/list_button&gt;&lt;list_choice&gt;false&lt;/list_choice&gt;&lt;list_context_menu&gt;false&lt;/list_context_menu&gt;&lt;list_link&gt;false&lt;/list_link&gt;&lt;list_save_with_form_button&gt;false&lt;/list_save_with_form_button&gt;&lt;name&gt;Attach Image&lt;/name&gt;&lt;onclick/&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[action.setRedirectURL('u_attached_image.do?sys_id=-1&amp;sysparm_query=u_equipment=' + current.getUniqueValue() + '^u_related_record=' + current.getUniqueValue() + '^u_related_record_table=' + current.sys_class_name);]]&gt;&lt;/script&gt;&lt;show_insert&gt;false&lt;/show_insert&gt;&lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;&lt;show_query&gt;false&lt;/show_query&gt;&lt;show_update&gt;true&lt;/show_update&gt;&lt;sys_class_name&gt;sys_ui_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 01:18:31&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/&lt;/sys_domain_path&gt;&lt;sys_id&gt;c3e01a8ddb774700cbe7fb37bf961998&lt;/sys_id&gt;&lt;sys_id_display/&gt;&lt;sys_mod_count&gt;6&lt;/sys_mod_count&gt;&lt;sys_name&gt;Attach Image&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_action_c3e01a8ddb774700cbe7fb37bf961998&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-01-22 14:23:17&lt;/sys_updated_on&gt;&lt;table&gt;u_cmdb_ci_equipment&lt;/table&gt;&lt;ui11_compatible&gt;true&lt;/ui11_compatible&gt;&lt;ui16_compatible&gt;false&lt;/ui16_compatible&gt;&lt;/sys_ui_action&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>7ce899200f5213003ed8cbdce1050e38</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_cmdb_ci_equipment</table>
+<target_name>Attach Image</target_name>
+<type>UI Action</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_attached_image_u_image_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_image" label="Image" language="en" table="u_attached_image"><sys_documentation action="INSERT_OR_UPDATE"><element>u_image</element><help/><hint/><label>Image</label><language>en</language><name>u_attached_image</name><plural>Images</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:39</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>832c4689db774700cbe7fb37bf961929</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Image</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_attached_image_u_image_en</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:39</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>b0e899200f5213003ed8cbdce1050e34</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Image</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_762c0689db774700cbe7fb37bf9619ed</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl"><sys_security_acl action="INSERT_OR_UPDATE"><active>true</active><admin_overrides>true</admin_overrides><advanced>false</advanced><condition/><description>Default access control on u_attached_image</description><name>u_attached_image</name><operation display_value="create">create</operation><script/><sys_class_name>sys_security_acl</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:38</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>762c0689db774700cbe7fb37bf9619ed</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_security_acl_762c0689db774700cbe7fb37bf9619ed</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:38</sys_updated_on><type display_value="record">record</type></sys_security_acl></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>b0e899200f5213003ed8cbdce1050e37</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>u_attached_image</target_name>
+<type>Access Control</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_user_role_a22c4a09db774700cbe7fb37bf9619c2</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role"><sys_user_role action="INSERT_OR_UPDATE"><assignable_by/><can_delegate>true</can_delegate><description/><elevated_privilege>false</elevated_privilege><encryption_context/><grantable>true</grantable><includes_roles/><name>u_attached_image_user</name><suffix/><sys_class_name>sys_user_role</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:37</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>a22c4a09db774700cbe7fb37bf9619c2</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image_user</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_user_role_a22c4a09db774700cbe7fb37bf9619c2</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:37</sys_updated_on></sys_user_role></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:36</sys_created_on>
+<sys_id>b0e899200f5213003ed8cbdce1050e3a</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:36</sys_updated_on>
+<table/>
+<target_name>u_attached_image_user</target_name>
+<type>Role</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>DELETE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_attached_image_u_document_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation action="DELETE" element="u_document" label="Document" language="en" table="u_attached_image"><sys_documentation action="DELETE"><element>u_document</element><help/><hint/><label>Document</label><language>en</language><name>u_attached_image</name><plural>Documents</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:39</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>0f2c4689db774700cbe7fb37bf961925</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Document</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_attached_image_u_document_en</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:39</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>b4e899200f5213003ed8cbdce1050e33</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.u_document</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_f8062a4ddbb74700cbe7fb37bf9619e5</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;false&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;u_attached_image&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition table="u_attached_image"&gt;u_equipmentISNOTEMPTY^EQ&lt;item endquery="false" field="u_equipment" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Build Document ID and Table from Equip&lt;/name&gt;&lt;order&gt;50&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	current.u_document=current.u_equipment.sys_id;
+	current.u_document_table=current.u_equipment.sys_class_name;
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 02:50:16&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/&lt;/sys_domain_path&gt;&lt;sys_id&gt;f8062a4ddbb74700cbe7fb37bf9619e5&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name&gt;Build Document ID and Table from Equip&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_f8062a4ddbb74700cbe7fb37bf9619e5&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-01-22 14:37:52&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=f8062a4ddbb74700cbe7fb37bf9619e5"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>b4e899200f5213003ed8cbdce1050e36</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Build Document ID and Table from Equip</target_name>
+<type>Business Rule</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_policy_0b7b1958db12d740844cf1fcbf9619e8</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_ui_policy"&gt;&lt;sys_ui_policy action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;conditions/&gt;&lt;description/&gt;&lt;global&gt;true&lt;/global&gt;&lt;inherit&gt;false&lt;/inherit&gt;&lt;model_id/&gt;&lt;model_table/&gt;&lt;on_load&gt;true&lt;/on_load&gt;&lt;order&gt;100&lt;/order&gt;&lt;reverse_if_false&gt;true&lt;/reverse_if_false&gt;&lt;run_scripts&gt;false&lt;/run_scripts&gt;&lt;script_false&gt;&lt;![CDATA[function onCondition() {
+
+}]]&gt;&lt;/script_false&gt;&lt;script_true&gt;&lt;![CDATA[function onCondition() {
+
+}]]&gt;&lt;/script_true&gt;&lt;set_values/&gt;&lt;short_description&gt;Hide Has Attachment&lt;/short_description&gt;&lt;sys_class_name&gt;sys_ui_policy&lt;/sys_class_name&gt;&lt;sys_created_by&gt;amKatulak&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-05-21 20:04:38&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path/&gt;&lt;sys_id&gt;0b7b1958db12d740844cf1fcbf9619e8&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Hide Has Attachment&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_policy_0b7b1958db12d740844cf1fcbf9619e8&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;amKatulak&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-05-21 20:04:38&lt;/sys_updated_on&gt;&lt;table&gt;u_attached_image&lt;/table&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_ui_policy&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>b4e899200f5213003ed8cbdce1050e39</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Hide Has Attachment</target_name>
+<type>UI Policy</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_attached_image_u_image</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="u_image" table="u_attached_image"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Image&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_image&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;internal_type display_value=""&gt;user_image&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;40&lt;/max_length&gt;&lt;name&gt;u_attached_image&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;true&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 00:55:38&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;98cbca49db774700cbe7fb37bf9619d0&lt;/sys_id&gt;&lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;&lt;sys_name&gt;Image&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_attached_image_u_image&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;amKatulak&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-05-21 17:37:12&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>b8e899200f5213003ed8cbdce1050e32</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Image</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history>8928d9ec3c12130029b8a30e9b13721e:1153529006</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_bc50de4ddb774700cbe7fb37bf96198e</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;sys_attachment&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition table="sys_attachment"&gt;table_name=u_attached_image^EQ&lt;item endquery="false" field="table_name" goto="false" newquery="false" operator="=" or="false" value="u_attached_image"/&gt;&lt;item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/&gt;&lt;/filter_condition&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Copy Attachment to Image Field on Attach&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	current.file_name = 'u_image';
+	current.table_name = 'ZZ_YYu_attached_image';
+
+})(current, previous);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 01:15:10&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path/&gt;&lt;sys_id&gt;bc50de4ddb774700cbe7fb37bf96198e&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Copy Attachment to Image Field on Attach&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_bc50de4ddb774700cbe7fb37bf96198e&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-01-20 01:15:10&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=bc50de4ddb774700cbe7fb37bf96198e"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>b8e899200f5213003ed8cbdce1050e35</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>sys_attachment</table>
+<target_name>Copy Attachment to Image Field on Attach</target_name>
+<type>Business Rule</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_action_76071205dbb74700cbe7fb37bf961973</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_ui_action"&gt;&lt;sys_ui_action action="INSERT_OR_UPDATE"&gt;&lt;action_name/&gt;&lt;active&gt;true&lt;/active&gt;&lt;client&gt;false&lt;/client&gt;&lt;comments/&gt;&lt;condition&gt;current.isNewRecord() &amp;amp;&amp;amp; current.canWrite()&lt;/condition&gt;&lt;form_action&gt;true&lt;/form_action&gt;&lt;form_button&gt;false&lt;/form_button&gt;&lt;form_context_menu&gt;false&lt;/form_context_menu&gt;&lt;form_link&gt;true&lt;/form_link&gt;&lt;hint/&gt;&lt;list_action&gt;false&lt;/list_action&gt;&lt;list_banner_button&gt;false&lt;/list_banner_button&gt;&lt;list_button&gt;false&lt;/list_button&gt;&lt;list_choice&gt;false&lt;/list_choice&gt;&lt;list_context_menu&gt;false&lt;/list_context_menu&gt;&lt;list_link&gt;false&lt;/list_link&gt;&lt;list_save_with_form_button&gt;false&lt;/list_save_with_form_button&gt;&lt;name&gt;Add Image&lt;/name&gt;&lt;onclick/&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[saveAttachment(g_form.getTableName(), g_form.getUniqueValue());]]&gt;&lt;/script&gt;&lt;show_insert&gt;true&lt;/show_insert&gt;&lt;show_multiple_update&gt;false&lt;/show_multiple_update&gt;&lt;show_query&gt;false&lt;/show_query&gt;&lt;show_update&gt;false&lt;/show_update&gt;&lt;sys_class_name&gt;sys_ui_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 01:44:57&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path/&gt;&lt;sys_id&gt;76071205dbb74700cbe7fb37bf961973&lt;/sys_id&gt;&lt;sys_id_display/&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Add Image&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_action_76071205dbb74700cbe7fb37bf961973&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-01-20 01:44:57&lt;/sys_updated_on&gt;&lt;table&gt;u_attached_image&lt;/table&gt;&lt;ui11_compatible&gt;true&lt;/ui11_compatible&gt;&lt;ui16_compatible&gt;false&lt;/ui16_compatible&gt;&lt;/sys_ui_action&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>b8e899200f5213003ed8cbdce1050e38</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Add Image</target_name>
+<type>UI Action</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>DELETE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_attached_image_u_document</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="DELETE" element="u_document" table="u_attached_image"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label&gt;Document&lt;/column_label&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent&gt;u_document_table&lt;/dependent&gt;&lt;dependent_on_field&gt;u_document_table&lt;/dependent_on_field&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element&gt;u_document&lt;/element&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;internal_type display_value=""&gt;document_id&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;32&lt;/max_length&gt;&lt;name&gt;u_attached_image&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;true&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 00:55:37&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;da1b8a85db774700cbe7fb37bf9619a0&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;Document&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_attached_image_u_document&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-01-20 02:46:56&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;true&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>bce899200f5213003ed8cbdce1050e31</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.u_document</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_attached_image__en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="" label="Attached Image" language="en" table="u_attached_image"><sys_documentation action="INSERT_OR_UPDATE"><element/><help/><hint/><label>Attached Image</label><language>en</language><name>u_attached_image</name><plural>Attached Images</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:39</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>8f2c4689db774700cbe7fb37bf961923</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Attached Image</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_attached_image__en</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:39</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>bce899200f5213003ed8cbdce1050e34</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_role_430d42c9db774700cbe7fb37bf96195a</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 01:01:38</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>430d42c9db774700cbe7fb37bf96195a</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image.u_attached_image_reader</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_security_acl display_value="u_attached_image">f22c0689db774700cbe7fb37bf9619f8</sys_security_acl><sys_update_name>sys_security_acl_role_430d42c9db774700cbe7fb37bf96195a</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 01:01:38</sys_updated_on><sys_user_role display_value="u_attached_image_reader" name="u_attached_image_reader">666d0ac9db774700cbe7fb37bf9619b1</sys_user_role><transaction_id/></sys_security_acl_role></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>bce899200f5213003ed8cbdce1050e37</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>u_attached_image.u_attached_image_reader</target_name>
+<type>Access Roles</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_attached_image_u_related_record_table</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="u_related_record_table" table="u_attached_image"><active>true</active><array>false</array><array_denormalized>false</array_denormalized><attributes>edge_encryption_enabled=true</attributes><audit>false</audit><calculation/><choice/><choice_field/><choice_table/><column_label>Related Record Table</column_label><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent/><dependent_on_field/><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element>u_related_record_table</element><element_reference>false</element_reference><foreign_database/><internal_type display_value="String">string</internal_type><mandatory>false</mandatory><max_length>100</max_length><name>u_attached_image</name><next_element/><primary>false</primary><read_only>true</read_only><read_roles/><reference/><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><sizeclass/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-22 14:22:43</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>34189739dbb7c700cbe7fb37bf96197c</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Related Record Table</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_dictionary_u_attached_image_u_related_record_table</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-02-01 02:38:13</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>false</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>f0e899200f5213003ed8cbdce1050e33</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Related Record Table</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_client_a1a03285dbf74700cbe7fb37bf96194a</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_script_client"&gt;&lt;sys_script_client action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;applies_extended&gt;false&lt;/applies_extended&gt;&lt;condition/&gt;&lt;description/&gt;&lt;field&gt;sys_created_on&lt;/field&gt;&lt;global&gt;true&lt;/global&gt;&lt;messages/&gt;&lt;name&gt;Check for Attachments&lt;/name&gt;&lt;order/&gt;&lt;script&gt;&lt;![CDATA[function onSubmit() {
+	
+	var ga = new GlideAjax('imageAttachmentAjax');
+	ga.addParam('sysparm_name', 'hasAttachment');
+	ga.addParam('sysparm_tableName', "ZZ_YYu_attached_image");
+	ga.addParam('sysparm_tableSYS', g_form.getUniqueValue());
+	ga.getXMLWait();
+	var answer = ga.getAnswer();
+	if(answer=='false'){
+		g_form.addErrorMessage("You must attach a file to continue.");
+		g_form.submitted = false;
+		return false;
+	}
+	//return false;
+}
+
+function checkAttachment(response) {
+	var answer = response.responseXML.documentElement.getAttribute("answer");
+	if(answer=='false'){
+		g_form.addErrorMessage("You must attach a file to continue.");
+		g_form.submitted = false;
+		return false;
+	}
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_client&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 03:43:00&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/&lt;/sys_domain_path&gt;&lt;sys_id&gt;a1a03285dbf74700cbe7fb37bf96194a&lt;/sys_id&gt;&lt;sys_mod_count&gt;19&lt;/sys_mod_count&gt;&lt;sys_name&gt;Check for Attachments&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_client_a1a03285dbf74700cbe7fb37bf96194a&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;amKatulak&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-05-21 17:03:50&lt;/sys_updated_on&gt;&lt;table&gt;u_attached_image&lt;/table&gt;&lt;type&gt;onSubmit&lt;/type&gt;&lt;ui_type&gt;0&lt;/ui_type&gt;&lt;view/&gt;&lt;/sys_script_client&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>f0e899200f5213003ed8cbdce1050e36</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Check for Attachments</target_name>
+<type>Client Script</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history>ed28d9eccb121300bad145bb282db188:-1739786340</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_ui_ng_action_d5715e8ddb774700cbe7fb37bf9619d8</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_ui_ng_action"&gt;&lt;sys_ui_ng_action action="INSERT_OR_UPDATE"&gt;&lt;action_name&gt;attach_image&lt;/action_name&gt;&lt;active&gt;true&lt;/active&gt;&lt;color/&gt;&lt;comments/&gt;&lt;condition&gt;current.canWrite()&lt;/condition&gt;&lt;form_button&gt;false&lt;/form_button&gt;&lt;form_more_item&gt;true&lt;/form_more_item&gt;&lt;hide_when_disabled&gt;false&lt;/hide_when_disabled&gt;&lt;hint/&gt;&lt;list_button&gt;false&lt;/list_button&gt;&lt;name&gt;Attach Image&lt;/name&gt;&lt;navigate_back&gt;false&lt;/navigate_back&gt;&lt;order&gt;100&lt;/order&gt;&lt;script&gt;&lt;![CDATA[var url = '/u_attached_image.do?sys_id=-1&amp;sysparm_query=u_equipment=' + current.getUniqueValue() + '^u_related_record=' + current.getUniqueValue() + '^u_related_record_table=' + current.sys_class_name;
+//var url = 'u_attached_image.do?sys_id=-1&amp;sysparm_query=u_document=' + current.getUniqueValue() + '^u_document_table=' + current.sys_class_name;
+//var url = 'u_attached_image.do?sys_id=-1&amp;sysparm_query=u_document_table=' + current.sys_class_name;
+//var url = 'u_attached_image.do?sys_id=-1&amp;sysparm_query=u_equipment=' + current.getUniqueValue();
+action.setRedirectURL(url);
+
+
+// var table = current.sys_table_name;
+// var sysID = current.getUniqueValue();
+// var gr = new GlideRecord('sys_attachment');
+
+// cabrillo.attachments.addFile(table,
+//     sysID, 
+//     null,
+//     null
+// ).then(function(attachment) {
+//     if (attachment) {
+//         console.log('Added a new file.', attachment);
+// 		gr.get(attachment.sys_id);
+// 		gr.file_name='u_front_image';
+// 		gr.update();
+//     } else {
+//         console.log('User cancelled adding an attachment.');
+//     }
+// }, function(error) {
+//     console.log('Failed to attach new file.', error);
+// });]]&gt;&lt;/script&gt;&lt;show_for&gt;any&lt;/show_for&gt;&lt;sys_class_name&gt;sys_ui_ng_action&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 01:19:17&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/&lt;/sys_domain_path&gt;&lt;sys_id&gt;d5715e8ddb774700cbe7fb37bf9619d8&lt;/sys_id&gt;&lt;sys_mod_count&gt;30&lt;/sys_mod_count&gt;&lt;sys_name&gt;Attach Image&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_ui_ng_action_d5715e8ddb774700cbe7fb37bf9619d8&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-02-01 02:38:07&lt;/sys_updated_on&gt;&lt;table&gt;u_cmdb_ci_equipment&lt;/table&gt;&lt;/sys_ui_ng_action&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>f0e899200f5213003ed8cbdce1050e39</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_cmdb_ci_equipment</table>
+<target_name>Attach Image</target_name>
+<type>UI Action - Mobile</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_attached_image_u_has_attachment</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_dictionary action="INSERT_OR_UPDATE" element="u_has_attachment" table="u_attached_image"><active>true</active><array>false</array><array_denormalized>false</array_denormalized><attributes/><audit>false</audit><calculation/><choice/><choice_field/><choice_table/><column_label>Has attachment</column_label><comments/><create_roles/><default_value/><defaultsort/><delete_roles/><dependent/><dependent_on_field/><display>false</display><dynamic_creation>false</dynamic_creation><dynamic_creation_script/><dynamic_default_value/><dynamic_ref_qual/><element>u_has_attachment</element><element_reference>false</element_reference><foreign_database/><internal_type display_value="">boolean</internal_type><mandatory>false</mandatory><max_length>40</max_length><name>u_attached_image</name><next_element/><primary>false</primary><read_only>true</read_only><read_roles/><reference/><reference_cascade_rule/><reference_floats>false</reference_floats><reference_key/><reference_qual/><reference_qual_condition/><reference_type/><sizeclass/><spell_check>false</spell_check><staged>false</staged><sys_class_name>sys_dictionary</sys_class_name><sys_created_by>amKatulak</sys_created_by><sys_created_on>2018-05-21 15:25:23</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>8b9b5458db5a9740844cf1fcbf961901</sys_id><sys_mod_count>1</sys_mod_count><sys_name>Has attachment</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_dictionary_u_attached_image_u_has_attachment</sys_update_name><sys_updated_by>amKatulak</sys_updated_by><sys_updated_on>2018-05-21 17:37:20</sys_updated_on><table_reference>false</table_reference><text_index>false</text_index><unique>false</unique><use_dependent_field>false</use_dependent_field><use_dynamic_default>false</use_dynamic_default><use_reference_qualifier>simple</use_reference_qualifier><virtual>false</virtual><widget/><write_roles/><xml_view>false</xml_view></sys_dictionary></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>f4e899200f5213003ed8cbdce1050e32</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Has attachment</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_script_92fdcec9db774700cbe7fb37bf9619b9</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update sys_domain="774190f01f1310005a3637b8ec8b70ef" table="sys_script"&gt;&lt;sys_script action="INSERT_OR_UPDATE"&gt;&lt;abort_action&gt;false&lt;/abort_action&gt;&lt;access&gt;package_private&lt;/access&gt;&lt;action_delete&gt;false&lt;/action_delete&gt;&lt;action_insert&gt;true&lt;/action_insert&gt;&lt;action_query&gt;false&lt;/action_query&gt;&lt;action_update&gt;true&lt;/action_update&gt;&lt;active&gt;true&lt;/active&gt;&lt;add_message&gt;false&lt;/add_message&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;change_fields&gt;false&lt;/change_fields&gt;&lt;client_callable&gt;false&lt;/client_callable&gt;&lt;collection&gt;u_attached_image&lt;/collection&gt;&lt;condition/&gt;&lt;description/&gt;&lt;execute_function&gt;false&lt;/execute_function&gt;&lt;filter_condition/&gt;&lt;is_rest&gt;false&lt;/is_rest&gt;&lt;message/&gt;&lt;name&gt;Copy Attachment on Insert&lt;/name&gt;&lt;order&gt;100&lt;/order&gt;&lt;priority&gt;100&lt;/priority&gt;&lt;rest_method/&gt;&lt;rest_method_text/&gt;&lt;rest_service/&gt;&lt;rest_service_text/&gt;&lt;rest_variables/&gt;&lt;role_conditions/&gt;&lt;script&gt;&lt;![CDATA[(function executeRule(current, previous /*null when async*/) {
+	var currentSYS = current.getValue('sys_id');
+	gs.log('currentSYS: ' + currentSYS, 'Attached Image');
+	var targetSYS = current.getValue('u_related_record');
+	gs.log('targetSYS: ' + targetSYS, 'Attached Image');
+	var targetTable = current.getValue('u_related_record_table');
+	gs.log('targetTable: ' + "ZZ_YY" + targetTable, 'Attached Image');
+	deleteCurrentRecord("ZZ_YYu_cmdb_ci_equipment", targetSYS, current.u_picture_type);
+	var copyAttachment = new global.customerAttachmentUtils();
+	copyAttachment.copySpecificAttachment("ZZ_YYu_attached_image", currentSYS, "ZZ_YY" + targetTable, targetSYS, 'u_image', current.u_picture_type);
+})(current, previous);
+
+function deleteCurrentRecord(recipientTable, recipientID, pictureType){
+	var targetAttachment = new GlideRecord('sys_attachment');
+	targetAttachment.addQuery('table_name', recipientTable);
+	targetAttachment.addQuery('table_sys_id', recipientID);
+	targetAttachment.addQuery('file_name', pictureType);
+	targetAttachment.query();
+	targetAttachment.next();
+	targetAttachment.deleteRecord();
+}
+function copySpecificAttachment(donorTable, donorID, recipientTable, recipientID, fileName, picturetype) {
+	var donorAttSysID;
+	var newAttRecord;
+	var linkToNewRecord;
+	var attDataRecord;
+	var newDocRecord;
+	var attRecord = new GlideRecord('sys_attachment');
+	attRecord.addQuery('table_name', donorTable);
+	attRecord.addQuery('table_sys_id', donorID);
+	attRecord.addQuery('file_name', fileName);
+	attRecord.query();
+	while (attRecord.next()) {
+		donorAttSysID = attRecord.getValue('sys_id');
+		newAttRecord = copyRecord(attRecord, picturetype);
+		newAttRecord.setValue('table_name', recipientTable);
+		newAttRecord.setValue('table_sys_id', recipientID);
+		newAttRecord.update();
+		linkToNewRecord = gs.getProperty('glide.servlet.uri') + newAttRecord.getLink();
+		attDataRecord = new GlideRecord('sys_attachment_doc');
+		attDataRecord.addQuery('sys_attachment', donorAttSysID);
+		attDataRecord.query();
+		while (attDataRecord.next()) {
+			newDocRecord = copyRecord(attDataRecord);
+			newDocRecord.setValue('sys_attachment', newAttRecord.getValue('sys_id'));
+			newDocRecord.update();
+		}
+	}
+}
+function copyRecord(record, pictureType) {
+	var recordElement;
+	var recordElementName;
+	var recordTable = record.getTableName();
+	var recordFields = record.getFields();
+	var newRecord = new GlideRecord(recordTable);
+	newRecord.initialize();
+	for (var i = 0; i &lt; recordFields.size(); i++) {
+		recordElement = recordFields.get(i);
+		if(recordElement.getName() != 'sys_id' &amp;&amp; recordElement.getName() != 'number')
+			{
+			if(recordElement.getName()=='file_name'){
+				newRecord.setValue('file_name', pictureType);
+			}
+			else{
+				recordElementName = recordElement.getName();
+				newRecord.setValue(recordElementName, record.getValue(recordElementName));
+			}
+		}
+	}
+	var newSysId = newRecord.insert();
+	return newRecord;
+}]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 01:07:19&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_domain&gt;774190f01f1310005a3637b8ec8b70ef&lt;/sys_domain&gt;&lt;sys_domain_path&gt;!!$/&lt;/sys_domain_path&gt;&lt;sys_id&gt;92fdcec9db774700cbe7fb37bf9619b9&lt;/sys_id&gt;&lt;sys_mod_count&gt;10&lt;/sys_mod_count&gt;&lt;sys_name&gt;Copy Attachment on Insert&lt;/sys_name&gt;&lt;sys_overrides/&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_92fdcec9db774700cbe7fb37bf9619b9&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-01-22 14:37:21&lt;/sys_updated_on&gt;&lt;template/&gt;&lt;when&gt;before&lt;/when&gt;&lt;/sys_script&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=92fdcec9db774700cbe7fb37bf9619b9"/&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>f4e899200f5213003ed8cbdce1050e35</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Copy Attachment on Insert</target_name>
+<type>Business Rule</type>
+<update_domain>774190f01f1310005a3637b8ec8b70ef</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_role_b22c0689db774700cbe7fb37bf9619f3</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:38</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>b22c0689db774700cbe7fb37bf9619f3</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image.u_attached_image_user</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_security_acl display_value="u_attached_image">762c0689db774700cbe7fb37bf9619ed</sys_security_acl><sys_update_name>sys_security_acl_role_b22c0689db774700cbe7fb37bf9619f3</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:38</sys_updated_on><sys_user_role display_value="u_attached_image_user" name="u_attached_image_user">a22c4a09db774700cbe7fb37bf9619c2</sys_user_role><transaction_id/></sys_security_acl_role></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>f4e899200f5213003ed8cbdce1050e38</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>u_attached_image.u_attached_image_user</target_name>
+<type>Access Roles</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_dictionary_u_attached_image_null</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update&gt;&lt;sys_dictionary action="INSERT_OR_UPDATE" element="" table="u_attached_image"&gt;&lt;active&gt;true&lt;/active&gt;&lt;array&gt;false&lt;/array&gt;&lt;array_denormalized&gt;false&lt;/array_denormalized&gt;&lt;attributes/&gt;&lt;audit&gt;false&lt;/audit&gt;&lt;calculation&gt;&lt;![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]&gt;&lt;/calculation&gt;&lt;choice/&gt;&lt;choice_field/&gt;&lt;choice_table/&gt;&lt;column_label/&gt;&lt;comments/&gt;&lt;create_roles/&gt;&lt;default_value/&gt;&lt;defaultsort/&gt;&lt;delete_roles/&gt;&lt;dependent/&gt;&lt;dependent_on_field/&gt;&lt;display&gt;false&lt;/display&gt;&lt;dynamic_creation&gt;false&lt;/dynamic_creation&gt;&lt;dynamic_creation_script/&gt;&lt;dynamic_default_value/&gt;&lt;dynamic_ref_qual/&gt;&lt;element/&gt;&lt;element_reference&gt;false&lt;/element_reference&gt;&lt;foreign_database/&gt;&lt;internal_type display_value="Collection"&gt;collection&lt;/internal_type&gt;&lt;mandatory&gt;false&lt;/mandatory&gt;&lt;max_length&gt;40&lt;/max_length&gt;&lt;name&gt;u_attached_image&lt;/name&gt;&lt;next_element/&gt;&lt;primary&gt;false&lt;/primary&gt;&lt;read_only&gt;false&lt;/read_only&gt;&lt;read_roles/&gt;&lt;reference/&gt;&lt;reference_cascade_rule/&gt;&lt;reference_floats&gt;false&lt;/reference_floats&gt;&lt;reference_key/&gt;&lt;reference_qual/&gt;&lt;reference_qual_condition/&gt;&lt;reference_type/&gt;&lt;sizeclass/&gt;&lt;spell_check&gt;false&lt;/spell_check&gt;&lt;staged&gt;false&lt;/staged&gt;&lt;sys_class_name&gt;sys_dictionary&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 00:55:39&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;032c4689db774700cbe7fb37bf96191d&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;u_attached_image&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_dictionary_u_attached_image_null&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;jbYates&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-01-20 00:55:39&lt;/sys_updated_on&gt;&lt;table_reference&gt;false&lt;/table_reference&gt;&lt;text_index&gt;false&lt;/text_index&gt;&lt;unique&gt;false&lt;/unique&gt;&lt;use_dependent_field&gt;false&lt;/use_dependent_field&gt;&lt;use_dynamic_default&gt;false&lt;/use_dynamic_default&gt;&lt;use_reference_qualifier&gt;simple&lt;/use_reference_qualifier&gt;&lt;virtual&gt;false&lt;/virtual&gt;&lt;widget/&gt;&lt;write_roles/&gt;&lt;xml_view&gt;false&lt;/xml_view&gt;&lt;/sys_dictionary&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>f8e899200f5213003ed8cbdce1050e31</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image</target_name>
+<type>Dictionary</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_attached_image_u_related_record_table_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_related_record_table" label="Related Record Table" language="en" table="u_attached_image"><sys_documentation action="INSERT_OR_UPDATE"><element>u_related_record_table</element><help/><hint/><label>Related Record Table</label><language>en</language><name>u_attached_image</name><plural>Related Record Tables</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-22 14:22:43</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>f0189739dbb7c700cbe7fb37bf96197d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Related Record Table</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_attached_image_u_related_record_table_en</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-22 14:22:43</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>f8e899200f5213003ed8cbdce1050e34</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Related Record Table</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_role_0b2c4689db774700cbe7fb37bf961904</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 00:55:38</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>0b2c4689db774700cbe7fb37bf961904</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image.u_attached_image_user</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_security_acl display_value="u_attached_image">472c4689db774700cbe7fb37bf961900</sys_security_acl><sys_update_name>sys_security_acl_role_0b2c4689db774700cbe7fb37bf961904</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 00:55:38</sys_updated_on><sys_user_role display_value="u_attached_image_user" name="u_attached_image_user">a22c4a09db774700cbe7fb37bf9619c2</sys_user_role><transaction_id/></sys_security_acl_role></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>f8e899200f5213003ed8cbdce1050e37</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>u_attached_image.u_attached_image_user</target_name>
+<type>Access Roles</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_documentation_u_attached_image_u_has_attachment_en</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update><sys_documentation element="u_has_attachment" label="Has attachment" language="en" table="u_attached_image"><sys_documentation action="INSERT_OR_UPDATE"><element>u_has_attachment</element><help/><hint/><label>Has attachment</label><language>en</language><name>u_attached_image</name><plural>Has attachments</plural><sys_class_name>sys_documentation</sys_class_name><sys_created_by>amKatulak</sys_created_by><sys_created_on>2018-05-21 15:25:23</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>0f9b5458db5a9740844cf1fcbf961902</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Has attachment</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_documentation_u_attached_image_u_has_attachment_en</sys_update_name><sys_updated_by>amKatulak</sys_updated_by><sys_updated_on>2018-05-21 15:25:23</sys_updated_on><url/><url_target/></sys_documentation></sys_documentation></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>fce899200f5213003ed8cbdce1050e33</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>Attached Image.Has attachment</target_name>
+<type>Field Label</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_security_acl_472c4689db774700cbe7fb37bf961900</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_security_acl"&gt;&lt;sys_security_acl action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;admin_overrides&gt;false&lt;/admin_overrides&gt;&lt;advanced&gt;true&lt;/advanced&gt;&lt;condition/&gt;&lt;description&gt;Default access control on u_attached_image&lt;/description&gt;&lt;name&gt;u_attached_image&lt;/name&gt;&lt;operation display_value="write"&gt;write&lt;/operation&gt;&lt;script&gt;&lt;![CDATA[answer = current.isNewRecord();]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_security_acl&lt;/sys_class_name&gt;&lt;sys_created_by&gt;jbYates&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2018-01-20 00:55:38&lt;/sys_created_on&gt;&lt;sys_customer_update&gt;true&lt;/sys_customer_update&gt;&lt;sys_id&gt;472c4689db774700cbe7fb37bf961900&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;u_attached_image&lt;/sys_name&gt;&lt;sys_package display_value="Global" source="global"&gt;global&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_replace_on_upgrade&gt;false&lt;/sys_replace_on_upgrade&gt;&lt;sys_scope display_value="Global"&gt;global&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_security_acl_472c4689db774700cbe7fb37bf961900&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;amKatulak&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2018-05-21 17:20:11&lt;/sys_updated_on&gt;&lt;type display_value="record"&gt;record&lt;/type&gt;&lt;/sys_security_acl&gt;&lt;/record_update&gt;</payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:35</sys_created_on>
+<sys_id>fce899200f5213003ed8cbdce1050e36</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>1638840dbb00000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:35</sys_updated_on>
+<table>u_attached_image</table>
+<target_name>u_attached_image</target_name>
+<type>Access Control</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history>b928d9ec4a1213005059a49c5bc05896:1033592852</update_guid_history>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<application display_value="Global">global</application>
+<category>customer</category>
+<comments/>
+<name>sys_user_role_666d0ac9db774700cbe7fb37bf9619b1</name>
+<payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_user_role"><sys_user_role action="INSERT_OR_UPDATE"><assignable_by/><can_delegate>true</can_delegate><description>Can read the Attached Image table.</description><elevated_privilege>false</elevated_privilege><encryption_context/><grantable>true</grantable><includes_roles/><name>u_attached_image_reader</name><suffix/><sys_class_name>sys_user_role</sys_class_name><sys_created_by>jbYates</sys_created_by><sys_created_on>2018-01-20 01:01:27</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>666d0ac9db774700cbe7fb37bf9619b1</sys_id><sys_mod_count>0</sys_mod_count><sys_name>u_attached_image_reader</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sys_user_role_666d0ac9db774700cbe7fb37bf9619b1</sys_update_name><sys_updated_by>jbYates</sys_updated_by><sys_updated_on>2018-01-20 01:01:27</sys_updated_on></sys_user_role></record_update>]]></payload>
+<payload_hash/>
+<remote_update_set display_value="Mobile Image Tables">f4e8ddec0f1213003ed8cbdce1050ef0</remote_update_set>
+<replace_on_upgrade>false</replace_on_upgrade>
+<sys_created_by>admin</sys_created_by>
+<sys_created_on>2018-05-22 14:31:36</sys_created_on>
+<sys_id>fce899200f5213003ed8cbdce1050e39</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_recorded_at>163884033b80000000</sys_recorded_at>
+<sys_updated_by>admin</sys_updated_by>
+<sys_updated_on>2018-05-22 14:31:36</sys_updated_on>
+<table/>
+<target_name>u_attached_image_reader</target_name>
+<type>Role</type>
+<update_domain>global</update_domain>
+<update_guid/>
+<update_guid_history/>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
