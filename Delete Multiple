@@ -4,6 +4,6 @@ grLeg.queryNoDomain();
 grLeg.deleteMultiple();
 
 var grLeg = new GlideRecord('u_legacy_expense_lines');
-grLeg.addEncodedQuery('u_work_order_number.u_workorder_number=NULL');
+grLeg.addEncodedQuery('u_start_dateISEMPTY^u_work_order_number!=');
 grLeg.queryNoDomain();
 grLeg.deleteMultiple();

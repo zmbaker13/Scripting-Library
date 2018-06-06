@@ -1,0 +1,9 @@
+function onCondition() {
+	var st = g_form.getValue('u_start_time');
+	//alert(st);
+	st = st.split('T');
+	//alert(st[1]);
+	if(st[1] == '00:00:00'){
+		g_form.setReadOnly('u_start_time', true);
+		g_form.showErrorBox('u_start_time', 'Start time is read only because it is paired with a previous day expense line');
+	

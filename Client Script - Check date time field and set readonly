@@ -1,0 +1,18 @@
+function onLoad() {
+	//Type appropriate comment here, and begin script below
+	var isPaired = g_form.getValue('u_paired_expense');
+	var st = g_form.getValue('u_start_time');
+	st = st.split(' ');
+	var et = g_form.getValue('u_end_time');
+	et = et.split(' ');
+	
+	//Check for Paired expense and times to lock fields
+	if(st[1] == '00:00:00' && isPaired){
+		g_form.setReadOnly('u_start_time', true);
+		g_form.showErrorBox('u_start_time', 'Start time is read only because it is paired with a previous day expense line');
+	}
+	if(et[1] == '23:59:59' && isPaired){
+		g_form.setReadOnly('u_end_time', true);
+		g_form.showErrorBox('u_end_time', 'End time is read only because it is paired with a subsequent day expense line');
+	}
+}
