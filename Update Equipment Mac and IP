@@ -1,0 +1,13 @@
+var gr = new GlideRecord("u_cmdb_ci_equipment");
+gr.addEncodedQuery('u_device_statusIN1,4^u_account.nameSTARTSWITHdh^u_account.u_cost_centerSTARTSWITH6^u_mac_address_1STARTSWITH00:00^u_ip_address_1=0.0.0.0');
+gr.setWorkflow(false);
+gr.setAutoSysFields(false);
+gr.queryNoDomain();
+while(gr.next()){
+	gr.u_ip_address_1="";
+	gr.u_mac_address_1="";
+	gr.u_connected_to_network_1=false;
+	gr.update();
+}
+
+u_technician.name=NULL

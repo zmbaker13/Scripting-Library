@@ -1,0 +1,60 @@
+(function executeRule(current, previous /*null when async*/) {
+
+	
+
+// //Find the stockroom
+var poSysID = new global.TransferOrderFilters().getFromCustStockroomsSTR(current.init_request.company);
+var stockroom = new GlideAggregate("alm_stockroom");
+stockroom.addQuery("sys_id","IN", poSysID);
+stockroom.addEncodedQuery("type!=e2aa2b3f3763100044e0bfc8bcbe5dde^ORtypeISEMPTY");
+stockroom.queryNoDomain();
+if (stockroom.next()) {
+//	gs.log("zmb "+ stockroom.getValue('sys_id'));
+} 
+		
+	
+//Check if a receiving slip exists
+var checkRecSlip = new GlideRecord("proc_rec_slip");
+checkRecSlip.addQuery('purchase_order',current.sys_id);
+checkRecSlip.queryNoDomain();
+if(checkRecSlip.hasNext()){
+} else {
+	//Create receiving slip
+	var RecSlipCreate = new global.ReceivingUtils();
+	RecSlipCreate.createReceiptSlip(current,stockroom.sys_id);	
+}	
+	
+	//Get receiving slip record	
+var getRecSlip = new GlideRecord("proc_rec_slip");
+getRecSlip.addQuery('purchase_order',current.sys_id);
+getRecSlip.queryNoDomain();	
+	
+	if (getRecSlip.next()) {
+} 
+
+//Get POLs for PO
+var PoLine = new GlideRecord('proc_po_item');
+PoLine.addQuery("purchase_order", current.sys_id);
+PoLine.addEncodedQuery("u_received_quantity=0^ORu_received_quantity=NULL");
+PoLine.queryNoDomain();
+gs.addInfoMessage(PoLine.getRowCount());
+while (PoLine.next()){
+	//	gs.log("zmb pol "+PoLine.sys_id);
+
+
+	//checck for receiving slip line
+var checkRecSlipLine = new GlideRecord("proc_rec_slip_item");
+	checkRecSlipLine.addQuery("purchase_line",PoLine.sys_id);
+//	gs.log("zmb "+ PoLine.sys_id);
+	checkRecSlipLine.queryNoDomain();
+	if(checkRecSlipLine.next()){
+	} else {
+		var RecSlipLineCreate = new global.ReceivingUtils();
+		RecSlipLineCreate.createReceiptSlipLine(getRecSlip, PoLine, PoLine.u_remaining_quantity, PoLine.cost);
+		//gs.log("zmb "+ "Receipt " + getRecSlip.sys_id +" POL "+ PoLine+ " recevied quantity " + PoLine.u_remaining_quantity + " cost " +PoLine.cost);
+	}
+}
+	current.status = 'received';
+	current.update();
+	
+})(current, previous);
