@@ -12,12 +12,12 @@ while (grServEnt.next()) {
 
 
 		var grEQAsset = new GlideRecord('u_cmdb_ci_equipment');
-		grEQAsset.addEncodedQuery('u_account=7eed28f2dbe807802aac77e9af9619ac^u_on_call_rotaISNOTEMPTY');
+		grEQAsset.addEncodedQuery("u_disposition_dateON1900-01-01@javascript:gs.dateGenerate('1900-01-01','start')@javascript:gs.dateGenerate('1900-01-01','end')");
 		grEQAsset.setWorkflow(false);
 grEQAsset.setAutoSysFields(false);
 		grEQAsset.queryNoDomain();
 		while (grEQAsset.next()) {
-		grEQAsset.u_on_call_rota='';
+		grEQAsset.u_disposition_date='';
 		grEQAsset.update();
 	} 
 
@@ -25,3 +25,19 @@ grEQAsset.setAutoSysFields(false);
 
 	 //${URI_REF} has been reassigned to you by ${current.sys_updated_by=gs.getUserDisplayName()}
 
+u_active=true^u_legecy_rsq_department_idSTARTSWITH1209CLINIC^company=197baba0dbca9bc848ad776baf96192e
+gs.getlo
+
+
+
+
+var grAttach = new GlideRecord('sys_attachment');
+grAttach.addQuery('table_sys_id',current.sys_id);
+grAttach.queryNoDomain();
+while (grAttach.next()) {
+	grAttach.name = grAttach.deleteRecord();
+}
+uExportPurchaseOrder(current);
+gs.addInfoMessage("New PO generated");
+current.update();
+action.setRedirectURL(current);

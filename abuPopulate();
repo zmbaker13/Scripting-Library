@@ -1,0 +1,27 @@
+abuPopulate();
+
+function abuPopulate(){
+	
+	var abuEQ = new GlideRecord('u_cmdb_ci_equipment');
+	abuEQ.addEncodedQuery('u_account=de8daf64db0e9bc848ad776baf961983^u_primary_tech=NULL');
+	abuEQ.setWorkflow(false);
+	abuEQ.setAutoSysFields(false);
+	abuEQ.setLimit(1);
+	abuEQ.queryNoDomain();
+	while(abuEQ.next()){
+		
+		var abu = new GlideRecord('cmn_department');
+		abu.addEncodedQuery('u_active=true^u_customer=' +abuEQ.u_account.sys_id);
+		abu.queryNoDomain();
+		while(abu.next()){
+		abuEQ.setValue('u_primary_tech',abu.u_default_primary_tech);
+		abuEQ.setValue('u_secondary_tech',abu.u_default_secondary_tech);
+		abuEQ.setValue('u_pm_tech',abu.u_default_pm_tech);
+		abuEQ.updateMultiple();
+		}
+	}
+}
+
+
+u_account=de8daf64db0e9bc848ad776baf961983
+u_account=de8daf64db0e9bc848ad776baf961983^department=080e1f20db8bd3c0ac43f839af961996

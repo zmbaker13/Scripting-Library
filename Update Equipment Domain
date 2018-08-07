@@ -1,10 +1,27 @@
-var grEQ = new GlideRecord('proc_po');
-grEQ.addEncodedQuery('u_primary_tech=d7262b24dbd88340ae80f8621f96194d^ORu_pm_tech=d7262b24dbd88340ae80f8621f96194d');
+var grEQ = new GlideRecord('u_cmdb_ci_equipment');
+grEQ.addEncodedQuery('u_device_status=1^ORu_device_status=4^u_account=197baba0dbca9bc848ad776baf96192e^department.nameINGENERAL MEDICINE (5-W),INTERMEDIATE CARE NURSERY,NBICU,NEWBORN ICU,OSIS RADIOLOGY,SLEEP DISORDERS CENTER 1101-2');
 grEQ.setLimit(1);
-grEQ.setWorkflow(false);
+grEQ.setAutoSysFields(false);
 grEQ.queryNoDomain();
 while (grEQ.next()) {
-		grEQ.u_pm_tech=grEQ.u_primary_tech;
+		grEQ.u_pm_month=1;
 		grEQ.update();
 	}  
 	
+
+			//Equipment
+	updateMonth();
+	function updateMonth(){
+		var group = '10';
+		var query = "u_device_status=1^ORu_device_status=4^u_account=de8daf64db0e9bc848ad776baf961983^department.nameINAUDIOLOGY ,PACU,^u_pm_month=0^ORu_pm_month=NULL";
+
+		var grEQGroup = new GlideRecord('u_cmdb_ci_equipment');
+		grEQGroup.setAutoSysFields(false);
+		grEQGroup.addQuery(query);
+		grEQGroup.queryNoDomain();
+		grEQGroup.setValue('u_pm_month',group);
+		grEQGroup.updateMultiple();
+	}
+
+
+u_active=true^nameSTARTSWITHEMERGENCY DEPARTMENT^company.nameSTARTSWITHSANDOVAL REGIONAL MEDICAL CENTER

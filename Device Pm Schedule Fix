@@ -1,0 +1,51 @@
+gs.log('SDP: Sched Set start');
+var gr = new GlideRecord('u_cmdb_ci_equipment');
+gr.addEncodedQuery("u_device_statusIN1,4^u_device_pm_schedule=NULL");
+gr.setWorkflow(false);
+gr.autoSysFields(false);
+gr.setLimit(1);
+gr.queryNoDomain();
+while (gr.next()) {
+    var custSt = gr.u_account.state;
+    var custName = gr.u_account.name;
+    if (custSt == 'AZ' || custSt == 'AK' || custSt == 'CA' || custSt == 'NY' || custName == 'Reid Health' || custName == 'Health City Cayman Islands') {
+        gs.log('SDP: Account in Regulated states');
+        if (gr.model_id.u_mfr_schedule != '') {
+            if (custSt == 'CA') {
+                if (gr.model_id.u_mfr_schedule.u_pm_schedule_name == 'PAAR:00-PVAR') {
+
+                    gr.u_device_pm_schedule.setDisplayValue('1Y:00-GEN');
+
+                } else {
+
+                    gr.u_device_pm_schedule = gr.model_id.u_mfr_schedule;
+                }
+            } else {
+
+                gr.u_device_pm_schedule = gr.model_id.u_mfr_schedule;
+            }
+        } else if (gr.model_id.u_aem_schedule.u_pm_schedule_name == 'PAAR:00-PVAR') {
+
+            gr.u_device_pm_schedule.setDisplayValue('1Y:00-GEN');
+        } else {
+            gr.u_device_pm_schedule = gr.model_id.u_aem_schedule;
+        }
+
+    } else {
+        gs.log('SDP: Account NOT in Regulated states');
+
+        if (gr.model_id.u_default_maintenance_program == 'AEM') {
+
+            gr.u_device_pm_schedule = gr.model_id.u_aem_schedule;
+        } else if (gr.model_id.u_default_maintenance_program == 'MFG') {
+
+            gr.u_device_pm_schedule = gr.model_id.u_mfr_schedule;
+        } else {
+
+            gr.u_device_pm_schedule = gr.model_id.u_aem_schedule;
+        }
+    }
+    gr.update();
+}
+
+sys_id=0003a081dbcb3200f5d770d9af961982^u_device_maint_program=

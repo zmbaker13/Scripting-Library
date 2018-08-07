@@ -1,0 +1,16 @@
+var grEQ = new GlideRecord('proc_po');
+grEQ.addEncodedQuery('statusNOT INcanceled,received');
+grEQ.setLimit(1);
+grEQ.setWorkflow(false);
+grEQ.setAutoSysFields(false);
+grEQ.queryNoDomain();
+while (grEQ.next()) {
+		grEQ.requested_by=grEQ.init_request.opened_by;
+		grEQ.requested_for=grEQ.init_request.requested_for
+		grEQ.update();
+	}  
+	
+
+
+statusNOT INcanceled,received^requested_by=NULL^requested_for=NULL^init_request.opened_byISNOTEMPTY
+statusNOT INcanceled,received^requested_by=NULL^requested_for=NULL^init_request.requested_forISNOTEMPTY

@@ -1,0 +1,21 @@
+	
+	var abuEQ = new GlideRecord('u_cmdb_ci_equipment');
+	abuEQ.addEncodedQuery('u_device_statusIN1,4^u_account=df92b01cdbf69704f5d770d9af961991^ORu_account=5053b014db3a9704f5d770d9af961982^ORu_account=d340bc94dbb69704f5d770d9af9619c6^ORu_account=d321b0dcdbb69704f5d770d9af961990^departmentISNOTEMPTY^u_primary_techISEMPTY');
+	abuEQ.setWorkflow(false);
+	abuEQ.setAutoSysFields(false);
+	abuEQ.queryNoDomain();
+	while(abuEQ.next()){
+		
+		var abu = new GlideRecord('cmn_department');
+		abu.addQuery('sys_id',abuEQ.department.sys_id);
+		abu.queryNoDomain();
+		if(abu.next()){
+		abuEQ.setValue('u_primary_tech',abu.u_default_primary_tech);
+		abuEQ.setValue('u_secondary_tech',abu.u_default_secondary_tech);
+		abuEQ.setValue('u_pm_tech',abu.u_default_pm_tech);
+		abuEQ.setValue('assignment_group',abu.u_default_assignment_group);
+		abuEQ.setValue('u_pm_tech',abu.u_on_call_rota);
+		abuEQ.update();	
+		
+	}
+}

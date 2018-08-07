@@ -1,0 +1,14 @@
+var grWOT = new GlideRecord('wm_task');
+grWOT.addEncodedQuery('stateNOT IN3,-10^u_work_order_type=Performance Verification^u_customer=0939a7a0db8a9bc848ad776baf9619e8');
+grWOT.setWorkflow(false);
+grWOT.setAutoSysFields(false);
+grWOT.setLimit(1);
+grWOT.queryNoDomain();
+while (grWOT.next()) {
+		grWOT.u_customer=grWOT.u_ceid.u_account;
+		grWOT.u_hospital_department=grWOT.u_ceid.department;
+		grWOT.update();
+	} 
+
+ab52d8fddbc31300844cf1fcbf96195e
+Work Order Task: WOT00000001033029

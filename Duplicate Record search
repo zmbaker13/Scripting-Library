@@ -1,0 +1,40 @@
+//highlight duplicate users
+
+
+var arr = [];
+var users = new GlideRecord('u_cmdb_ci_equipment');
+users.addActiveQuery();
+users.query();
+while(users.next()) {
+arr.push(users.u_mac_address_1.toString());
+} 
+
+//sort:
+
+arr.sort(function(a, b) {
+if (a<b) { return 1 }
+if (a>b) { return -1 }
+return 0;
+});
+//remove duplicates: 
+
+       for(var j=0, len = arr.length, count=0, dupes=[]; j != len; j+=1) {
+
+if ( arr[j] == arr[j+1] ) {//if the name is the same as the name in the next arr index
+++count;
+dupes.push(arr[j]);
+}
+     }
+
+
+//Output:
+
+     gs.log("There are " + count + " duplicate users detected.\nUsers found: ")
+
+     for (var k=0; k!=dupes.length;k+=1) {
+
+     gs.log(dupes[k]);
+
+
+     }     
+     addEncodedQuery(String query);
