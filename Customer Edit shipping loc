@@ -1,0 +1,106 @@
+//Query customer table 
+var shipCust = new GlideRecord('customer_account');
+// shipCust.addQuery('active', true);
+//shipCust.addQuery('customer', true);
+// shipCust.addNotNullQuery('u_reporting_parent');
+shipCust.addEncodedQuery('sys_id=d730ce6bdbff1fc058fbfa5aaf96194e');
+shipCust.queryNoDomain();
+if (shipCust.next()) {
+    gs.print('Customer ' + shipCust.name);
+    //Get the shipping department for the customer
+    var shipDept = new GlideRecord('cmn_department');
+    shipDept.addQuery('u_department_type', 'shipping');
+    shipDept.addQuery('company', shipCust.sys_id);
+    shipDept.queryNoDomain();
+
+    if (shipDept.next()) {
+        gs.print('Customer - Department ' + shipDept.Company.name + shipDept.sys_id);
+        //Get the shipping locations
+        var shipLoc = new GlideRecord('cmn_location');
+        shipLoc.addQuery('u_locationtype', 'shipto');
+        shipLoc.addQuery('company', shipCust.u_reporting_parent.sys_id);
+        shipLoc.queryNoDomain();
+
+        while (shipLoc.next()) {
+            gs.print('Customer - Location ' + shipLoc.company.name + shipLoc.sys_id)
+            //Check if the shipping location exists        	
+            var checkLoc = new GlideRecord('cmn_location');
+            checkLoc.addQuery('u_active', true);
+            checkLoc.addQuert('u_locationtype', 'shipto');
+            checkLoc.addQuery('company', shipCust.sys_id);
+            checkLoc.addQuery('u_location_id', shipLoc.u_location_id);
+            checkLoc.queryNoDomain();
+            if (checkLoc.next()) {
+                gs.print(checkLoc.u_location_id);
+            } else {
+                //Insert and Stay shipping location for new customer            	
+                var newShip = new GlideRecord('cmn_location');
+                newShip.Initialize();
+                newShip.u_location_id = shipLoc.u_location_id;
+                newShip.name = shipLoc.name;
+                newShip.u_department = shipDept.sys_id;
+                newShip.company = shipCust.sys_id;
+                newShip.street = shipLoc.street;
+                newShip.city = shipLoc.city;
+                newShip.state = shipLoc.state;
+                newShip.zip = shipLoc.zip;
+                newShip.country = shipLoc.country;
+                newShip.u_address_2 = shipLoc.u_address_2;
+                newShip.u_address_3 = shipLoc.u_address_3;
+                newShip.u_locationtype = shipLoc.u_locationtype;
+                newShip.insert();
+            }
+            //Query the Stockroom table
+            var stock = new GlideRecord('alm_stockroom');
+            stock.addQuery('type', 'a6aa2b3f3763100044e0bfc8bcbe5ddf');
+            stock.addQuery('location', shipLoc.sys_id);
+            stock.queryNoDomain();
+            if (stock.next()) {
+                gs.print(stock.name + stock.location);
+                var checkStock = new GlideRecord('alm_stockroom');
+                checkStock.addQuery('type', 'a6aa2b3f3763100044e0bfc8bcbe5ddf');
+                checkStock.addQuery('name', checkStock.name);
+                checkStock.addQuery('location', newShip.sys_id);
+                checkStock.queryNoDomain();
+                if (checkStock.next()) {
+
+                } else {
+                    //Insert and Stay Stockroom for new customer
+                    var newStock = new GlideRecord('alm_stockroom');
+                    newStock.initialize();
+                    newStock.name = stock.name;
+                    newStock.location = checkLoc.sys_id;
+                    newStock.type = stock.type.sys_id;
+                    newStock.insert();
+                    gs.print(newStock.name + newStock.location);
+
+                }
+
+
+            }
+
+        }
+    }
+
+    //Query the Many to Many stockroom table
+    var origStock = new GlideRecord('u_m2m_customers_stockrooms');
+    origStock.addQuery('u_customer', shipCust.u_reporting_parent.sys_id);
+    origStock.queryNoDomain();
+    if (origStock.next()) {
+        //Check if the stockroom is already setup for customer
+        var stockRm = new GlideRecord('u_m2m_customers_stockrooms');
+        stockRm.addQuery('u_customer', shipCust.sys_id);
+        stockRm.addQuery('u_stockroom.name', stockRm.u_stockroom.name);
+        stockRm.queryNoDomain();
+        if (stockRm.next()) {
+
+        } else {
+            //Create a new Many to Many record for the stockroom and customer
+            var newStockRm = new GlideRecord('u_m2m_customers_stockrooms');
+            newStockRm.initialize();
+            newStockRm.u_customer = shipCust.sys_id;
+            newStockRm.u_stockroom = origStock.u_stockroom.sys_id;
+            newStockRm.insert();
+        }
+    }
+}

@@ -1,14 +1,15 @@
 //Query Depratment
  var grDept = new GlideRecord('cmn_department');
-	grDept.addQuery('active', true);
-	grDept.addQuery("u_department_type", "Hospital");
-	grDept.addQuery('u_promote_to_customer_record', true);
-	grDept.addNullQuery('u_new_customer');
+ 	grDept.addQuery('active', true);
+ 	grDept.addQuery("u_department_type", "Hospital");
+ 	grDept.addNullQuery('u_new_customer');
+    grDept.addEncodedQuery('company=23ca520bdbb6f6003c9a7aa9bf96193b');
 	grDept.queryNoDomain();
 	while (grDept.next()) {
 //Query Location
     var grLoc = new GlideRecord("cmn_location");
     grLoc.addQuery("u_active", true);
+    grLoc.addEncodedQuery("u_locationtypeNOT INBillTo,Physical Location,ShipTo");
     grLoc.addQuery("u_department", grDept.sys_id);
     grLoc.queryNoDomain();
     gs.print(grLoc.getRowCount());
@@ -26,6 +27,13 @@
             grDept.u_customer_exists = true;
             grDept.u_new_customer = grCust.sys_id.toString();
             grDept.update();
+//Insert Entity Relationship            
+            var newEntity1 = new GlideRecord('account_relationship');
+            newEntity1.initialize();
+            newEntity1.from_company = grCust.sys_id;
+            newEntity1.to_company = grLoc.u_department.company;
+            newEntity1.relationship_type = '2d8ebaebdb775fc058fbfa5aaf9619e9';
+            newEntity1.insert();
 //Check if department exists
 			var changeDept = new GlideRecord("cmn_department");
 			changeDept.addQuery('active', true);
@@ -78,11 +86,11 @@
             newCust.customer = true;
             newCust.u_time_zone = grLoc.u_department.company.u_time_zone;
             newCust.account_parent = grLoc.u_department.company.account_parent;
-            newCust.u_reporting_parent = grLoc.u_department.company;
             newCust.u_status = grLoc.u_department.company.u_status;
             newCust.u_rsqm_pm_generation = true;
             newCust.u_shop_hours = grLoc.u_department.company.u_shop_hours;
             newCust.insert();
+
 //Insert New Department to Customer above
             var newDept = new GlideRecord("cmn_department");
             newDept.initialize();
@@ -101,6 +109,14 @@
 //Update Current Department associated new department
             grDept.u_new_customer = newCust.sys_id.toString();
    			grDept.u_new_department = newDept.sys_id.toString();
+//Insert Entity record
+            var newEntity2 = new GlideRecord('account_relationship');
+            newEntity2.initialize();
+            newEntity2.from_company = newCust.sys_id;
+            newEntity2.to_company = grDept.u_new_customer;
+            newEntity2.relationship_type = '2d8ebaebdb775fc058fbfa5aaf9619e9';
+            newEntity2.insert();
+
 //Insert New Location to Department above
             var newLoc = new GlideRecord("cmn_location");
             newLoc.initialize();
@@ -123,4 +139,5 @@
     grDept.update();
     grLoc.u_active = false;
     grLoc.update();
- }
+     }
+
